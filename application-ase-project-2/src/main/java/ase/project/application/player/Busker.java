@@ -1,29 +1,41 @@
 package ase.project.application.player;
 
+import ase.project.application.action.attacks.Basic;
+import ase.project.application.action.attacks.Earworm;
+import ase.project.application.action.attacks.RickRoll;
+import ase.project.application.dice.DiceRollerImpl;
 import ase.project.application.exception.InvalidAttackException;
+import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.npc.Enemy;
 import ase.project.domain.player.Character;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 public class Busker extends Character {
     private int charisma;
+    private final Map<String, SpecialAttack> specialAttacksList;
 
-    public Busker(int intelligence, int strength, int dexterity, int health, int maxHealth, int charisma) {
-        super(intelligence, strength, dexterity, health, maxHealth);
-        this.charisma = charisma;
+    public Busker(String name, int strength, int dexterity, int health, int maxHealth, String mana) {
+        super(name, strength, dexterity, health, maxHealth, mana);
+        this.specialAttacksList = new HashMap<>();
+        this.specialAttacksList.put("Earworm", new Earworm(5, new DiceRollerImpl(new Random())));
+        this.specialAttacksList.put("RickRoll", new RickRoll(10, new DiceRollerImpl(new Random())));
     }
 
     @Override
-    public void basicAttack(Enemy target) {
-        //ToDo mechanism to calculate attack damage: roll dice, calculate damage, do damage
+    public void useBasicAttack(Enemy target) {
+        Basic basic = new Basic(new DiceRollerImpl(new Random()));
+        basic.useBasicAttack(target);
     }
 
     @Override
-    public void specialAttack(Enemy target, String attackName) {
+    public void useSpecialAttack(Enemy target, String attackName, int mana) {
         try {
-            if (attackName.equals("RickRoll")) {
-                //not this again...
-            } else if (attackName.equals("Earworm")) {
-                //distracted
+            SpecialAttack specialAttack = specialAttacksList.get(attackName);
+            if (specialAttack != null) {
+                specialAttack.useSpecialAttack(target, attackName, mana);
             } else {
                 throw new InvalidAttackException("Invalid attack: " + attackName);
             }
@@ -33,12 +45,7 @@ public class Busker extends Character {
     }
 
     @Override
-    public boolean die() {
-        return false;
-    }
+    public void dies() {
 
-    @Override
-    public int moves() {
-        return 0;
     }
 }
