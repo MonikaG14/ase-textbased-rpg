@@ -1,10 +1,10 @@
-package ase.project.application.item;
+package ase.project.application.item.weapon;
 
 import ase.project.domain.item.Weapon;
 
 public class Lute implements Weapon {
-    private String name = "The Lute-nuke";
-    private String description = "There should be something useful around here... Looking around frantically for a while, " +
+    private final String name = "The Lute-nuke";
+    private final String description = "There should be something useful around here... Looking around frantically for a while, " +
             "you quickly lose patience and collapse on the ground in despair. Why is it always you?" +
             "Why is life always so cruel towards you? What have you ever done to deserve such a destiny. Always the victim.." +
             "Thinking about all the times people and life didn't treat you right, you stare unconsciously at the tree crowns" +

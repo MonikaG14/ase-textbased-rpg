@@ -1,11 +1,10 @@
-package ase.project.application.item;
+package ase.project.application.item.weapon;
 
 import ase.project.domain.item.Weapon;
 
 public class Staff implements Weapon {
-
-    private String name = "Makeshift Staff";
-    private String description = "You see something purple buried in the dirt." +
+    private final String name = "Makeshift Staff";
+    private final String description = "You see something purple buried in the dirt." +
             "Wondering what it is, you stretch your hand and sweep some of the dirt away. It looks like an ancient book." +
             "Could this be a powerful artefact from long forgotten ages containing mighty incantations..." +
             "This could save you. You could quickly go back to you boring, but convenient life and never again deal with this horrid creatures." +

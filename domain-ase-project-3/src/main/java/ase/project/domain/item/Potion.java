@@ -1,5 +1,7 @@
 package ase.project.domain.item;
 
-public interface Potion extends Item {
-    void drink();
+public abstract class Potion implements Item {
+    public void drink(int attribute) {
+        attribute += 10;
+    }
 }

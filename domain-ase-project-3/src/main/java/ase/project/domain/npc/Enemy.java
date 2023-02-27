@@ -1,9 +1,10 @@
 package ase.project.domain.npc;
 
-import ase.project.domain.action.Attack;
+import ase.project.domain.action.attack.BasicAttack;
 import ase.project.domain.action.Death;
 
-public abstract class Enemy implements Attack, Death {
+public abstract class Enemy implements BasicAttack, Death{
+    protected String name;
     protected int health;
     protected int maxHealth;
     protected int power;
@@ -13,5 +14,9 @@ public abstract class Enemy implements Attack, Death {
         this.maxHealth = maxHealth;
         this.power = power;
     }
+    public void takeDamage(int damage){
+        this.health -= damage;
+    }
+
     //rest tbd
 }
