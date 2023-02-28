@@ -4,10 +4,10 @@ import ase.project.application.dice.DiceRollerImpl;
 import ase.project.domain.action.attack.BasicAttack;
 import ase.project.domain.npc.Enemy;
 
-public class Basic implements BasicAttack{
+public class UseBasicAttack implements BasicAttack { //ToDo abstract class
     private final DiceRollerImpl diceRoller;
 
-    public Basic(DiceRollerImpl diceRoller) {
+    public UseBasicAttack(DiceRollerImpl diceRoller) {
         this.diceRoller = diceRoller;
     }
 

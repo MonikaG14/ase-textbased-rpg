@@ -1,6 +1,6 @@
 package ase.project.application.player;
 
-import ase.project.application.action.attacks.Basic;
+import ase.project.application.action.attacks.UseBasicAttack;
 import ase.project.application.action.attacks.FireballBarrage;
 import ase.project.application.action.attacks.FlameTsunami;
 import ase.project.application.dice.DiceRollerImpl;
@@ -26,12 +26,13 @@ public class Astronomer extends Character {
 
     @Override
     public void useBasicAttack(Enemy target) {
-        Basic basic = new Basic(new DiceRollerImpl(new Random()));
-        basic.useBasicAttack(target);
+        UseBasicAttack useBasicAttack = new UseBasicAttack(new DiceRollerImpl(new Random()));
+        useBasicAttack.useBasicAttack(target);
     }
 
     @Override
     public void useSpecialAttack(Enemy target, String attackName, int mana) {
+        //ToDo class with list<SpecialAttacks> + method useSpecialAttack
         try {
             SpecialAttack specialAttack = specialAttackList.get(attackName);
             if (specialAttack != null) {
