@@ -4,14 +4,15 @@ import ase.project.application.action.attacks.FireballBarrage;
 import ase.project.application.action.attacks.FlameTsunami;
 import ase.project.application.action.attacks.UseSpecialAttack;
 import ase.project.domain.action.attack.SpecialAttack;
+import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
-import ase.project.domain.npc.Enemy;
-import ase.project.domain.player.Character;
+import ase.project.domain.characters.Enemy;
+import ase.project.domain.characters.Player;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Astronomer extends Character {
+public class Astronomer extends Player {
     private final int intelligence;
     private final Map<String, SpecialAttack> specialAttackList;
 
@@ -24,14 +25,14 @@ public class Astronomer extends Character {
     }
 
     @Override
-    public void useBasicAttack(Enemy target) {
+    public void useBasicAttack(Character target) {
         int damage = DiceRoller.rollDice(6) + this.intelligence;
         target.takeDamage(damage);
         System.out.println("You used your basic attack for " + damage + " damage!");
     }
 
     @Override
-    public void useSpecialAttack(Enemy target, String attackName, int mana) {
+    public void useSpecialAttack(Character target, String attackName, int mana) {
         UseSpecialAttack.useSpecialAttack(target, attackName, mana, specialAttackList);
     }
 

@@ -1,8 +1,9 @@
 package ase.project.domain.action.attack;
 
-import ase.project.domain.npc.Enemy;
+import ase.project.domain.characters.Character;
+import ase.project.domain.characters.Enemy;
 
 public interface BasicAttack {
-    void useBasicAttack(Enemy target);
+    void useBasicAttack(Character target);
 }
 

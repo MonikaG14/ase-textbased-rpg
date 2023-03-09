@@ -1,8 +1,8 @@
 package ase.project.application.action.attacks;
 
 import ase.project.domain.action.attack.SpecialAttack;
+import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
-import ase.project.domain.npc.Enemy;
 
 public class GladiatorsGambit implements SpecialAttack {
     private final int manaCost;
@@ -12,14 +12,15 @@ public class GladiatorsGambit implements SpecialAttack {
     }
 
     @Override
-    public void useSpecialAttack(Enemy target, String attackName, int mana) {
+    public void useSpecialAttack(Character target, String attackName, int mana) {
         if (mana < manaCost) {
             System.out.println("Not enough mana to use!");
         } else {
             mana -= manaCost;
             int damage = DiceRoller.rollDice(20);
             target.takeDamage(damage);
-            System.out.println("Scared to the core, you feel as if your limbs are made of lead. \nMoving them feels like rolling Sisyphus's boulder up a mountain. As if emerging from a dream, \nyou notice that your enemies are distracted, busy laughing at your silly expressions. Your chance to strike is now or never. \n\nYou did" + damage + " damage and used " + manaCost + " mana. You have " + mana + " left.");
+            System.out.println("Scared to the core, you feel as if your limbs are made of lead. \nMoving them feels like rolling Sisyphus's boulder up a mountain. As if emerging from a dream, \nyou notice that your enemies are distracted, busy laughing at your silly expressions. Your chance to strike is now or never.");
+            System.out.println("You did" + damage + " damage and used " + manaCost + " mana. You have " + mana + " left.");
         }
     }
 

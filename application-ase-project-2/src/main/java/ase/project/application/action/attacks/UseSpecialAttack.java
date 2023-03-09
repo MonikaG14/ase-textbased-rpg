@@ -2,13 +2,13 @@ package ase.project.application.action.attacks;
 
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.domain.action.attack.SpecialAttack;
-import ase.project.domain.npc.Enemy;
+import ase.project.domain.characters.Character;
 
 import java.util.Map;
 
 public class UseSpecialAttack {
 
-    public static void useSpecialAttack(Enemy target, String attackName, int mana, Map<String, SpecialAttack> specialAttackList) {
+    public static void useSpecialAttack(Character target, String attackName, int mana, Map<String, SpecialAttack> specialAttackList) {
         try {
             SpecialAttack specialAttack = specialAttackList.get(attackName);
             if (specialAttack != null) {
