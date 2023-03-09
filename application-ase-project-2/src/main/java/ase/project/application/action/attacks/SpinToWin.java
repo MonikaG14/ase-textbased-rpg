@@ -1,16 +1,14 @@
 package ase.project.application.action.attacks;
 
-import ase.project.application.dice.DiceRollerImpl;
 import ase.project.domain.action.attack.SpecialAttack;
+import ase.project.domain.dice.DiceRoller;
 import ase.project.domain.npc.Enemy;
 
 public class SpinToWin implements SpecialAttack {
     private final int manaCost;
-    private final DiceRollerImpl diceRoller;
 
-    public SpinToWin(int manaCost, DiceRollerImpl diceRoller) {
+    public SpinToWin(int manaCost) {
         this.manaCost = manaCost;
-        this.diceRoller = diceRoller;
     }
     @Override
     public void useSpecialAttack(Enemy target, String attackName, int mana) {
@@ -18,7 +16,7 @@ public class SpinToWin implements SpecialAttack {
             System.out.println("Not enough mana to use!");
         } else {
             mana -= manaCost;
-            int damage = diceRoller.rollDice(20);
+            int damage = DiceRoller.rollDice(20);
             target.takeDamage(damage);
             System.out.println("As you begin to spin, your character looks more like a drunken octopus than a fearsome warrior. \nBut as the enemy stares in disbelief, your flailing arms suddenly connect with a critical hit! \nYou spin again, this time even more frantically, hoping to avoid their deadly strikes. \nYou might not look very intimidating, but you're definitely getting the job done - in your own unique way. \n\nYou did" + damage + " damage and used " + manaCost + " mana. You have " + mana + " left.");
         }

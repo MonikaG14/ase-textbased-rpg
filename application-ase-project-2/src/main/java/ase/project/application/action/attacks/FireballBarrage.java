@@ -1,16 +1,13 @@
 package ase.project.application.action.attacks;
 
-import ase.project.application.dice.DiceRollerImpl;
 import ase.project.domain.action.attack.SpecialAttack;
+import ase.project.domain.dice.DiceRoller;
 import ase.project.domain.npc.Enemy;
 
 public class FireballBarrage implements SpecialAttack {
     private final int manaCost;
-    private final DiceRollerImpl diceRoller;
-
-    public FireballBarrage(int manaCost, DiceRollerImpl diceRoller) {
+    public FireballBarrage(int manaCost) {
         this.manaCost = manaCost;
-        this.diceRoller = diceRoller;
     }
 
     @Override
@@ -19,7 +16,7 @@ public class FireballBarrage implements SpecialAttack {
             System.out.println("Not enough mana to use!");
         } else {
             mana -= manaCost;
-            int damage = diceRoller.rollDice(20);
+            int damage = DiceRoller.rollDice(20);
             target.takeDamage(damage);
             System.out.println("Your hands light up like a disco ball and suddenly, hundreds of tiny fireballs shoot out in all directions \nlike an over-caffeinated toddler with a sugar rush, creating a fiery rainstorm that engulfs everything in sight. \nIt's like a fireworks show, but instead of pretty colors, it's just hot, fiery destruction. \n\nYou did " + damage + " damage and used " + manaCost + " mana. You have " + mana + " left.");
         }
