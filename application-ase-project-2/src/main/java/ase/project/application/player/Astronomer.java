@@ -6,7 +6,6 @@ import ase.project.application.action.attacks.UseSpecialAttack;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
-import ase.project.domain.characters.Enemy;
 import ase.project.domain.characters.Player;
 
 import java.util.HashMap;
