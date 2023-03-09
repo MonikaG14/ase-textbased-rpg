@@ -15,7 +15,7 @@ public class Gladiator extends Player {
     private final int endurance;
     private final Map<String, SpecialAttack> specialAttackList;
 
-    public Gladiator(String name, int strength, int dexterity, int health, int maxHealth, String mana, int endurance) {
+    public Gladiator(String name, int strength, int dexterity, int health, int maxHealth, int mana, int endurance) {
         super(name, strength, dexterity, health, maxHealth, mana);
         this.endurance = endurance;
         this.specialAttackList = new HashMap<>();
