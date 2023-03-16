@@ -22,4 +22,8 @@ public abstract class Player extends Character {
 
     public void useItem() {
     }
+
+    public int getMana() {
+        return mana;
+    }
 }

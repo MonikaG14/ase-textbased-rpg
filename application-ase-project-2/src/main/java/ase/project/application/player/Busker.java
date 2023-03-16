@@ -1,8 +1,9 @@
 package ase.project.application.player;
 
+import ase.project.application.action.Mana;
 import ase.project.application.action.attacks.Earworm;
 import ase.project.application.action.attacks.RickRoll;
-import ase.project.application.action.attacks.UseSpecialAttack;
+import ase.project.application.action.attacks.ChooseSpecialAttack;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
@@ -30,9 +31,11 @@ public class Busker extends Player {
         System.out.println("You used your basic attack for " + damage + " damage!");
     }
 
-    @Override
-    public void useSpecialAttack(Character target, String attackName, int mana) {
-        UseSpecialAttack.useSpecialAttack(target, attackName, mana, specialAttacksList);
+    public void useSpecialAttack(Character target, String attackName) {
+        SpecialAttack specialAttack = ChooseSpecialAttack.chooseSpecialAttack(specialAttacksList, attackName);
+        if (Mana.checkMana(mana, specialAttack.getManaCost())) {
+            specialAttack.performSpecialAttack(target, attackName);
+        }
     }
 
     @Override

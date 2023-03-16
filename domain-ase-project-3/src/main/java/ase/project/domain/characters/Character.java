@@ -2,9 +2,8 @@ package ase.project.domain.characters;
 
 import ase.project.domain.action.Death;
 import ase.project.domain.action.attack.BasicAttack;
-import ase.project.domain.action.attack.SpecialAttack;
 
-public abstract class Character implements BasicAttack, SpecialAttack, Death {
+public abstract class Character implements BasicAttack, Death {
     protected String name;
     protected int currentHealth;
     protected int maxHealth;
@@ -15,7 +14,11 @@ public abstract class Character implements BasicAttack, SpecialAttack, Death {
         this.maxHealth = maxHealth;
     }
 
-    public int takeDamage(int damage){
+    public int takeDamage(int damage) {
         return currentHealth - damage;
+    }
+
+    public int getCurrentHealth() {
+        return currentHealth;
     }
 }
