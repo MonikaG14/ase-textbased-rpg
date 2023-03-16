@@ -1,6 +1,7 @@
 package ase.project.application.enemies;
 
-import ase.project.application.action.attacks.UseSpecialAttack;
+import ase.project.application.action.Mana;
+import ase.project.application.action.attacks.ChooseSpecialAttack;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
@@ -24,9 +25,9 @@ public class PhyrexianMite extends Enemy {
         System.out.println("You were hit by Phyrexian Mite for" + damage + " damage!");
     }
 
-    @Override
-    public void useSpecialAttack(Character target, String attackName, int mana) {
-        UseSpecialAttack.useSpecialAttack(target, attackName, mana, specialAttackList);
+    public void useSpecialAttack(Character target, String attackName) {
+        SpecialAttack specialAttack = ChooseSpecialAttack.chooseSpecialAttack(specialAttackList, attackName);
+        specialAttack.performSpecialAttack(target, attackName);
     }
 
     @Override

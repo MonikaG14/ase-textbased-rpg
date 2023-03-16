@@ -12,16 +12,16 @@ public class Earworm implements SpecialAttack {
     }
 
     @Override
-    public void useSpecialAttack(Character target, String attackName, int mana) {
-        if(mana < manaCost) {
-            System.out.println("Not enough mana to use!");
-        } else {
-            mana -= manaCost;
-            int damage = DiceRoller.rollDice(20);
-            target.takeDamage(damage);
-            System.out.println("You just unleashed the Earworm attack. \nIt's catchy tune worms its way into your enemies' brains and refuses to let go, \nleaving them in a dazed state.");
-            System.out.println("You did" + damage + " damage and used " + manaCost + " mana. You have " + mana + " left.");
-        }
+    public void performSpecialAttack(Character target, String attackName) {
+        int damage = DiceRoller.rollDice(20);
+        target.takeDamage(damage);
+        System.out.println("You just unleashed the Earworm attack. \nIt's catchy tune worms its way into your enemies' brains and refuses to let go, \nleaving them in a dazed state.");
+        System.out.println("You did" + damage + " damage.");
+    }
+
+    @Override
+    public int getManaCost() {
+        return this.manaCost;
     }
 
     public String getDescription() {

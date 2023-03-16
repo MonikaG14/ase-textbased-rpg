@@ -12,15 +12,15 @@ public class FlameTsunami implements SpecialAttack {
     }
 
     @Override
-    public void useSpecialAttack(Character target, String attackName, int mana) {
-        if(mana < manaCost) {
-            System.out.println("Not enough mana to use!");
-        } else {
-            mana -= manaCost;
-            int damage = DiceRoller.rollDice(20);
-            target.takeDamage(damage);
-            System.out.println("You did " + damage + " damage and used " + manaCost + " mana. You have " + mana + " left.");
-        }
+    public void performSpecialAttack(Character target, String attackName) {
+        int damage = DiceRoller.rollDice(20);
+        target.takeDamage(damage);
+        System.out.println("You did " + damage + " damage.");
+    }
+
+    @Override
+    public int getManaCost() {
+        return this.manaCost;
     }
 
     public String getDescription() {
