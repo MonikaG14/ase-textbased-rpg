@@ -42,4 +42,8 @@ public class Gladiator extends Player {
     public void dies() {
 
     }
+
+    public int getEndurance() {
+        return this.endurance;
+    }
 }

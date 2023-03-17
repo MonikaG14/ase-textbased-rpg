@@ -42,4 +42,8 @@ public class Busker extends Player {
     public void dies() {
 
     }
+
+    public int getCharisma() {
+        return this.charisma;
+    }
 }

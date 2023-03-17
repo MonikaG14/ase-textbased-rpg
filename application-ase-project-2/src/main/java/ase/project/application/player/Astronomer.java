@@ -46,4 +46,8 @@ public class Astronomer extends Player {
     public void dies() {
 
     }
+
+    public int getIntelligence() {
+        return this.intelligence;
+    }
 }
