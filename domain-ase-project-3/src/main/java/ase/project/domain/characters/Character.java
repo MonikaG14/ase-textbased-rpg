@@ -15,7 +15,8 @@ public abstract class Character implements BasicAttack, Death {
     }
 
     public int takeDamage(int damage) {
-        return currentHealth - damage;
+        currentHealth -= damage;
+        return currentHealth;
     }
 
     public int getCurrentHealth() {
