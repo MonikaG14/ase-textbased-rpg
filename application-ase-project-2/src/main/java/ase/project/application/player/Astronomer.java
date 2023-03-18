@@ -4,6 +4,8 @@ import ase.project.application.action.Mana;
 import ase.project.application.action.attacks.FireballBarrage;
 import ase.project.application.action.attacks.FlameTsunami;
 import ase.project.application.action.attacks.ChooseSpecialAttack;
+import ase.project.application.exception.InvalidAttackException;
+import ase.project.application.exception.InvalidManaException;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
@@ -33,9 +35,12 @@ public class Astronomer extends Player {
 
     public void useSpecialAttack(Character target, String attackName) {
         SpecialAttack specialAttack = ChooseSpecialAttack.chooseSpecialAttack(specialAttackList, attackName);
-        if (Mana.checkMana(mana, specialAttack.getManaCost())) {
+        try {
+            Mana.checkMana(mana, specialAttack.getManaCost());
             specialAttack.performSpecialAttack(target, attackName);
             mana = Mana.useMana(mana, specialAttack.getManaCost());
+        } catch (InvalidManaException manaException) {
+            System.out.println(manaException.getMessage());
         }
     }
 
@@ -49,5 +54,9 @@ public class Astronomer extends Player {
 
     public int getIntelligence() {
         return this.intelligence;
+    }
+
+    public Map<String, SpecialAttack> getSpecialAttackList() {
+        return this.specialAttackList;
     }
 }
