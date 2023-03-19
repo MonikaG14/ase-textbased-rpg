@@ -1,6 +1,7 @@
 package ase.project.application.player;
 
 import ase.project.application.enemies.PhyrexianMite;
+import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.exception.InvalidManaException;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Enemy;
@@ -59,7 +60,7 @@ class AstronomerTest {
     }
 
     @Test
-    void testUseSpecialAttack_performsCorrectAttack_FireballBarrage() {
+    void testUseSpecialAttack_performsCorrectAttack_FireballBarrage() throws InvalidAttackException {
         String attackName = "Fireball Barrage";
         int diceRoll = 20;
 
@@ -77,7 +78,7 @@ class AstronomerTest {
     }
 
     @Test
-    void testUseSpecialAttack_performsCorrectAttack_FlameTsunami() {
+    void testUseSpecialAttack_performsCorrectAttack_FlameTsunami() throws InvalidAttackException {
         String attackName = "Flame Tsunami";
         int diceRoll = 20;
 
@@ -94,7 +95,7 @@ class AstronomerTest {
         }
     }
     @Test
-    void testUseSpecialAttack_reducesManaByCorrectAmount_FireballBarrage() {
+    void testUseSpecialAttack_reducesManaByCorrectAmount_FireballBarrage() throws InvalidAttackException {
         String attackName = "Fireball Barrage";
 
         player.useSpecialAttack(mockTarget, attackName);
@@ -103,7 +104,7 @@ class AstronomerTest {
     }
 
     @Test
-    void testUseSpecialAttack_reducesManaByCorrectAmount_FlameTsunami() {
+    void testUseSpecialAttack_reducesManaByCorrectAmount_FlameTsunami() throws InvalidAttackException {
         String attackName = "Flame Tsunami";
 
         player.useSpecialAttack(mockTarget, attackName);
@@ -111,13 +112,22 @@ class AstronomerTest {
         assertEquals(30, player.getMana());
     }
 
-    /*@Test
+    @Test
     void testUseSpecialAttack_throwsInvalidManaException() {
         String attackName = "Fireball Barrage";
 
         assertThrows(InvalidManaException.class, () -> {
             playerWithNoMana.useSpecialAttack(mockTarget, attackName);
+            throw new InvalidManaException("You do not have enough mana for this attack!");
         });
     }
-     */
+
+    @Test
+    void testUseSpecialAttack_throwsInvalidAttackException() {
+        String attackName = "Wrong attack name";
+
+        assertThrows(InvalidAttackException.class, () -> {
+            player.useSpecialAttack(mockTarget, attackName);
+        });
+    }
 }
