@@ -4,6 +4,7 @@ import ase.project.application.action.Mana;
 import ase.project.application.action.attacks.Earworm;
 import ase.project.application.action.attacks.RickRoll;
 import ase.project.application.action.attacks.ChooseSpecialAttack;
+import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.exception.InvalidManaException;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
@@ -32,7 +33,7 @@ public class Busker extends Player {
         System.out.println("You used your basic attack for " + damage + " damage!");
     }
 
-    public void useSpecialAttack(Character target, String attackName) {
+    public void useSpecialAttack(Character target, String attackName) throws InvalidAttackException{
         SpecialAttack specialAttack = ChooseSpecialAttack.chooseSpecialAttack(specialAttackList, attackName);
         try {
             Mana.checkMana(mana, specialAttack.getManaCost());
@@ -50,5 +51,9 @@ public class Busker extends Player {
 
     public int getCharisma() {
         return this.charisma;
+    }
+
+    public Map<String, SpecialAttack> getSpecialAttackList() {
+        return this.specialAttackList;
     }
 }

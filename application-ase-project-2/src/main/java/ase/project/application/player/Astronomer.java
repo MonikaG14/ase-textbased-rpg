@@ -33,7 +33,7 @@ public class Astronomer extends Player {
         System.out.println("You used your basic attack for " + damage + " damage!");
     }
 
-    public void useSpecialAttack(Character target, String attackName) {
+    public void useSpecialAttack(Character target, String attackName) throws InvalidAttackException{
         SpecialAttack specialAttack = ChooseSpecialAttack.chooseSpecialAttack(specialAttackList, attackName);
         try {
             Mana.checkMana(mana, specialAttack.getManaCost());
