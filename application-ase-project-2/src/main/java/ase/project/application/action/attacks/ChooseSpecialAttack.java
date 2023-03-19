@@ -7,14 +7,14 @@ import java.util.Map;
 
 public class ChooseSpecialAttack {
 
-    public static SpecialAttack chooseSpecialAttack(Map<String, SpecialAttack> specialAttackList, String attackName) {
+    public static SpecialAttack chooseSpecialAttack(Map<String, SpecialAttack> specialAttackList, String attackName) throws InvalidAttackException {
         SpecialAttack specialAttack = specialAttackList.get(attackName);
         try {
             if (specialAttack == null) {
-                throw new InvalidAttackException("Invalid attack: " + attackName);
+                throw new InvalidAttackException("Invalid attack name: " + attackName);
             }
-        } catch (InvalidAttackException e) {
-            System.out.println(e.getMessage());
+        } catch (NullPointerException e) {
+            throw new InvalidAttackException("Invalid attack name: " + attackName);
         }
         return specialAttack;
     }
