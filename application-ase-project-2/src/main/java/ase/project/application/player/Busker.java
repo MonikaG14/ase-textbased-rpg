@@ -18,8 +18,8 @@ public class Busker extends Player {
     private final int charisma;
     private final Map<String, SpecialAttack> specialAttackList;
 
-    public Busker(String name, int strength, int dexterity, int health, int maxHealth, int mana, int charisma) {
-        super(name, strength, dexterity, health, maxHealth, mana);
+    public Busker(String name, int currentHealth, int maxHealth, int mana, int charisma) {
+        super(name, currentHealth, maxHealth, mana);
         this.charisma = charisma;
         this.specialAttackList = new HashMap<>();
         this.specialAttackList.put("Earworm", new Earworm(5));

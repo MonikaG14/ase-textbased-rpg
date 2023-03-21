@@ -29,8 +29,8 @@ class GladiatorTest {
 
     @BeforeEach
     public void setUp() {
-        player = new Gladiator("Gladiator Test", 3, 3, 60, 60, 40, 10);
-        playerWithNoMana = new Gladiator("No Mana Gladiator", 3, 3, 40, 60, 1, 10);
+        player = new Gladiator("Gladiator Test", 60, 60, 40, 10);
+        playerWithNoMana = new Gladiator("No Mana Gladiator", 40, 60, 1, 10);
         target = new PhyrexianMite("Test Mite", 25, 30, 10, null);
     }
 

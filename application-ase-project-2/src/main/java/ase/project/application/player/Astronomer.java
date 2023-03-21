@@ -18,8 +18,8 @@ public class Astronomer extends Player {
     private final int intelligence;
     private final Map<String, SpecialAttack> specialAttackList;
 
-    public Astronomer(String name, int strength, int dexterity, int health, int maxHealth, int mana, int intelligence) {
-        super(name, strength, dexterity, health, maxHealth, mana);
+    public Astronomer(String name, int currentHealth, int maxHealth, int mana, int intelligence) {
+        super(name, currentHealth, maxHealth, mana);
         this.intelligence = intelligence;
         this.specialAttackList = new HashMap<>();
         this.specialAttackList.put("Fireball Barrage", new FireballBarrage(5));

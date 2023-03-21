@@ -29,8 +29,8 @@ class BuskerTest {
 
     @BeforeEach
     public void setUp() {
-        player = new Busker("Busker Test", 3, 3, 60, 60, 40, 10);
-        playerWithNoMana = new Busker("No Mana Busker", 3, 3, 40, 60, 1, 10);
+        player = new Busker("Busker Test",60, 60, 40, 10);
+        playerWithNoMana = new Busker("No Mana Busker", 40, 60, 1, 10);
         target = new PhyrexianMite("Test Mite", 25, 30, 10, null);
     }
 
