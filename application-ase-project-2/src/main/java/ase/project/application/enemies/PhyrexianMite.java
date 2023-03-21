@@ -1,6 +1,5 @@
 package ase.project.application.enemies;
 
-import ase.project.application.action.Mana;
 import ase.project.application.action.attacks.ChooseSpecialAttack;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.domain.action.attack.SpecialAttack;

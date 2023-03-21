@@ -1,6 +1,6 @@
 package ase.project.application.player;
 
-import ase.project.application.action.Mana;
+import ase.project.application.action.ManaService;
 import ase.project.application.action.attacks.GladiatorsGambit;
 import ase.project.application.action.attacks.SpinToWin;
 import ase.project.application.action.attacks.ChooseSpecialAttack;
@@ -37,9 +37,9 @@ public class Gladiator extends Player {
     public void useSpecialAttack(Character target, String attackName) throws InvalidAttackException {
         SpecialAttack specialAttack = ChooseSpecialAttack.chooseSpecialAttack(specialAttackList, attackName);
         try {
-            Mana.checkMana(mana, specialAttack.getManaCost());
+            ManaService.checkMana(mana, specialAttack.getManaCost());
             specialAttack.performSpecialAttack(target, attackName);
-            mana = Mana.useMana(mana, specialAttack.getManaCost());
+            mana = ManaService.useMana(mana, specialAttack.getManaCost());
         } catch (InvalidManaException manaException) {
             System.out.println(manaException.getMessage());
         }
