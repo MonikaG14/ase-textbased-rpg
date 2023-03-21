@@ -5,7 +5,7 @@ import ase.project.domain.item.Potion;
 public class HealthPotion implements Potion {
     @Override
     public String getDescription() {
-        return null;
+        return "Health Potion";
     }
 
     @Override
