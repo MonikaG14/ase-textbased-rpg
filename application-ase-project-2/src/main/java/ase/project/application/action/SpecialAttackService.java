@@ -1,11 +1,11 @@
-package ase.project.application.action.attacks;
+package ase.project.application.action;
 
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.domain.action.attack.SpecialAttack;
 
 import java.util.Map;
 
-public class ChooseSpecialAttack {
+public class SpecialAttackService {
     public static SpecialAttack chooseSpecialAttack(Map<String, SpecialAttack> specialAttackList, String attackName) throws InvalidAttackException {
         SpecialAttack specialAttack = specialAttackList.get(attackName);
         try {

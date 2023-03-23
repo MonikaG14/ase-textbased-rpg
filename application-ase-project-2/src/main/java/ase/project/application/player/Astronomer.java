@@ -1,7 +1,7 @@
 package ase.project.application.player;
 
-import ase.project.application.action.attacks.FireballBarrage;
-import ase.project.application.action.attacks.FlameTsunami;
+import ase.project.application.action.specialattack.FireballBarrage;
+import ase.project.application.action.specialattack.FlameTsunami;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 

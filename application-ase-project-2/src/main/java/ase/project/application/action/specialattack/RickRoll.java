@@ -1,4 +1,4 @@
-package ase.project.application.action.attacks;
+package ase.project.application.action.specialattack;
 
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;

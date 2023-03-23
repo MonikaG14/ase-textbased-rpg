@@ -1,7 +1,7 @@
 package ase.project.application.player;
 
-import ase.project.application.action.attacks.GladiatorsGambit;
-import ase.project.application.action.attacks.SpinToWin;
+import ase.project.application.action.specialattack.GladiatorsGambit;
+import ase.project.application.action.specialattack.SpinToWin;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;

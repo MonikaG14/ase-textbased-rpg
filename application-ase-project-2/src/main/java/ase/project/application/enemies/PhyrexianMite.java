@@ -1,6 +1,6 @@
 package ase.project.application.enemies;
 
-import ase.project.application.action.attacks.ChooseSpecialAttack;
+import ase.project.application.action.SpecialAttackService;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
@@ -26,7 +26,7 @@ public class PhyrexianMite extends Enemy {
     }
 
     public void useSpecialAttack(Character target, String attackName) throws InvalidAttackException {
-        SpecialAttack specialAttack = ChooseSpecialAttack.chooseSpecialAttack(specialAttackList, attackName);
+        SpecialAttack specialAttack = SpecialAttackService.chooseSpecialAttack(specialAttackList, attackName);
         specialAttack.performSpecialAttack(target, attackName);
     }
 
