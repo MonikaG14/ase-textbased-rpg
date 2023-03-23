@@ -29,8 +29,8 @@ class AstronomerTest {
 
     @BeforeEach
     public void setUp() {
-        player = new Astronomer("AstroTest", 60, 60, 40, 10);
-        playerWithNoMana = new Astronomer("No Mana Astro", 40, 60, 1, 10);
+        player = new Astronomer("AstroTest", 60, 60, 40, 3, 2, 10);
+        playerWithNoMana = new Astronomer("No Mana Astro", 40, 60, 1, 3, 2, 10);
         target = new PhyrexianMite("Test Mite", 25, 30, 10, null);
     }
 

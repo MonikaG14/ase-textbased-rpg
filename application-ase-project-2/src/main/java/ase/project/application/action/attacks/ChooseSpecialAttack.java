@@ -6,7 +6,6 @@ import ase.project.domain.action.attack.SpecialAttack;
 import java.util.Map;
 
 public class ChooseSpecialAttack {
-
     public static SpecialAttack chooseSpecialAttack(Map<String, SpecialAttack> specialAttackList, String attackName) throws InvalidAttackException {
         SpecialAttack specialAttack = specialAttackList.get(attackName);
         try {

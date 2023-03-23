@@ -1,25 +1,19 @@
 package ase.project.application.player;
 
-import ase.project.application.action.ManaService;
 import ase.project.application.action.attacks.Earworm;
 import ase.project.application.action.attacks.RickRoll;
-import ase.project.application.action.attacks.ChooseSpecialAttack;
-import ase.project.application.exception.InvalidAttackException;
-import ase.project.application.exception.InvalidManaException;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
-import ase.project.domain.characters.Player;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Busker extends Player {
+public class Busker extends PlayerClass {
     private final int charisma;
-    private final Map<String, SpecialAttack> specialAttackList;
 
-    public Busker(String name, int currentHealth, int maxHealth, int mana, int charisma) {
-        super(name, currentHealth, maxHealth, mana);
+    public Busker(String name, int currentHealth, int maxHealth, int mana, int amountHealthPotions, int amountManaPotions, int charisma) {
+        super(name, currentHealth, maxHealth, mana, amountHealthPotions, amountManaPotions);
         this.charisma = charisma;
         this.specialAttackList = new HashMap<>();
         this.specialAttackList.put("Earworm", new Earworm(5));
@@ -31,17 +25,6 @@ public class Busker extends Player {
         int damage = DiceRoller.rollDice(6) + this.charisma;
         target.takeDamage(damage);
         System.out.println("You used your basic attack for " + damage + " damage!");
-    }
-
-    public void useSpecialAttack(Character target, String attackName) throws InvalidAttackException{
-        SpecialAttack specialAttack = ChooseSpecialAttack.chooseSpecialAttack(specialAttackList, attackName);
-        try {
-            ManaService.checkMana(mana, specialAttack.getManaCost());
-            specialAttack.performSpecialAttack(target, attackName);
-            mana = ManaService.useMana(mana, specialAttack.getManaCost());
-        } catch (InvalidManaException manaException) {
-            System.out.println(manaException.getMessage());
-        }
     }
 
     @Override
