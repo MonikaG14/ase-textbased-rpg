@@ -1,12 +1,15 @@
 package ase.project.domain.characters;
 
 public abstract class Player extends Character {
+    protected int id;
+    protected PlayerId playerId = new PlayerId();
     protected int mana;
     protected int amountHealthPotions;
     protected int amountManaPotions;
 
     public Player(String name, int currentHealth, int maxHealth, int mana, int amountHealthPotions, int amountManaPotions) {
         super(name, currentHealth, maxHealth);
+        this.id = playerId.getId();
         this.mana = mana;
         this.amountHealthPotions = amountHealthPotions;
         this.amountManaPotions = amountManaPotions;
@@ -34,6 +37,10 @@ public abstract class Player extends Character {
     public Player gainMana(int amountManaGain) {
         mana += amountManaGain;
         return this;
+    }
+
+    public int getId() {
+        return playerId.getId();
     }
 
     public int getMana() {
