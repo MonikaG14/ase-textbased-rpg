@@ -16,6 +16,26 @@ public abstract class Player extends Character {
         return currentHealth - damage;
     }
 
+    public Player reduceAmountOfHealthPotions() {
+        amountHealthPotions --;
+        return this;
+    }
+
+    public Player reduceAmountOfManaPotions() {
+        amountManaPotions --;
+        return this;
+    }
+
+    public Player gainHealth(int amountHealthGain) {
+        currentHealth += amountHealthGain;
+        return this;
+    }
+
+    public Player gainMana(int amountManaGain) {
+        mana += amountManaGain;
+        return this;
+    }
+
     public boolean die() {
         return false;
     }
@@ -24,4 +44,12 @@ public abstract class Player extends Character {
         return mana;
     }
 
+
+    public int getAmountHealthPotions() {
+        return amountHealthPotions;
+    }
+
+    public int getAmountManaPotions() {
+        return amountManaPotions;
+    }
 }

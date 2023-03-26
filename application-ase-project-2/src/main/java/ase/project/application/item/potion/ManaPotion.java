@@ -10,7 +10,9 @@ public class ManaPotion implements Potion {
     }
 
     @Override
-    public int drink(Player player) {
-        return player.getMana() + 10;
+    public Player drink(Player player) {
+        player.reduceAmountOfManaPotions();
+        player.gainMana(10);
+        return player;
     }
 }

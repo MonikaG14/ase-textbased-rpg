@@ -10,7 +10,9 @@ public class HealthPotion implements Potion {
     }
 
     @Override
-    public int drink(Player player) {
-        return player.getCurrentHealth() + 20;
+    public Player drink(Player player) {
+        player.reduceAmountOfHealthPotions();
+        player.gainHealth(20);
+        return player;
     }
 }
