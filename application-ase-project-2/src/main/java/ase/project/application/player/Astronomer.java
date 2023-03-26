@@ -22,11 +22,6 @@ public class Astronomer extends PlayerClass {
         System.out.println("You used your basic attack for " + damage + " damage!");
     }
 
-    @Override
-    public void dies() {
-
-    }
-
     public int getIntelligence() {
         return this.intelligence;
     }

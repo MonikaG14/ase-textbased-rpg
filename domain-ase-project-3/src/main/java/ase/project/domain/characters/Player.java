@@ -36,10 +36,6 @@ public abstract class Player extends Character {
         return this;
     }
 
-    public boolean die() {
-        return false;
-    }
-
     public int getMana() {
         return mana;
     }

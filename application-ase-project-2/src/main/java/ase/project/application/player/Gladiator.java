@@ -2,11 +2,8 @@ package ase.project.application.player;
 
 import ase.project.application.action.specialattack.GladiatorsGambit;
 import ase.project.application.action.specialattack.SpinToWin;
-import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
-
-import java.util.Map;
 
 public class Gladiator extends PlayerClass {
     private final int endurance;
@@ -25,16 +22,7 @@ public class Gladiator extends PlayerClass {
         System.out.println("You used your basic attack for " + damage + " damage!");
     }
 
-    @Override
-    public void dies() {
-
-    }
-
     public int getEndurance() {
         return this.endurance;
-    }
-
-    public Map<String, SpecialAttack> getSpecialAttackList() {
-        return this.specialAttackList;
     }
 }

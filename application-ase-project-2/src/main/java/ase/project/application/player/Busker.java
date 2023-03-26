@@ -2,12 +2,10 @@ package ase.project.application.player;
 
 import ase.project.application.action.specialattack.Earworm;
 import ase.project.application.action.specialattack.RickRoll;
-import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Busker extends PlayerClass {
     private final int charisma;
@@ -27,16 +25,7 @@ public class Busker extends PlayerClass {
         System.out.println("You used your basic attack for " + damage + " damage!");
     }
 
-    @Override
-    public void dies() {
-
-    }
-
     public int getCharisma() {
         return this.charisma;
-    }
-
-    public Map<String, SpecialAttack> getSpecialAttackList() {
-        return this.specialAttackList;
     }
 }
