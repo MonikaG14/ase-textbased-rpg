@@ -29,9 +29,4 @@ public class PhyrexianMite extends Enemy {
         SpecialAttack specialAttack = SpecialAttackService.chooseSpecialAttack(specialAttackList, attackName);
         specialAttack.performSpecialAttack(target, attackName);
     }
-
-    @Override
-    public void dies() {
-
-    }
 }
