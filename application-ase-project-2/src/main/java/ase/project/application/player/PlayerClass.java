@@ -1,8 +1,6 @@
 package ase.project.application.player;
 
-import ase.project.application.action.ManaService;
-import ase.project.application.action.PotionService;
-import ase.project.application.action.SpecialAttackService;
+import ase.project.application.action.*;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.exception.InvalidManaException;
 import ase.project.application.item.potion.PotionType;
@@ -16,6 +14,7 @@ import java.util.Map;
 public abstract class PlayerClass extends Player {
     protected Map<String, SpecialAttack> specialAttackList;
     protected Map<PotionType, Integer> amountOfPotionType;
+    protected final PotionService potionService;
 
     public PlayerClass(String name, int currentHealth, int maxHealth, int mana, int amountHealthPotions, int amountManaPotions) {
         super(name, currentHealth, maxHealth, mana, amountHealthPotions, amountManaPotions);
@@ -23,6 +22,7 @@ public abstract class PlayerClass extends Player {
         this.amountOfPotionType = new HashMap<>();
         amountOfPotionType.put(PotionType.HEALTH, amountHealthPotions);
         amountOfPotionType.put(PotionType.MANA, amountManaPotions);
+        this.potionService = new PotionService(new PotionTypeService(), new PotionAmountService(), new PotionUsageService());
     }
 
     public void useSpecialAttack(Character target, String attackName) throws InvalidAttackException {
@@ -42,7 +42,7 @@ public abstract class PlayerClass extends Player {
     }
 
     public Player drink(String potionType, PlayerClass player) {
-        return PotionService.usePotion(potionType, player);
+        return potionService.usePotion(potionType, player);
     }
 
     public void setPotionMaps() {

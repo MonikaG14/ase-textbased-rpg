@@ -7,25 +7,27 @@ import ase.project.domain.characters.Player;
 import ase.project.domain.item.Potion;
 
 public class PotionService {
+    private final PotionTypeService potionTypeService;
+    private final PotionAmountService potionAmountService;
+    private final PotionUsageService potionUsageService;
 
-    public static Potion choosePotionType(PotionType potionType) {
-        return PotionFactory.getPotion(potionType);
+    public PotionService(PotionTypeService potionTypeService, PotionAmountService potionAmountService,
+                         PotionUsageService potionUsageService) {
+        this.potionTypeService = potionTypeService;
+        this.potionAmountService = potionAmountService;
+        this.potionUsageService = potionUsageService;
     }
 
-    public static void checkAmountOfPotions(Integer amount) {
-        if (amount == null) {
-            throw new IllegalArgumentException("No potions left!");
+    public Player usePotion(String potionType, PlayerClass player) {
+        if (potionType == null || potionType.isEmpty()) {
+            throw new IllegalArgumentException("Potion type cannot be null or empty");
         }
-    }
-
-    public static Player usePotion(String potionType, PlayerClass player) {
         PotionType type = PotionType.valueOf(potionType.toUpperCase());
-        Potion potion = choosePotionType(type);
+        Potion potion = PotionFactory.getPotion(type);
 
-        checkAmountOfPotions(player.getAmountOfPotionType().get(type));
-
+        potionAmountService.checkAmountOfPotions(player.getAmountOfPotionType().get(type));
         player.updateAmountOfPotionType(type, player);
 
-        return potion.drink(player);
+        return potionUsageService.usePotion(potion, player);
     }
 }
