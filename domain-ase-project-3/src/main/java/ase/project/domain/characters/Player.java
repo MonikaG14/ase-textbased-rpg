@@ -15,10 +15,6 @@ public abstract class Player extends Character {
         this.amountManaPotions = amountManaPotions;
     }
 
-    public int takeDamage(int damage) {
-        return currentHealth - damage;
-    }
-
     public Player reduceAmountOfHealthPotions() {
         amountHealthPotions --;
         return this;
