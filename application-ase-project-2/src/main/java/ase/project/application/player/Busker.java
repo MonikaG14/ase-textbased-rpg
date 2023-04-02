@@ -13,7 +13,6 @@ public class Busker extends PlayerClass {
     public Busker(String name, int currentHealth, int maxHealth, int mana, int amountHealthPotions, int amountManaPotions, int charisma) {
         super(name, currentHealth, maxHealth, mana, amountHealthPotions, amountManaPotions);
         this.charisma = charisma;
-        this.specialAttackList = new HashMap<>();
         this.specialAttackList.put("Earworm", new Earworm(5));
         this.specialAttackList.put("RickRoll", new RickRoll(10));
     }
