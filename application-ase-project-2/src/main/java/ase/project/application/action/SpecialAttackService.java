@@ -20,4 +20,20 @@ public class SpecialAttackService {
         }
         return specialAttack;
     }
+
+    public SpecialAttack chooseRandomSpecialAttack(Map<Integer, SpecialAttack> specialAttackList) throws InvalidAttackException {
+        Random random = new Random();
+        List<Integer> keyList = new ArrayList<>(specialAttackList.keySet());
+        int index = random.nextInt(specialAttackList.size());
+        Integer key = keyList.get(index);
+        SpecialAttack specialAttack = specialAttackList.get(key);
+        try {
+            if (specialAttack == null) {
+                throw new InvalidAttackException("Invalid attack");
+            }
+        } catch (NullPointerException e) {
+            throw new InvalidAttackException("Invalid attack");
+        }
+        return specialAttack;
+    }
 }
