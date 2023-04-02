@@ -1,19 +1,19 @@
 package ase.project.application.action;
 
-import ase.project.application.item.potion.HealthPotion;
-import ase.project.application.item.potion.ManaPotion;
 import ase.project.application.item.potion.PotionType;
 import ase.project.application.player.Astronomer;
 import ase.project.application.player.PlayerClass;
-import ase.project.domain.item.Potion;
+import ase.project.domain.characters.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class PotionServiceTest {
-
     @Mock
     PlayerClass mockPlayer;
 
@@ -23,38 +23,24 @@ class PotionServiceTest {
     }
 
     @Test
-    void testChoosePotionType() {
-        Potion potion = PotionService.choosePotionType(PotionType.HEALTH);
+    void testUsePotion_Mana() {
+        PotionType potionType = PotionType.MANA;
 
-        assertTrue(potion instanceof HealthPotion);
+        Player result = mockPlayer.drink(potionType.toString(), mockPlayer);
+
+        assertEquals(mockPlayer, result);
+        assertEquals(1, result.getAmountManaPotions());
+        assertEquals(50, result.getMana());
     }
 
     @Test
-    void testCheckAmountOfPotions() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            PotionService.checkAmountOfPotions(null);
-        });
-    }
+    void testUsePotions_Health() {
+        PotionType potionType = PotionType.HEALTH;
 
-    @Test
-    void testHealthStringToPotionType() {
-        String typeString = "HEALTH";
-        PotionType type = PotionType.valueOf(typeString.toUpperCase());
-        Potion expectedPotion = PotionService.choosePotionType(type);
+        Player result = mockPlayer.drink(potionType.toString(), mockPlayer);
 
-        Potion actualPotion = new HealthPotion();
-
-        assertEquals(expectedPotion.getClass(), actualPotion.getClass());
-    }
-
-    @Test
-    void testManaStringToPotionType() {
-        String typeString = "mana";
-        PotionType type = PotionType.valueOf(typeString.toUpperCase());
-        Potion expectedPotion = PotionService.choosePotionType(type);
-
-        Potion actualPotion = new ManaPotion();
-
-        assertEquals(expectedPotion.getClass(), actualPotion.getClass());
+        assertEquals(mockPlayer, result);
+        assertEquals(2, result.getAmountHealthPotions());
+        assertEquals(80, result.getCurrentHealth());
     }
 }
