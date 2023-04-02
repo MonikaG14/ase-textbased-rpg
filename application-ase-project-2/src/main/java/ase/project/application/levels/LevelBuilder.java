@@ -32,11 +32,11 @@ public class LevelBuilder extends Level {
     }
 
     public LevelBuilder getDescription() {
-        startingDescription = levelDescriptionGenerator.generateDescription();
+        startingLevelDescription = levelDescriptionGenerator.generateDescription();
         return this;
     }
 
     public Level build() {
-        return new LevelBuilder(items,startingDescription, numberOfEnemies, enemies);
+        return new LevelBuilder(items, startingLevelDescription, numberOfEnemies, enemies);
     }
 }

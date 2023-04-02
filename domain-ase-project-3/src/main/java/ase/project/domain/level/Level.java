@@ -8,12 +8,12 @@ import java.util.List;
 public abstract class Level {
     protected List<Enemy> enemies;
     protected List<Item> items;
-    protected String startingDescription;
-    protected String endingDescription;
+    protected String startingLevelDescription;
+    protected String endingLevelDescription;
 
-    public Level(List<Enemy> enemies, List<Item> items, String startingDescription) {
+    public Level(List<Enemy> enemies, List<Item> items, String startingLevelDescription) {
         this.enemies = enemies;
         this.items = items;
-        this.startingDescription = startingDescription;
+        this.startingLevelDescription = startingLevelDescription;
     }
 }
