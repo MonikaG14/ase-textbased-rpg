@@ -1,4 +1,4 @@
-package ase.project.application.action.specialattack;
+package ase.project.application.action.specialattack.player;
 
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
@@ -12,7 +12,7 @@ public class FlameTsunami implements SpecialAttack {
     }
 
     @Override
-    public void performSpecialAttack(Character target, String attackName) {
+    public void performSpecialAttack(Character target) {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
         System.out.println("You did " + damage + " damage.");

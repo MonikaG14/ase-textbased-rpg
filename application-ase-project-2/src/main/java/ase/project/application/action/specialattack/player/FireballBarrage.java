@@ -1,4 +1,4 @@
-package ase.project.application.action.specialattack;
+package ase.project.application.action.specialattack.player;
 
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
@@ -12,7 +12,7 @@ public class FireballBarrage implements SpecialAttack {
     }
 
     @Override
-    public void performSpecialAttack(Character target, String attackName) {
+    public void performSpecialAttack(Character target) {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
         System.out.println("Your hands light up like a disco ball and suddenly, hundreds of tiny fireballs shoot out in all directions \nlike an over-caffeinated toddler with a sugar rush, creating a fiery rainstorm that engulfs everything in sight. \nIt's like a fireworks show, but instead of pretty colors, it's just hot, fiery destruction.");

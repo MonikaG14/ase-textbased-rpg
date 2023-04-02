@@ -1,4 +1,4 @@
-package ase.project.application.action.specialattack;
+package ase.project.application.action.specialattack.player;
 
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
@@ -12,7 +12,7 @@ public class SpinToWin implements SpecialAttack {
     }
 
     @Override
-    public void performSpecialAttack(Character target, String attackName) {
+    public void performSpecialAttack(Character target) {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
         System.out.println("As you begin to spin, your character looks more like a drunken octopus than a fearsome warrior. \nBut as the enemy stares in disbelief, your flailing arms suddenly connect with a critical hit! \nYou spin again, this time even more frantically, hoping to avoid their deadly strikes. \nYou might not look very intimidating, but you're definitely getting the job done - in your own unique way.");

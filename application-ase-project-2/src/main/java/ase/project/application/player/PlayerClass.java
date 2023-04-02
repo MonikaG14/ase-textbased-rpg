@@ -29,7 +29,7 @@ public abstract class PlayerClass extends Player {
         SpecialAttack specialAttack = SpecialAttackService.chooseSpecialAttack(specialAttackList, attackName);
         try {
             ManaService.checkMana(mana, specialAttack.getManaCost());
-            specialAttack.performSpecialAttack(target, attackName);
+            specialAttack.performSpecialAttack(target);
             mana = ManaService.useMana(mana, specialAttack.getManaCost());
         } catch (InvalidManaException manaException) {
             System.out.println(manaException.getMessage());

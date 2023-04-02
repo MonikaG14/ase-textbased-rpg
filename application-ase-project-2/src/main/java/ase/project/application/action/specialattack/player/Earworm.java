@@ -1,4 +1,4 @@
-package ase.project.application.action.specialattack;
+package ase.project.application.action.specialattack.player;
 
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
@@ -12,7 +12,7 @@ public class Earworm implements SpecialAttack {
     }
 
     @Override
-    public void performSpecialAttack(Character target, String attackName) {
+    public void performSpecialAttack(Character target) {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
         System.out.println("You just unleashed the Earworm attack. \nIt's catchy tune worms its way into your enemies' brains and refuses to let go, \nleaving them in a dazed state.");

@@ -1,7 +1,7 @@
 package ase.project.application.player;
 
-import ase.project.application.action.specialattack.Earworm;
-import ase.project.application.action.specialattack.RickRoll;
+import ase.project.application.action.specialattack.player.Earworm;
+import ase.project.application.action.specialattack.player.RickRoll;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
