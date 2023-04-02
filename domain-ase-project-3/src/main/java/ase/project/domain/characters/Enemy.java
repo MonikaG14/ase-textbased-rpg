@@ -26,4 +26,8 @@ public abstract class Enemy extends Character {
     public String getEnemyDescription() {
         return enemyDescription;
     }
+
+    public int getPower() {
+        return power;
+    }
 }
