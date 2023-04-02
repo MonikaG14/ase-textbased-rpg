@@ -1,33 +1,22 @@
 package ase.project.application.enemies;
 
-import ase.project.application.action.SpecialAttackService;
-import ase.project.application.exception.InvalidAttackException;
-import ase.project.domain.action.attack.SpecialAttack;
+import ase.project.application.action.specialattack.enemy.Infest;
+import ase.project.application.player.EnemyClass;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
-import ase.project.domain.characters.Enemy;
 
-import java.util.HashMap;
-import java.util.Map;
+public class PhyrexianMite extends EnemyClass {
 
-public class PhyrexianMite extends Enemy {
-    private final Map<String, SpecialAttack> specialAttackList;
-
-    public PhyrexianMite(String name, int currentHealth, int maxHealth, int power, Map<String, SpecialAttack> specialAttackList) {
+    public PhyrexianMite(String name, int currentHealth, int maxHealth, int power) {
         super(name, currentHealth, maxHealth, power);
-        this.specialAttackList = new HashMap<>();
+        this.specialAttackList.put(1, new Infest());
     }
 
     @Override
     public void useBasicAttack(Character target) {
         int damage = DiceRoller.rollDice(6) + this.power;
         target.takeDamage(damage);
-        System.out.println("You were hit by Phyrexian Mite for" + damage + " damage!");
-    }
-
-    public void useSpecialAttack(Character target) throws InvalidAttackException {
-        SpecialAttack specialAttack = SpecialAttackService.chooseRandomSpecialAttack(specialAttackList);
-        specialAttack.performSpecialAttack(target);
+        System.out.println("You were hit by Phyrexian Mite for " + damage + " damage!");
     }
 
     @Override
