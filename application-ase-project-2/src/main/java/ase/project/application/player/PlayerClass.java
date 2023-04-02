@@ -15,6 +15,7 @@ public abstract class PlayerClass extends Player {
     protected Map<String, SpecialAttack> specialAttackList;
     protected Map<PotionType, Integer> amountOfPotionType;
     protected final PotionService potionService;
+    protected final SpecialAttackService specialAttackService;
 
     public PlayerClass(String name, int currentHealth, int maxHealth, int mana, int amountHealthPotions, int amountManaPotions) {
         super(name, currentHealth, maxHealth, mana, amountHealthPotions, amountManaPotions);
@@ -23,10 +24,11 @@ public abstract class PlayerClass extends Player {
         amountOfPotionType.put(PotionType.HEALTH, amountHealthPotions);
         amountOfPotionType.put(PotionType.MANA, amountManaPotions);
         this.potionService = new PotionService(new PotionTypeService(), new PotionAmountService(), new PotionUsageService());
+        specialAttackService = new SpecialAttackService();
     }
 
     public void useSpecialAttack(Character target, String attackName) throws InvalidAttackException {
-        SpecialAttack specialAttack = SpecialAttackService.chooseSpecialAttack(specialAttackList, attackName);
+        SpecialAttack specialAttack = specialAttackService.chooseSpecialAttack(specialAttackList, attackName);
         try {
             ManaService.checkMana(mana, specialAttack.getManaCost());
             specialAttack.performSpecialAttack(target);
