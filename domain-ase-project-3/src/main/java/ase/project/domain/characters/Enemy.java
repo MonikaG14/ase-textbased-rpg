@@ -5,6 +5,7 @@ import java.util.List;
 public abstract class Enemy extends Character {
     protected int power;
     protected List<Enemy> enemyList;
+    protected String enemyDescription;
 
     public Enemy(String name, int currentHealth, int maxHealth, int power) {
         super(name, currentHealth, maxHealth);
@@ -22,5 +23,7 @@ public abstract class Enemy extends Character {
         deadEnemy = null;
     }
 
-    //ToDo EnemyID
+    public String getEnemyDescription() {
+        return enemyDescription;
+    }
 }
