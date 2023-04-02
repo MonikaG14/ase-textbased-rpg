@@ -1,6 +1,6 @@
 package ase.project.application.player;
 
-import ase.project.application.enemies.PhyrexianMite;
+import ase.project.application.enemies.mobs.PhyrexianMite;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.exception.InvalidManaException;
 import ase.project.domain.action.attack.SpecialAttack;

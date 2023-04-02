@@ -1,6 +1,6 @@
 package ase.project.application.player;
 
-import ase.project.application.action.SpecialAttackService;
+import ase.project.application.action.specialattack.SpecialAttackService;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
