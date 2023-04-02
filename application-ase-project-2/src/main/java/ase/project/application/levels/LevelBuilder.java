@@ -1,6 +1,6 @@
 package ase.project.application.levels;
 
-import ase.project.application.enemies.EnemyFactory;
+import ase.project.application.enemies.mobs.EnemyFactory;
 import ase.project.domain.characters.Enemy;
 import ase.project.domain.item.Item;
 import ase.project.domain.level.Level;

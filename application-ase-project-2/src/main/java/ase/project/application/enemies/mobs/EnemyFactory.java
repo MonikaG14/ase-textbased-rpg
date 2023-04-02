@@ -1,4 +1,4 @@
-package ase.project.application.enemies;
+package ase.project.application.enemies.mobs;
 
 import ase.project.domain.characters.Enemy;
 

@@ -1,4 +1,4 @@
-package ase.project.application.action;
+package ase.project.application.action.specialattack;
 
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.domain.action.attack.SpecialAttack;

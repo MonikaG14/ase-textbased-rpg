@@ -1,5 +1,6 @@
 package ase.project.application.action;
 
+import ase.project.application.action.potion.PotionUsageService;
 import ase.project.domain.characters.Player;
 import ase.project.domain.item.Potion;
 import org.junit.jupiter.api.Test;

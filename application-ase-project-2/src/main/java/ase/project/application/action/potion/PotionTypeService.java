@@ -1,4 +1,4 @@
-package ase.project.application.action;
+package ase.project.application.action.potion;
 
 import ase.project.application.item.potion.PotionFactory;
 import ase.project.application.item.potion.PotionType;

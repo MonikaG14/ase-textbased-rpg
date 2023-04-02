@@ -1,4 +1,4 @@
-package ase.project.application.action;
+package ase.project.application.action.potion;
 
 import ase.project.domain.characters.Player;
 import ase.project.domain.item.Potion;
