@@ -24,7 +24,7 @@ public class EnemyFactory {
                 Enemy enemy = constructor.newInstance(UUID.randomUUID());
                 enemies.add(enemy);
             } catch (Exception exception) {
-                throw new RuntimeException("Failed to create enemy" + exception);
+                throw new RuntimeException("Failed to create enemy " + exception);
             }
         }
         return enemies;

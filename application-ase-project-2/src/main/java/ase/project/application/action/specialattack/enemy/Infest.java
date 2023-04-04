@@ -20,6 +20,6 @@ public class Infest implements SpecialAttack {
 
     @Override
     public String getDescription() {
-        return "When the Phyrexian Mite unleashes its Infest attack. \nSuddenly, you start feeling itchy and begin to scratch yourself uncontrollably.";
+        return "Infest: When the Phyrexian Mite unleashes its Infest attack. \nSuddenly, you start feeling itchy and begin to scratch yourself uncontrollably.";
     }
 }
