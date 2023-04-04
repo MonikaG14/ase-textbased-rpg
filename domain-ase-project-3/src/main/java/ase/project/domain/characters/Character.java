@@ -18,6 +18,10 @@ public abstract class Character implements BasicAttack {
         return currentHealth;
     }
 
+    public void attackOneself(int damage) {
+        this.takeDamage(damage);
+    }
+
     public String getName() {
         return name;
     }
