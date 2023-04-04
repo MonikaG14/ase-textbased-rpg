@@ -18,17 +18,11 @@ public abstract class Character implements BasicAttack {
         return currentHealth;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getCurrentHealth() {
         return currentHealth;
-    }
-
-    public void dies(Character character) {
-        if (!checkIfDead(character)) {
-            throw new IllegalArgumentException("You died...");
-        }
-    }
-
-    public boolean checkIfDead(Character character) {
-        return character.getCurrentHealth() <= 0;
     }
 }

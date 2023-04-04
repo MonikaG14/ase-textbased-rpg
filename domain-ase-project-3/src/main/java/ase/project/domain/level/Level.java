@@ -1,5 +1,5 @@
 package ase.project.domain.level;
-
+import ase.project.domain.characters.Character;
 import ase.project.domain.characters.Enemy;
 import ase.project.domain.item.Item;
 
@@ -15,5 +15,27 @@ public abstract class Level {
         this.enemies = enemies;
         this.items = items;
         this.startingLevelDescription = startingLevelDescription;
+    }
+
+    public List<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public void checkIfDead(Character character) {
+        if (character.getCurrentHealth() <= 0) {
+            removeDeadEnemy(character);
+        }
+    }
+
+    public void removeDeadEnemy(Character enemy) {
+        enemies.remove(enemy);
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public String getStartingLevelDescription() {
+        return startingLevelDescription;
     }
 }
