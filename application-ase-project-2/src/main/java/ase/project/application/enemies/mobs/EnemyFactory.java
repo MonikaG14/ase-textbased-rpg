@@ -11,7 +11,8 @@ import java.util.UUID;
 
 public class EnemyFactory {
     private static final List<Class<? extends Enemy>> ENEMY_CLASSES = Arrays.asList(
-            PhyrexianMite.class
+            PhyrexianMite.class,
+            AbyssWatcher.class
     );
 
     public List<Enemy> createRandomEnemies(int count) {
