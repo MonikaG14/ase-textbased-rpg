@@ -11,7 +11,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class EnemyClassTest {
+class EnemyManagerTest {
     @Mock
     Astronomer mockPlayer;
 

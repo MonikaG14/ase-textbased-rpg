@@ -1,11 +1,11 @@
 package ase.project.application.enemies.mobs;
 
 import ase.project.application.action.specialattack.enemy.Infest;
-import ase.project.application.player.EnemyClass;
+import ase.project.application.player.EnemyManager;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
-public class PhyrexianMite extends EnemyClass {
+public class PhyrexianMite extends EnemyManager {
 
     public PhyrexianMite(String name, int currentHealth, int maxHealth, int power) {
         super(name, currentHealth, maxHealth, power);

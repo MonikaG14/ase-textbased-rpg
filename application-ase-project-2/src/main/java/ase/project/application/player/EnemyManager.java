@@ -10,11 +10,11 @@ import ase.project.domain.dice.DiceRoller;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class EnemyClass extends Enemy {
+public abstract class EnemyManager extends Enemy {
     protected Map<Integer, SpecialAttack> specialAttackList;
     protected SpecialAttackService specialAttackService;
 
-    public EnemyClass(String name, int currentHealth, int maxHealth, int power) {
+    public EnemyManager(String name, int currentHealth, int maxHealth, int power) {
         super(name, currentHealth, maxHealth, power);
         specialAttackService = new SpecialAttackService();
         specialAttackList = new HashMap<>();

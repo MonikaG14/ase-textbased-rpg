@@ -16,13 +16,13 @@ import ase.project.domain.characters.Player;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class PlayerClass extends Player {
+public abstract class PlayerManager extends Player {
     protected Map<String, SpecialAttack> specialAttackList;
     protected Map<PotionType, Integer> amountOfPotionType;
     protected final PotionService potionService;
     protected final SpecialAttackService specialAttackService;
 
-    public PlayerClass(String name, int currentHealth, int maxHealth, int mana, int amountHealthPotions, int amountManaPotions) {
+    public PlayerManager(String name, int currentHealth, int maxHealth, int mana, int amountHealthPotions, int amountManaPotions) {
         super(name, currentHealth, maxHealth, mana, amountHealthPotions, amountManaPotions);
         this.specialAttackList = new HashMap<>();
         this.amountOfPotionType = new HashMap<>();
@@ -43,12 +43,12 @@ public abstract class PlayerClass extends Player {
         }
     }
 
-    public Player updateAmountOfPotionType(PotionType potionType, PlayerClass player) {
+    public Player updateAmountOfPotionType(PotionType potionType, PlayerManager player) {
         this.amountOfPotionType.put(potionType, player.amountOfPotionType.get(potionType) - 1);
         return this;
     }
 
-    public Player drink(String potionType, PlayerClass player) {
+    public Player drink(String potionType, PlayerManager player) {
         return potionService.usePotion(potionType, player);
     }
 
