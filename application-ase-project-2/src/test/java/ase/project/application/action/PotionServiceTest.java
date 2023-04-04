@@ -2,7 +2,7 @@ package ase.project.application.action;
 
 import ase.project.application.item.potion.PotionType;
 import ase.project.application.player.Astronomer;
-import ase.project.application.player.PlayerClass;
+import ase.project.application.player.PlayerManager;
 import ase.project.domain.characters.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class PotionServiceTest {
     @Mock
-    PlayerClass mockPlayer;
+    PlayerManager mockPlayer;
 
     @BeforeEach
     public void setMockPlayer() {

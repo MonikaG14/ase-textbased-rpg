@@ -5,9 +5,7 @@ import ase.project.application.action.specialattack.player.RickRoll;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
-import java.util.HashMap;
-
-public class Busker extends PlayerClass {
+public class Busker extends PlayerManager {
     private final int charisma;
 
     public Busker(String name, int currentHealth, int maxHealth, int mana, int amountHealthPotions, int amountManaPotions, int charisma) {

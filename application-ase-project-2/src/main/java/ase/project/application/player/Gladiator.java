@@ -5,7 +5,7 @@ import ase.project.application.action.specialattack.player.SpinToWin;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
-public class Gladiator extends PlayerClass {
+public class Gladiator extends PlayerManager {
     private final int endurance;
 
     public Gladiator(String name, int currentHealth, int maxHealth, int mana, int amountHealthPotions, int amountManaPotions, int endurance) {

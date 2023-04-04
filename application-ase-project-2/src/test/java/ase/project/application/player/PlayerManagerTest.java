@@ -7,10 +7,10 @@ import org.mockito.Mock;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PlayerClassTest {
+class PlayerManagerTest {
 
     @Mock
-    PlayerClass player;
+    PlayerManager player;
 
     @BeforeEach
     public void setUp() {

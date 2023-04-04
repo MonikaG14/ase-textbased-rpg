@@ -1,7 +1,7 @@
 package ase.project.application.item.potion;
 
 import ase.project.application.player.Astronomer;
-import ase.project.application.player.PlayerClass;
+import ase.project.application.player.PlayerManager;
 import ase.project.domain.characters.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class HealthPotionTest {
 
     @Mock
-    PlayerClass mockPlayer;
+    PlayerManager mockPlayer;
 
     @BeforeEach
     public void setMockPlayer() {

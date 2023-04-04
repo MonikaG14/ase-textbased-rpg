@@ -5,7 +5,7 @@ import ase.project.application.action.specialattack.player.FlameTsunami;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
-public class Astronomer extends PlayerClass {
+public class Astronomer extends PlayerManager {
     private final int intelligence;
 
     public Astronomer(String name, int currentHealth, int maxHealth, int mana, int amountHealthPotions, int amountManaPotions, int intelligence) {
