@@ -1,6 +1,6 @@
 package ase.project.application.item.potion;
 
-import ase.project.application.player.Astronomer;
+import ase.project.application.player.classes.Astronomer;
 import ase.project.application.player.PlayerManager;
 import ase.project.domain.characters.Player;
 import org.junit.jupiter.api.BeforeEach;

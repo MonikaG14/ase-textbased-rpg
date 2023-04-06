@@ -3,6 +3,7 @@ package ase.project.application.player;
 import ase.project.application.enemies.mobs.PhyrexianMite;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.exception.InvalidManaException;
+import ase.project.application.player.classes.Gladiator;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Enemy;
 import ase.project.domain.dice.DiceRoller;

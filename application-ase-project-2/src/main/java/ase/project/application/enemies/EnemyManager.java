@@ -1,4 +1,4 @@
-package ase.project.application.player;
+package ase.project.application.enemies;
 
 import ase.project.application.action.specialattack.SpecialAttackService;
 import ase.project.application.exception.InvalidAttackException;

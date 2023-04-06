@@ -2,6 +2,7 @@ package ase.project.application.player;
 
 import ase.project.application.enemies.mobs.PhyrexianMite;
 import ase.project.application.exception.InvalidAttackException;
+import ase.project.application.player.classes.Astronomer;
 import ase.project.domain.dice.DiceRoller;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

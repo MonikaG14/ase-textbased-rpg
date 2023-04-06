@@ -1,7 +1,8 @@
-package ase.project.application.player;
+package ase.project.application.player.classes;
 
 import ase.project.application.action.specialattack.player.Earworm;
 import ase.project.application.action.specialattack.player.RickRoll;
+import ase.project.application.player.PlayerManager;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 

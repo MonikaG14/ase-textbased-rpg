@@ -11,14 +11,12 @@ public class LevelBuilder extends Level {
     private int numberOfEnemies;
     private final EnemyFactory enemyFactory;
     private final LevelDescriptionGenerator levelDescriptionGenerator;
-    private List<Enemy> enemies;
 
     public LevelBuilder(List<Item> items, String startingDescription, int numberOfEnemies, List<Enemy> enemies) {
         super(enemies, items, startingDescription);
         this.numberOfEnemies = numberOfEnemies;
         this.enemyFactory = new EnemyFactory();
         this.levelDescriptionGenerator = new LevelDescriptionGenerator();
-        this.enemies = enemies;
     }
 
     public LevelBuilder getNumberOfEnemies(int count) {

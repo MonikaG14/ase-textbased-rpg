@@ -3,7 +3,7 @@ package ase.project.application.enemies;
 import ase.project.application.action.specialattack.enemy.Infest;
 import ase.project.application.enemies.mobs.PhyrexianMite;
 import ase.project.application.exception.InvalidAttackException;
-import ase.project.application.player.Busker;
+import ase.project.application.player.classes.Busker;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Player;
 import ase.project.domain.dice.DiceRoller;

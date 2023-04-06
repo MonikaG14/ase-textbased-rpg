@@ -1,6 +1,6 @@
 package ase.project.application.enemies.mobs;
 
-import ase.project.application.player.EnemyManager;
+import ase.project.application.enemies.EnemyManager;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
