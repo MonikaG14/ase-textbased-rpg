@@ -1,5 +1,7 @@
-package ase.project.application.enemies.mobs;
+package ase.project.application.enemies;
 
+import ase.project.application.enemies.mobs.AbyssWatcher;
+import ase.project.application.enemies.mobs.PhyrexianMite;
 import ase.project.domain.characters.Enemy;
 
 import java.lang.reflect.Constructor;
