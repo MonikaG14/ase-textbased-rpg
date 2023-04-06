@@ -24,7 +24,7 @@ public class RickRoll implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getDescription() {
+    public String getSpecialAttackDescription() {
         return "Rick Roll: this attack is a powerful and devastating technique \nthat can completely disorient and distract enemies. Beware, though - this attack is not for the faint of heart, \nas you'll need to have a certain level of swag and style to pull it off properly.";
     }
 }

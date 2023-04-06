@@ -24,7 +24,7 @@ public class GladiatorsGambit implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getDescription() {
+    public String getSpecialAttackDescription() {
         return "Gladiator's Gambit: The gladiator intentionally loses the first few rounds of the fight \nto lull the opponent into a false sense of security, then delivers a surprise attack \nwhen they least expect it.";
     }
 }

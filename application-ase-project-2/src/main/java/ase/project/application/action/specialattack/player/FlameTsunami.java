@@ -23,7 +23,7 @@ public class FlameTsunami implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getDescription() {
+    public String getSpecialAttackDescription() {
         return "Flame Tsunami: Summon a massive wave of fire that will engulf everything in its path, because sometimes subtlety is overrated";
     }
 }

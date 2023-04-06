@@ -16,7 +16,7 @@ public class Lute implements Weapon {
             "You take it into your hands still in awe... Maybe life isn't so bad after all.";
 
     @Override
-    public String getDescription() {
+    public String getItemDescription() {
         return description;
     }
 

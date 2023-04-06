@@ -24,7 +24,7 @@ public class FireballBarrage implements SpecialAttack {
         return manaCost;
     }
 
-    public String getDescription() {
+    public String getSpecialAttackDescription() {
         return "Fireball Barrage: Summon a rain of fireballs from the sky, because why not make it rain fire?";
     }
 }

@@ -24,7 +24,7 @@ public class SpinToWin implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getDescription() {
+    public String getSpecialAttackDescription() {
         return "Spin To Win: Turn you panic-stricken daze into a deadly weapon";
     }
 }

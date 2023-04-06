@@ -24,7 +24,7 @@ public class Earworm implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getDescription() {
+    public String getSpecialAttackDescription() {
         return "Earworm: You start humming a catchy tune and infects the enemy with an ear worm, causing them to become distracted and unable to focus. \nThe enemy takes damage as their mind is consumed by the incessant melody.";
     }
 }

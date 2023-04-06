@@ -15,7 +15,7 @@ public class Longsword implements Weapon {
             "Any moment now... you will wake up and laugh at this nonsensical dream you just had... ";
 
     @Override
-    public String getDescription() {
+    public String getItemDescription() {
         return description;
     }
 
