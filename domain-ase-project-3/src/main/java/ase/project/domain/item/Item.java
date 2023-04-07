@@ -1,5 +1,9 @@
 package ase.project.domain.item;
 
-public interface Item {
-    String getItemDescription();
+public abstract class Item {
+
+    protected String keyToDescription;
+    public String getKeyToDescription() {
+        return this.keyToDescription;
+    }
 }

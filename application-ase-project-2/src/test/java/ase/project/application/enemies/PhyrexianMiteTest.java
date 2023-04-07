@@ -1,6 +1,6 @@
 package ase.project.application.enemies;
 
-import ase.project.application.action.specialattack.enemy.Infest;
+import ase.project.application.action.specialattack.enemy.Infect;
 import ase.project.application.enemies.mobs.PhyrexianMite;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.player.classes.Busker;
@@ -35,7 +35,7 @@ class PhyrexianMiteTest {
     public void setUp() {
         phyrexianMite = new PhyrexianMite("Test Mite", 35, 60,10);
         targetBusker = new Busker("Target Test Busker", 100, 100, 20, 3, 3,10);
-        specialAttack = new Infest();
+        specialAttack = new Infect();
     }
 
     @Test

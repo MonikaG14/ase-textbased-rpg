@@ -5,6 +5,8 @@ import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
 public class Earworm implements SpecialAttack {
+
+    private final String nameOfAttack = "earworm";
     private final int manaCost;
 
     public Earworm(int manaCost) {
@@ -24,7 +26,7 @@ public class Earworm implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getSpecialAttackDescription() {
-        return "Earworm: You start humming a catchy tune and infects the enemy with an ear worm, causing them to become distracted and unable to focus. \nThe enemy takes damage as their mind is consumed by the incessant melody.";
+    public String getKeyToDescription() {
+        return nameOfAttack;
     }
 }

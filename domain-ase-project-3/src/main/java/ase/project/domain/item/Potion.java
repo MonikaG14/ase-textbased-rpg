@@ -2,6 +2,7 @@ package ase.project.domain.item;
 
 import ase.project.domain.characters.Player;
 
-public interface Potion extends Item {
+public interface Potion {
+
     Player drink(Player player);
 }

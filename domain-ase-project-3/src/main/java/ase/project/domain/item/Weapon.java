@@ -1,6 +1,7 @@
 package ase.project.domain.item;
 
-public interface Weapon extends Item {
-    String getName();
+public interface Weapon {
+
+    String getNameOfWeapon();
     int getDamage();
 }

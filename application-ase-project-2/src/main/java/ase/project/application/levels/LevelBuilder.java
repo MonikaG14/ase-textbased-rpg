@@ -8,6 +8,7 @@ import ase.project.domain.level.Level;
 import java.util.List;
 
 public class LevelBuilder extends Level {
+
     private int numberOfEnemies;
     private final EnemyFactory enemyFactory;
     private final LevelDescriptionGenerator levelDescriptionGenerator;
@@ -29,7 +30,7 @@ public class LevelBuilder extends Level {
         return this;
     }
 
-    public LevelBuilder getDescription() {
+    public LevelBuilder getLevelDescription() {
         startingLevelDescription = levelDescriptionGenerator.generateDescription();
         return this;
     }

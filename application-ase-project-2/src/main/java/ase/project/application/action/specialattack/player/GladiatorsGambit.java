@@ -5,6 +5,8 @@ import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
 public class GladiatorsGambit implements SpecialAttack {
+
+    private final String nameOfAttack = "gladiators_gambit";
     private final int manaCost;
 
     public GladiatorsGambit(int manaCost) {
@@ -24,7 +26,7 @@ public class GladiatorsGambit implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getSpecialAttackDescription() {
-        return "Gladiator's Gambit: The gladiator intentionally loses the first few rounds of the fight \nto lull the opponent into a false sense of security, then delivers a surprise attack \nwhen they least expect it.";
+    public String getKeyToDescription() {
+        return nameOfAttack;
     }
 }

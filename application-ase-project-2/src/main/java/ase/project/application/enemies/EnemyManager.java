@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class EnemyManager extends Enemy {
+
+    protected String keyToDescription;
     protected Map<Integer, SpecialAttack> specialAttackList;
     protected SpecialAttackService specialAttackService;
 
@@ -37,5 +39,9 @@ public abstract class EnemyManager extends Enemy {
 
     public Map<Integer, SpecialAttack> getSpecialAttackList() {
         return specialAttackList;
+    }
+
+    public String getKeyToDescription() {
+        return keyToDescription;
     }
 }

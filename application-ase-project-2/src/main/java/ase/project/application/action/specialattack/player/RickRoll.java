@@ -5,6 +5,8 @@ import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
 public class RickRoll implements SpecialAttack {
+
+    private final String nameOfAttack = "rick_roll";
     private final int manaCost;
 
     public RickRoll(int manaCost) {
@@ -24,7 +26,7 @@ public class RickRoll implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getSpecialAttackDescription() {
-        return "Rick Roll: this attack is a powerful and devastating technique \nthat can completely disorient and distract enemies. Beware, though - this attack is not for the faint of heart, \nas you'll need to have a certain level of swag and style to pull it off properly.";
+    public String getKeyToDescription() {
+        return nameOfAttack;
     }
 }

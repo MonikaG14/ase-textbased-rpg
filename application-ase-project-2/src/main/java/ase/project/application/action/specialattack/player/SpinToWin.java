@@ -5,6 +5,8 @@ import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
 public class SpinToWin implements SpecialAttack {
+
+    private final String nameOfAttack = "spin_to_win";
     private final int manaCost;
 
     public SpinToWin(int manaCost) {
@@ -24,7 +26,7 @@ public class SpinToWin implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getSpecialAttackDescription() {
-        return "Spin To Win: Turn you panic-stricken daze into a deadly weapon";
+    public String getKeyToDescription() {
+        return nameOfAttack;
     }
 }

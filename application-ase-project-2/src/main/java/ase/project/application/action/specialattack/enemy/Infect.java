@@ -4,12 +4,13 @@ import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
-public class Infest implements SpecialAttack {
+public class Infect implements SpecialAttack {
+
     @Override
     public void performSpecialAttack(Character target) {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
-        System.out.println(this.getSpecialAttackDescription());
+        System.out.println(this.getKeyToDescription());
         System.out.println("You took " + damage + " damage.");
     }
 
@@ -19,7 +20,7 @@ public class Infest implements SpecialAttack {
     }
 
     @Override
-    public String getSpecialAttackDescription() {
-        return "Infest: When the Phyrexian Mite unleashes its Infest attack. \nSuddenly, you start feeling itchy and begin to scratch yourself uncontrollably.";
+    public String getKeyToDescription() {
+        return "Infect: When the Phyrexian Mite unleashes its Infect attack. \nSuddenly, you start feeling itchy and begin to scratch yourself uncontrollably.";
     }
 }

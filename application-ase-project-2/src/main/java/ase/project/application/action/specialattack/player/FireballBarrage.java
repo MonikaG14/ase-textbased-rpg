@@ -5,6 +5,8 @@ import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
 public class FireballBarrage implements SpecialAttack {
+
+    private final String nameOfAttack = "fireball_barrage";
     private final int manaCost;
 
     public FireballBarrage(int manaCost) {
@@ -24,7 +26,7 @@ public class FireballBarrage implements SpecialAttack {
         return manaCost;
     }
 
-    public String getSpecialAttackDescription() {
-        return "Fireball Barrage: Summon a rain of fireballs from the sky, because why not make it rain fire?";
+    public String getKeyToDescription() {
+        return nameOfAttack;
     }
 }

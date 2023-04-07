@@ -5,6 +5,8 @@ import ase.project.domain.characters.Character;
 import ase.project.domain.dice.DiceRoller;
 
 public class FlameTsunami implements SpecialAttack {
+
+    private final String nameOfAttack = "flame_tsunami";
     private final int manaCost;
 
     public FlameTsunami(int manaCost) {
@@ -23,7 +25,7 @@ public class FlameTsunami implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getSpecialAttackDescription() {
-        return "Flame Tsunami: Summon a massive wave of fire that will engulf everything in its path, because sometimes subtlety is overrated";
+    public String getKeyToDescription() {
+        return nameOfAttack;
     }
 }

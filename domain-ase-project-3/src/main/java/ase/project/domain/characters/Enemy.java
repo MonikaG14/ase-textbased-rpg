@@ -1,6 +1,7 @@
 package ase.project.domain.characters;
 
 public abstract class Enemy extends Character {
+
     protected int power;
     protected String enemyDescription;
 
