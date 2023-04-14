@@ -1,8 +1,8 @@
 package ase.project.application.levels;
 
 import ase.project.application.enemies.mobs.PhyrexianMite;
+import ase.project.application.levels.speciallevels.FirstLevel;
 import ase.project.domain.characters.Enemy;
-import ase.project.domain.item.Item;
 import ase.project.domain.level.Level;
 import org.junit.jupiter.api.Test;
 
