@@ -1,11 +1,11 @@
 package ase.project.application.action;
 
-import ase.project.application.exception.InvalidManaException;
+import ase.project.application.exception.InsufficientManaException;
 
 public class ManaService {
-    public static void checkMana(int mana, int manaCost) throws InvalidManaException {
+    public static void checkMana(int mana, int manaCost) throws InsufficientManaException {
         if (mana - manaCost < 0) {
-            throw new InvalidManaException("You do not have enough mana for this attack!");
+            throw new InsufficientManaException("You do not have enough mana for this attack!");
         }
     }
 

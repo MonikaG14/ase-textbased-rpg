@@ -1,6 +1,6 @@
 package ase.project.application.action;
 
-import ase.project.application.exception.InvalidManaException;
+import ase.project.application.exception.InsufficientManaException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +20,7 @@ class ManaServiceTest {
         int mana = 5;
         int manaCost = 10;
 
-        assertThrows(InvalidManaException.class, () -> ManaService.checkMana(mana, manaCost));
+        assertThrows(InsufficientManaException.class, () -> ManaService.checkMana(mana, manaCost));
     }
 
     @Test

@@ -2,7 +2,7 @@ package ase.project.application.player;
 
 import ase.project.application.enemies.mobs.PhyrexianMite;
 import ase.project.application.exception.InvalidAttackException;
-import ase.project.application.exception.InvalidManaException;
+import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.player.classes.Busker;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Enemy;
@@ -61,7 +61,7 @@ class BuskerTest {
     }
 
     @Test
-    void testUseSpecialAttack_performsCorrectAttack_Earworm() throws InvalidAttackException {
+    void testUseSpecialAttack_performsCorrectAttack_Earworm() throws InvalidAttackException, InsufficientManaException {
         String attackName = "Earworm";
         int diceRoll = 20;
 
@@ -79,7 +79,7 @@ class BuskerTest {
     }
 
     @Test
-    void testUseSpecialAttack_performsCorrectAttack_RickRoll() throws InvalidAttackException {
+    void testUseSpecialAttack_performsCorrectAttack_RickRoll() throws InvalidAttackException, InsufficientManaException {
         String attackName = "RickRoll";
         int diceRoll = 20;
 
@@ -96,7 +96,7 @@ class BuskerTest {
         }
     }
     @Test
-    void testUseSpecialAttack_reducesManaByCorrectAmount_Earworm() throws InvalidAttackException {
+    void testUseSpecialAttack_reducesManaByCorrectAmount_Earworm() throws InvalidAttackException, InsufficientManaException {
         String attackName = "Earworm";
 
         player.useSpecialAttack(mockTarget, attackName);
@@ -105,7 +105,7 @@ class BuskerTest {
     }
 
     @Test
-    void testUseSpecialAttack_reducesManaByCorrectAmount_RickRoll() throws InvalidAttackException {
+    void testUseSpecialAttack_reducesManaByCorrectAmount_RickRoll() throws InvalidAttackException, InsufficientManaException {
         String attackName = "RickRoll";
 
         player.useSpecialAttack(mockTarget, attackName);
@@ -117,9 +117,8 @@ class BuskerTest {
     void testUseSpecialAttack_throwsInvalidManaException() {
         String attackName = "Earworm";
 
-        assertThrows(InvalidManaException.class, () -> {
+        assertThrows(InsufficientManaException.class, () -> {
             playerWithNoMana.useSpecialAttack(mockTarget, attackName);
-            throw new InvalidManaException("You do not have enough mana for this attack!");
         });
     }
 

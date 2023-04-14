@@ -7,7 +7,7 @@ import ase.project.application.action.potion.PotionTypeService;
 import ase.project.application.action.potion.PotionUsageService;
 import ase.project.application.action.specialattack.SpecialAttackService;
 import ase.project.application.exception.InvalidAttackException;
-import ase.project.application.exception.InvalidManaException;
+import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.item.potion.PotionType;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
@@ -32,14 +32,14 @@ public abstract class PlayerManager extends Player {
         specialAttackService = new SpecialAttackService();
     }
 
-    public void useSpecialAttack(Character target, String attackName) throws InvalidAttackException {
+    public void useSpecialAttack(Character target, String attackName) throws InvalidAttackException, InsufficientManaException {
         SpecialAttack specialAttack = specialAttackService.chooseSpecialAttack(specialAttackList, attackName);
         try {
             ManaService.checkMana(mana, specialAttack.getManaCost());
             specialAttack.performSpecialAttack(target);
             mana = ManaService.useMana(mana, specialAttack.getManaCost());
-        } catch (InvalidManaException manaException) {
-            System.out.println(manaException.getMessage());
+        } catch (InsufficientManaException manaException) {
+            throw new InsufficientManaException(manaException.getMessage());
         }
     }
 

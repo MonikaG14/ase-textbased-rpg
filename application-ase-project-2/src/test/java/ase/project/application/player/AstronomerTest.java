@@ -2,7 +2,7 @@ package ase.project.application.player;
 
 import ase.project.application.enemies.mobs.PhyrexianMite;
 import ase.project.application.exception.InvalidAttackException;
-import ase.project.application.exception.InvalidManaException;
+import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.player.classes.Astronomer;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Enemy;
@@ -61,7 +61,7 @@ class AstronomerTest {
     }
 
     @Test
-    void testUseSpecialAttack_performsCorrectAttack_FireballBarrage() throws InvalidAttackException {
+    void testUseSpecialAttack_performsCorrectAttack_FireballBarrage() throws InvalidAttackException, InsufficientManaException {
         String attackName = "Fireball Barrage";
         int diceRoll = 20;
 
@@ -79,7 +79,7 @@ class AstronomerTest {
     }
 
     @Test
-    void testUseSpecialAttack_performsCorrectAttack_FlameTsunami() throws InvalidAttackException {
+    void testUseSpecialAttack_performsCorrectAttack_FlameTsunami() throws InvalidAttackException, InsufficientManaException {
         String attackName = "Flame Tsunami";
         int diceRoll = 20;
 
@@ -96,7 +96,7 @@ class AstronomerTest {
         }
     }
     @Test
-    void testUseSpecialAttack_reducesManaByCorrectAmount_FireballBarrage() throws InvalidAttackException {
+    void testUseSpecialAttack_reducesManaByCorrectAmount_FireballBarrage() throws InvalidAttackException, InsufficientManaException {
         String attackName = "Fireball Barrage";
 
         player.useSpecialAttack(mockTarget, attackName);
@@ -105,7 +105,7 @@ class AstronomerTest {
     }
 
     @Test
-    void testUseSpecialAttack_reducesManaByCorrectAmount_FlameTsunami() throws InvalidAttackException {
+    void testUseSpecialAttack_reducesManaByCorrectAmount_FlameTsunami() throws InvalidAttackException, InsufficientManaException {
         String attackName = "Flame Tsunami";
 
         player.useSpecialAttack(mockTarget, attackName);
@@ -117,9 +117,8 @@ class AstronomerTest {
     void testUseSpecialAttack_throwsInvalidManaException() {
         String attackName = "Fireball Barrage";
 
-        assertThrows(InvalidManaException.class, () -> {
+        assertThrows(InsufficientManaException.class, () -> {
             playerWithNoMana.useSpecialAttack(mockTarget, attackName);
-            throw new InvalidManaException("You do not have enough mana for this attack!");
         });
     }
 

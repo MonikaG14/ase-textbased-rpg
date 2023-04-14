@@ -2,7 +2,7 @@ package ase.project.application.player;
 
 import ase.project.application.enemies.mobs.PhyrexianMite;
 import ase.project.application.exception.InvalidAttackException;
-import ase.project.application.exception.InvalidManaException;
+import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.player.classes.Gladiator;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Enemy;
@@ -61,7 +61,7 @@ class GladiatorTest {
     }
 
     @Test
-    void testUseSpecialAttack_performsCorrectAttack_GladiatorGambit() throws InvalidAttackException {
+    void testUseSpecialAttack_performsCorrectAttack_GladiatorGambit() throws InvalidAttackException, InsufficientManaException {
         String attackName = "Gladiator's Gambit";
         int diceRoll = 20;
 
@@ -79,7 +79,7 @@ class GladiatorTest {
     }
 
     @Test
-    void testUseSpecialAttack_performsCorrectAttack_SpinToWin() throws InvalidAttackException {
+    void testUseSpecialAttack_performsCorrectAttack_SpinToWin() throws InvalidAttackException, InsufficientManaException {
         String attackName = "Spin To Win";
         int diceRoll = 20;
 
@@ -96,7 +96,7 @@ class GladiatorTest {
         }
     }
     @Test
-    void testUseSpecialAttack_reducesManaByCorrectAmount_GladiatorGambit() throws InvalidAttackException {
+    void testUseSpecialAttack_reducesManaByCorrectAmount_GladiatorGambit() throws InvalidAttackException, InsufficientManaException {
         String attackName = "Gladiator's Gambit";
 
         player.useSpecialAttack(mockTarget, attackName);
@@ -105,7 +105,7 @@ class GladiatorTest {
     }
 
     @Test
-    void testUseSpecialAttack_reducesManaByCorrectAmount_SpinToWin() throws InvalidAttackException {
+    void testUseSpecialAttack_reducesManaByCorrectAmount_SpinToWin() throws InvalidAttackException, InsufficientManaException {
         String attackName = "Spin To Win";
 
         player.useSpecialAttack(mockTarget, attackName);
@@ -117,9 +117,8 @@ class GladiatorTest {
     void testUseSpecialAttack_throwsInvalidManaException() {
         String attackName = "Gladiator's Gambit";
 
-        assertThrows(InvalidManaException.class, () -> {
+        assertThrows(InsufficientManaException.class, () -> {
             playerWithNoMana.useSpecialAttack(mockTarget, attackName);
-            throw new InvalidManaException("You do not have enough mana for this attack!");
         });
     }
 
