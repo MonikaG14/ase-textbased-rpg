@@ -1,4 +1,4 @@
-package ase.project.adapters;
+package ase.project.adapters.descriptions;
 
 import ase.project.domain.action.DescriptionLoader;
 
