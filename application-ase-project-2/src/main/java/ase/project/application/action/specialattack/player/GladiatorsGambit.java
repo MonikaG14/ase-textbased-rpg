@@ -6,7 +6,6 @@ import ase.project.domain.dice.DiceRoller;
 
 public class GladiatorsGambit implements SpecialAttack {
 
-    private final String nameOfAttack = "gladiators_gambit";
     private final int manaCost;
 
     public GladiatorsGambit(int manaCost) {
@@ -27,6 +26,11 @@ public class GladiatorsGambit implements SpecialAttack {
     }
 
     public String getKeyToDescription() {
-        return nameOfAttack;
+        return "gladiators_gambit";
+    }
+
+    @Override
+    public String getName() {
+        return "Gladiator's Gambit";
     }
 }
