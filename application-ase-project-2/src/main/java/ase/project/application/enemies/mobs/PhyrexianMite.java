@@ -8,7 +8,7 @@ import ase.project.domain.dice.DiceRoller;
 public class PhyrexianMite extends EnemyManager {
 
     public PhyrexianMite(String name, int currentHealth, int maxHealth, int power) {
-        super(name, currentHealth, maxHealth, power);
+        super("Phyrexian Mite", currentHealth, maxHealth, power);
         this.keyToDescription = "phyrexian_mite";
         this.specialAttackList.put(1, new Infect());
     }

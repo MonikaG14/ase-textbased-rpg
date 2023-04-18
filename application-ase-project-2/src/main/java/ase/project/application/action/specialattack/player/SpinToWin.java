@@ -6,7 +6,6 @@ import ase.project.domain.dice.DiceRoller;
 
 public class SpinToWin implements SpecialAttack {
 
-    private final String nameOfAttack = "spin_to_win";
     private final int manaCost;
 
     public SpinToWin(int manaCost) {
@@ -27,6 +26,11 @@ public class SpinToWin implements SpecialAttack {
     }
 
     public String getKeyToDescription() {
-        return nameOfAttack;
+        return "spin_to_win";
+    }
+
+    @Override
+    public String getName() {
+        return "Spin To Win";
     }
 }

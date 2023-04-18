@@ -23,4 +23,9 @@ public class Infect implements SpecialAttack {
     public String getKeyToDescription() {
         return "Infect: When the Phyrexian Mite unleashes its Infect attack. \nSuddenly, you start feeling itchy and begin to scratch yourself uncontrollably.";
     }
+
+    @Override
+    public String getName() {
+        return "Infect";
+    }
 }

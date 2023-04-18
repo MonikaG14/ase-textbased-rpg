@@ -6,7 +6,6 @@ import ase.project.domain.dice.DiceRoller;
 
 public class FlameTsunami implements SpecialAttack {
 
-    private final String nameOfAttack = "flame_tsunami";
     private final int manaCost;
 
     public FlameTsunami(int manaCost) {
@@ -26,6 +25,11 @@ public class FlameTsunami implements SpecialAttack {
     }
 
     public String getKeyToDescription() {
-        return nameOfAttack;
+        return "flame_tsunami";
+    }
+
+    @Override
+    public String getName() {
+        return "Flame Tsunami";
     }
 }

@@ -6,7 +6,6 @@ import ase.project.domain.dice.DiceRoller;
 
 public class Earworm implements SpecialAttack {
 
-    private final String nameOfAttack = "earworm";
     private final int manaCost;
 
     public Earworm(int manaCost) {
@@ -27,6 +26,11 @@ public class Earworm implements SpecialAttack {
     }
 
     public String getKeyToDescription() {
-        return nameOfAttack;
+        return "earworm";
+    }
+
+    @Override
+    public String getName() {
+        return "Earworm";
     }
 }

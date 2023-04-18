@@ -7,4 +7,5 @@ public interface SpecialAttack {
     void performSpecialAttack(Character target);
     int getManaCost();
     String getKeyToDescription();
+    String getName();
 }

@@ -8,7 +8,7 @@ import ase.project.domain.dice.DiceRoller;
 public class AbyssWatcher extends EnemyManager {
 
     public AbyssWatcher(String name, int currentHealth, int maxHealth, int power) {
-        super(name, currentHealth, maxHealth, power);
+        super("Abyss Watcher", currentHealth, maxHealth, power);
         this.keyToDescription = "abyss_watcher";
         this.specialAttackList.put(1, new WatchOut());
     }

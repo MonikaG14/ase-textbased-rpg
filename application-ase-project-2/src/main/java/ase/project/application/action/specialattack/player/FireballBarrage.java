@@ -6,7 +6,6 @@ import ase.project.domain.dice.DiceRoller;
 
 public class FireballBarrage implements SpecialAttack {
 
-    private final String nameOfAttack = "fireball_barrage";
     private final int manaCost;
 
     public FireballBarrage(int manaCost) {
@@ -27,6 +26,11 @@ public class FireballBarrage implements SpecialAttack {
     }
 
     public String getKeyToDescription() {
-        return nameOfAttack;
+        return "fireball_barrage";
+    }
+
+    @Override
+    public String getName() {
+        return "Fireball Barrage";
     }
 }
