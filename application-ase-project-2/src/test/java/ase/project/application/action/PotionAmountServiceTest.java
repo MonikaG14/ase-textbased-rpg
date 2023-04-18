@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PotionAmountServiceTest {
     @Mock
-    PotionAmountService potionAmountService;
+    private PotionAmountService potionAmountService;
     @Test
     void testCheckAmountOfPotions() {
         assertThrows(NullPointerException.class, () -> {

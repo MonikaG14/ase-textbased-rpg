@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PotionTypeServiceTest {
     @Mock
-    PotionTypeService potionTypeService = new PotionTypeService();
+    private PotionTypeService potionTypeService = new PotionTypeService();
 
     @Test
     void testChoosePotionType() {

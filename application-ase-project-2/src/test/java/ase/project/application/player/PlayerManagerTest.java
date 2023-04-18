@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerManagerTest {
 
     @Mock
-    PlayerManager player;
+    private PlayerManager player;
 
     @BeforeEach
     public void setUp() {

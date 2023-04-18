@@ -26,7 +26,7 @@ class GladiatorTest {
     private Enemy target;
 
     @Mock
-    Enemy mockTarget;
+    private Enemy mockTarget;
 
     @BeforeEach
     public void setUp() {

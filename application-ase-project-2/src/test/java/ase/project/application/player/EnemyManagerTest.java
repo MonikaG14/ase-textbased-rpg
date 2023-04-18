@@ -14,7 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class EnemyManagerTest {
     @Mock
-    Astronomer mockPlayer;
+    private Astronomer mockPlayer;
 
     @Test
     void chooseBetweenSpecialAndBasicAttack_BasicAttack() throws InvalidAttackException {

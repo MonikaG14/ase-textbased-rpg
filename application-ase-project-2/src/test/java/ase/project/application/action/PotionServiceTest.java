@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class PotionServiceTest {
     @Mock
-    PlayerManager mockPlayer;
+    private PlayerManager mockPlayer;
 
     @BeforeEach
     public void setMockPlayer() {

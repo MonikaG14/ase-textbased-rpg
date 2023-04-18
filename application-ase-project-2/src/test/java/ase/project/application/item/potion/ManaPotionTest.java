@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ManaPotionTest {
 
     @Mock
-    PlayerManager mockPlayer;
+    private PlayerManager mockPlayer;
 
     @BeforeEach
     public void setMockPlayer() {

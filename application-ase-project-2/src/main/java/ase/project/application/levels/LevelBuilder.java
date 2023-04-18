@@ -6,6 +6,7 @@ import ase.project.domain.item.Item;
 import ase.project.domain.level.Level;
 
 import java.util.List;
+import java.util.Map;
 
 public class LevelBuilder extends Level {
 
@@ -13,7 +14,7 @@ public class LevelBuilder extends Level {
     private final EnemyFactory enemyFactory;
     private final LevelDescriptionGenerator levelDescriptionGenerator;
 
-    public LevelBuilder(List<Item> items, String startingDescription, int numberOfEnemies, List<Enemy> enemies) {
+    public LevelBuilder(Map<Integer, Enemy> enemies, List<Item> items, String startingDescription, int numberOfEnemies) {
         super(enemies, items, startingDescription);
         this.numberOfEnemies = numberOfEnemies;
         this.enemyFactory = new EnemyFactory();
@@ -36,6 +37,6 @@ public class LevelBuilder extends Level {
     }
 
     public Level build() {
-        return new LevelBuilder(items, startingLevelDescription, numberOfEnemies, enemies);
+        return new LevelBuilder(enemies, items, startingLevelDescription, numberOfEnemies);
     }
 }

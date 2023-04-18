@@ -24,12 +24,12 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 class PhyrexianMiteTest {
     @Mock
-    Player mockTargetPlayer;
+    private Player mockTargetPlayer;
     @Mock
-    PhyrexianMite phyrexianMite;
+    private PhyrexianMite phyrexianMite;
     @Mock
-    SpecialAttack specialAttack;
-    Busker targetBusker;
+    private SpecialAttack specialAttack;
+    private Busker targetBusker;
 
     @BeforeEach
     public void setUp() {
