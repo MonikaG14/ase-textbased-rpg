@@ -11,7 +11,7 @@ import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.item.potion.PotionType;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
-import ase.project.domain.characters.Player;
+import ase.project.domain.characters.player.Player;
 
 import java.util.HashMap;
 import java.util.Map;

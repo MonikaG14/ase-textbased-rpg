@@ -1,6 +1,6 @@
 package ase.project.application.item.potion;
 
-import ase.project.domain.characters.Player;
+import ase.project.domain.characters.player.Player;
 import ase.project.domain.item.Item;
 import ase.project.domain.item.Potion;
 

@@ -3,7 +3,7 @@ package ase.project.adapters.player;
 import ase.project.application.player.classes.Astronomer;
 import ase.project.application.player.classes.Busker;
 import ase.project.application.player.classes.Gladiator;
-import ase.project.domain.characters.Player;
+import ase.project.domain.characters.player.Player;
 
 import java.util.HashMap;
 import java.util.Map;

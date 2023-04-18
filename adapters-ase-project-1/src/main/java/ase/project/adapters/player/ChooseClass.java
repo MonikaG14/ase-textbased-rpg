@@ -1,7 +1,7 @@
 package ase.project.adapters.player;
 
 import ase.project.domain.action.InputProvider;
-import ase.project.domain.characters.Player;
+import ase.project.domain.characters.player.Player;
 
 import java.util.Map;
 import java.util.function.Supplier;

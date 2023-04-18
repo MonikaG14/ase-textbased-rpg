@@ -1,4 +1,4 @@
-package ase.project.domain.characters;
+package ase.project.domain.characters.player;
 
 import java.util.Objects;
 import java.util.UUID;

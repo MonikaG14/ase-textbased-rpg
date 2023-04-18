@@ -1,4 +1,6 @@
-package ase.project.domain.characters;
+package ase.project.domain.characters.player;
+
+import ase.project.domain.characters.Character;
 
 public abstract class Player extends Character {
     protected int id;
@@ -50,5 +52,9 @@ public abstract class Player extends Character {
 
     public int getAmountManaPotions() {
         return amountManaPotions;
+    }
+
+    public Player getPlayer() {
+        return this;
     }
 }

@@ -3,7 +3,7 @@ package ase.project.application.action.potion;
 import ase.project.application.item.potion.PotionFactory;
 import ase.project.application.item.potion.PotionType;
 import ase.project.application.player.PlayerManager;
-import ase.project.domain.characters.Player;
+import ase.project.domain.characters.player.Player;
 import ase.project.domain.item.Potion;
 
 public class PotionService {

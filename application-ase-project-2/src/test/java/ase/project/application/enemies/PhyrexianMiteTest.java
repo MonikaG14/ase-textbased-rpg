@@ -5,7 +5,7 @@ import ase.project.application.enemies.mobs.PhyrexianMite;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.player.classes.Busker;
 import ase.project.domain.action.attack.SpecialAttack;
-import ase.project.domain.characters.Player;
+import ase.project.domain.characters.player.Player;
 import ase.project.domain.dice.DiceRoller;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
