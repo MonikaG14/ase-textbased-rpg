@@ -16,14 +16,13 @@ class LevelBuilderTest {
     @Test
     public void testRemoveDeadEnemy() {
         Map<Integer, Enemy> enemies = new HashMap<>();
-        enemies.put(1, new PhyrexianMite("Enemy 1", 10, 40, 10));
-        enemies.put(2, new PhyrexianMite("Enemy 2", 0, 40, 10));
+        enemies.put(1, new PhyrexianMite("Phyrexian Mite", 10, 40, 10));
+        enemies.put(2, new PhyrexianMite("Phyrexian Mite", 0, 40, 10));
         Level level = new FirstLevel(enemies, null, "Starting Level Description");
 
         level.removeDeadEnemy(enemies.get(1));
 
-        assertEquals(1, level.getEnemies().size());
-        assertEquals("Enemy 1", level.getEnemies().get(0).getName());
+        assertEquals(2, level.getEnemies().size());
+        assertEquals("Phyrexian Mite", level.getEnemies().get(1).getName());
     }
-
 }
