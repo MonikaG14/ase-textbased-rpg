@@ -12,9 +12,11 @@ public class DescriptionLoaderImpl implements DescriptionLoader {
 
     private final Map<String, String> descriptions;
 
-    public DescriptionLoaderImpl(String filename) {
+
+    public DescriptionLoaderImpl() {
         this.descriptions = new HashMap<>();
-        loadDescription(filename);
+        String PATH = System.getProperty("user.dir") + "/descriptions.txt";
+        loadDescription(PATH);
     }
 
     @Override
