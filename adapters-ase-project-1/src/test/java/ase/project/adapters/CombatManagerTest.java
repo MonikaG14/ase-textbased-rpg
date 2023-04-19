@@ -3,6 +3,8 @@ package ase.project.adapters;
 import ase.project.application.enemies.EnemyFactory;
 import ase.project.application.enemies.mobs.AbyssWatcher;
 import ase.project.application.enemies.mobs.PhyrexianMite;
+import ase.project.application.exception.InsufficientManaException;
+import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.levels.LevelBuilder;
 import ase.project.application.player.PlayerManager;
 import ase.project.application.player.classes.Astronomer;
@@ -17,8 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class CombatManagerTest {
 
@@ -93,5 +94,9 @@ class CombatManagerTest {
 
     @Test
     void useSpecialAttackOnTarget() {
+    }
+
+    @Test
+    void chooseBetweenSpecialAndBasicAttack() {
     }
 }

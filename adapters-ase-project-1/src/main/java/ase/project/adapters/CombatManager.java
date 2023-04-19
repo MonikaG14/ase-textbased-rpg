@@ -20,8 +20,33 @@ public class CombatManager {
         this.inputProvider = inputProvider;
     }
 
+    public void chooseBetweenSpecialAndBasicAttack(PlayerManager player, Level level) throws InsufficientManaException, InvalidAttackException {
+        System.out.println("Do you want to use your basic or your special attack? ");
+        System.out.println("1. Basic Attack");
+        System.out.println("2. Special Attack");
+
+        boolean validChoice = false;
+        do {
+            int choice = inputProvider.readInt();
+            if (choice == 1) {
+                this.useBasicAttackOnTarget(player, level);
+                validChoice = true;
+            } else if (choice == 2) {
+                this.useSpecialAttackOnTarget(player, level);
+                validChoice = true;
+            } else {
+                System.out.println("Invalid choice. Please choose again.");
+            }
+        } while (!validChoice);
+    }
+
+    public void useBasicAttackOnTarget(PlayerManager player, Level level) {
+        Enemy enemy = this.chooseTarget(level);
+        player.useBasicAttack(enemy);
+    }
+
     public void useSpecialAttackOnTarget(PlayerManager player, Level level) throws InsufficientManaException, InvalidAttackException {
-        String attackName = chooseSpecialAttack(player);
+        String attackName = this.chooseSpecialAttack(player);
         Enemy enemy = chooseTarget(level);
         player.useSpecialAttack(enemy, attackName);
     }
@@ -34,7 +59,6 @@ public class CombatManager {
 
             if (choice >= 1 && choice <= attackMap.size()) {
                 SpecialAttack specialAttack = attackMap.get(choice);
-                // String key = (String) attackMap.keySet().toArray()[choice - 1];
                 return specialAttack.getName();
             } else {
                 System.out.println("Invalid choice. Please choose again.");
@@ -49,7 +73,6 @@ public class CombatManager {
             int choice = inputProvider.readInt();
 
             if (choice >= 1 && choice <= enemyMap.size()) {
-                // String key = (String) enemyMap.keySet().toArray() [choice - 1];
                 return enemyMap.get(choice);
             } else {
                 System.out.println("Invalid choice. Please choose again.");
