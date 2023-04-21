@@ -1,6 +1,7 @@
 package ase.project.domain.level;
 import ase.project.domain.characters.Character;
-import ase.project.domain.characters.Enemy;
+import ase.project.domain.characters.enemy.Enemy;
+import ase.project.domain.characters.enemy.EnemyFactory;
 import ase.project.domain.item.Item;
 
 import java.util.List;
@@ -13,20 +14,21 @@ public abstract class Level {
     protected String startingLevelDescription;
     protected String endingLevelDescription;
 
+    protected EnemyFactory enemyFactory;
+
     public Level(Map<Integer, Enemy> enemies, List<Item> items, String startingLevelDescription) {
         this.enemies = enemies;
         this.items = items;
         this.startingLevelDescription = startingLevelDescription;
     }
 
-    public Map<Integer, Enemy> getEnemies() {
+    public Map<Integer, Enemy> createEnemies(int numberOfEnemies) {
+        enemies = enemyFactory.createRandomEnemies(numberOfEnemies);
         return enemies;
     }
 
-    public void checkIfDead(Character character) {
-        if (character.getCurrentHealth() <= 0) {
-            removeDeadEnemy(character);
-        }
+    public Map<Integer, Enemy> getEnemies() {
+        return enemies;
     }
 
     public void removeDeadEnemy(Character enemy) {
