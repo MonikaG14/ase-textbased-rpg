@@ -34,4 +34,8 @@ public abstract class Character implements BasicAttack {
     public int getMaxHealth() {
         return maxHealth;
     }
+
+    public boolean isDead() {
+        return currentHealth <= 0;
+    }
 }
