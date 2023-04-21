@@ -1,4 +1,6 @@
-package ase.project.domain.characters;
+package ase.project.domain.characters.enemy;
+
+import ase.project.domain.characters.Character;
 
 public abstract class Enemy extends Character {
 

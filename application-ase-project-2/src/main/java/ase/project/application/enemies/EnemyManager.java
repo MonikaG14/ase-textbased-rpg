@@ -4,7 +4,7 @@ import ase.project.application.action.specialattack.SpecialAttackService;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.Character;
-import ase.project.domain.characters.Enemy;
+import ase.project.domain.characters.enemy.Enemy;
 import ase.project.domain.dice.DiceRoller;
 
 import java.util.HashMap;

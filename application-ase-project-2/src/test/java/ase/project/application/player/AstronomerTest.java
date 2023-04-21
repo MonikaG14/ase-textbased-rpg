@@ -5,7 +5,7 @@ import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.player.classes.Astronomer;
 import ase.project.domain.action.attack.SpecialAttack;
-import ase.project.domain.characters.Enemy;
+import ase.project.domain.characters.enemy.Enemy;
 import ase.project.domain.dice.DiceRoller;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

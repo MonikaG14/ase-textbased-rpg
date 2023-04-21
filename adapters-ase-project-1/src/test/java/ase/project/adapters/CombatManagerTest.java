@@ -1,16 +1,14 @@
 package ase.project.adapters;
 
-import ase.project.application.enemies.EnemyFactory;
+import ase.project.application.enemies.EnemyFactoryImpl;
 import ase.project.application.enemies.mobs.AbyssWatcher;
 import ase.project.application.enemies.mobs.PhyrexianMite;
-import ase.project.application.exception.InsufficientManaException;
-import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.levels.LevelBuilder;
 import ase.project.application.player.PlayerManager;
 import ase.project.application.player.classes.Astronomer;
 import ase.project.domain.action.InputProvider;
 import ase.project.domain.action.attack.SpecialAttack;
-import ase.project.domain.characters.Enemy;
+import ase.project.domain.characters.enemy.Enemy;
 import ase.project.domain.level.Level;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -23,10 +21,11 @@ import static org.mockito.Mockito.*;
 
 class CombatManagerTest {
 
-    private final EnemyFactory enemyFactory = new EnemyFactory();
-    private final Map<Integer, Enemy> enemyMap = enemyFactory.createRandomEnemies(3);
+    private final EnemyFactoryImpl enemyFactoryImpl = new EnemyFactoryImpl();
+    private final Map<Integer, Enemy> enemyMap = enemyFactoryImpl.createRandomEnemies(3);
     private final Astronomer astronomer = new Astronomer("Test", 10, 40, 20, 2, 2, 10);
     private final LevelBuilder levelBuilder = new LevelBuilder(enemyMap, null, null, 3);
+   private final DeathObserverManager deathObserverManager = new DeathObserverManager();
     @Mock
     private InputProvider inputProvider;
 
