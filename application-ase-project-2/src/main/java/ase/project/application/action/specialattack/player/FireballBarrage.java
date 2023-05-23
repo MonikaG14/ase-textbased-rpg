@@ -16,8 +16,8 @@ public class FireballBarrage implements SpecialAttack {
     public void performSpecialAttack(Character target) {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
-        System.out.println("Your hands light up like a disco ball and suddenly, hundreds of tiny fireballs shoot out in all directions \nlike an over-caffeinated toddler with a sugar rush, creating a fiery rainstorm that engulfs everything in sight. \nIt's like a fireworks show, but instead of pretty colors, it's just hot, fiery destruction.");
-        System.out.println("You did " + damage + " damage.");
+        System.out.println("Your hands light up like a disco ball and suddenly, hundreds of tiny fireballs shoot out in all directions \nlike an over-caffeinated toddler with a sugar rush, creating a fiery rainstorm that engulfs everything in sight. \nIt's like a fireworks show, but instead of pretty colors, it's just hot, fiery destruction.\n");
+        System.out.println("You did " + damage + " damage.\n");
     }
 
     @Override

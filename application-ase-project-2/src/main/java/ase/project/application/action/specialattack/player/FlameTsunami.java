@@ -16,7 +16,7 @@ public class FlameTsunami implements SpecialAttack {
     public void performSpecialAttack(Character target) {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
-        System.out.println("You did " + damage + " damage.");
+        System.out.println("You did " + damage + " damage.\n");
     }
 
     @Override

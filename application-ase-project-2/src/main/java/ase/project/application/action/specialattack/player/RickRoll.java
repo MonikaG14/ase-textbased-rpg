@@ -16,8 +16,8 @@ public class RickRoll implements SpecialAttack {
     public void performSpecialAttack(Character target) {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
-        System.out.println("With a quick strum of your guitar and a mischievous glint in your eye, \nyou unleash a devastating barrage of never gonna give you up's and never gonna let you down's. \nYour enemies are left stunned and singing along as they're pelted with the unrelenting force \nof Rick Astley's timeless melody.");
-        System.out.println("You did" + damage + " damage.");
+        System.out.println("With a quick strum of your guitar and a mischievous glint in your eye, \nyou unleash a devastating barrage of never gonna give you up's and never gonna let you down's. \nYour enemies are left stunned and singing along as they're pelted with the unrelenting force \nof Rick Astley's timeless melody.\n");
+        System.out.println("You did" + damage + " damage.\n");
     }
 
     @Override
@@ -31,6 +31,6 @@ public class RickRoll implements SpecialAttack {
 
     @Override
     public String getName() {
-        return "Rick Roll";
+        return "RickRoll";
     }
 }

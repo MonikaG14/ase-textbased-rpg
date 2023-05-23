@@ -17,7 +17,7 @@ public class SpinToWin implements SpecialAttack {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
         System.out.println("As you begin to spin, your character looks more like a drunken octopus than a fearsome warrior. \nBut as the enemy stares in disbelief, your flailing arms suddenly connect with a critical hit! \nYou spin again, this time even more frantically, hoping to avoid their deadly strikes. \nYou might not look very intimidating, but you're definitely getting the job done - in your own unique way.");
-        System.out.println("You did" + damage + " damage.");
+        System.out.println("You did" + damage + " damage.\n");
     }
 
     @Override

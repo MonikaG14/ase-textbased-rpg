@@ -17,7 +17,7 @@ public class GladiatorsGambit implements SpecialAttack {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
         System.out.println("Scared to the core, you feel as if your limbs are made of lead. \nMoving them feels like rolling Sisyphus's boulder up a mountain. As if emerging from a dream, \nyou notice that your enemies are distracted, busy laughing at your silly expressions. Your chance to strike is now or never.");
-        System.out.println("You did" + damage + " damage.");
+        System.out.println("You did" + damage + " damage.\n");
     }
 
     @Override

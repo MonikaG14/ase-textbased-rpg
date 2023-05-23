@@ -17,7 +17,7 @@ public class Earworm implements SpecialAttack {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
         System.out.println("You just unleashed the Earworm attack. \nIt's catchy tune worms its way into your enemies' brains and refuses to let go, \nleaving them in a dazed state.");
-        System.out.println("You did" + damage + " damage.");
+        System.out.println("You did" + damage + " damage.\n");
     }
 
     @Override
