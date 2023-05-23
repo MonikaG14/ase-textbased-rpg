@@ -5,22 +5,24 @@ import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.player.PlayerManager;
 import ase.project.domain.action.InputProvider;
 import ase.project.domain.action.attack.SpecialAttack;
-import ase.project.domain.characters.Enemy;
+import ase.project.domain.characters.enemy.Enemy;
 import ase.project.domain.level.Level;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class CombatManager {
+public class PlayerCombatManager {
     private final InputProvider inputProvider;
+    private final DeathObserverManager deathObserverManager;
     private Map<Integer, SpecialAttack> attackMap;
     private Map<Integer, Enemy> enemyMap;
 
-    public CombatManager(InputProvider inputProvider) {
+    public PlayerCombatManager(InputProvider inputProvider) {
         this.inputProvider = inputProvider;
+        this.deathObserverManager = new DeathObserverManager();
     }
 
-    public void chooseBetweenSpecialAndBasicAttack(PlayerManager player, Level level) throws InsufficientManaException, InvalidAttackException {
+    public void chooseBetweenSpecialAndBasicAttack(PlayerManager player, Level level) throws InvalidAttackException {
         System.out.println("Do you want to use your basic or your special attack? ");
         System.out.println("1. Basic Attack");
         System.out.println("2. Special Attack");
@@ -43,12 +45,23 @@ public class CombatManager {
     public void useBasicAttackOnTarget(PlayerManager player, Level level) {
         Enemy enemy = this.chooseTarget(level);
         player.useBasicAttack(enemy);
+        deathObserverManager.checkIfDead(enemy, level);
     }
 
-    public void useSpecialAttackOnTarget(PlayerManager player, Level level) throws InsufficientManaException, InvalidAttackException {
-        String attackName = this.chooseSpecialAttack(player);
-        Enemy enemy = chooseTarget(level);
-        player.useSpecialAttack(enemy, attackName);
+    public void useSpecialAttackOnTarget(PlayerManager player, Level level) throws InvalidAttackException {
+        boolean validChoice = false;
+        while (!validChoice) {
+            String attackName = this.chooseSpecialAttack(player);
+            Enemy enemy = chooseTarget(level);
+            try {
+                player.useSpecialAttack(enemy, attackName);
+                deathObserverManager.checkIfDead(enemy, level);
+                validChoice = true; // Break out of the loop if the attack is successful
+            } catch (InsufficientManaException e) {
+                System.out.println("You do not have enough mana for this attack!");
+                System.out.println("Please choose again.");
+            }
+        }
     }
 
     public String chooseSpecialAttack(PlayerManager player) {
@@ -72,7 +85,7 @@ public class CombatManager {
         while (true) {
             int choice = inputProvider.readInt();
 
-            if (choice >= 1 && choice <= enemyMap.size()) {
+            if (enemyMap.containsKey(choice)) {
                 return enemyMap.get(choice);
             } else {
                 System.out.println("Invalid choice. Please choose again.");

@@ -3,7 +3,6 @@ package ase.project.adapters;
 import ase.project.application.enemies.EnemyFactoryImpl;
 import ase.project.application.enemies.mobs.AbyssWatcher;
 import ase.project.application.enemies.mobs.PhyrexianMite;
-import ase.project.application.levels.LevelBuilder;
 import ase.project.application.player.PlayerManager;
 import ase.project.application.player.classes.Astronomer;
 import ase.project.domain.action.InputProvider;
@@ -19,13 +18,12 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class CombatManagerTest {
+class PlayerCombatManagerTest {
 
     private final EnemyFactoryImpl enemyFactoryImpl = new EnemyFactoryImpl();
     private final Map<Integer, Enemy> enemyMap = enemyFactoryImpl.createRandomEnemies(3);
     private final Astronomer astronomer = new Astronomer("Test", 10, 40, 20, 2, 2, 10);
-    private final LevelBuilder levelBuilder = new LevelBuilder(enemyMap, null, null, 3);
-   private final DeathObserverManager deathObserverManager = new DeathObserverManager();
+    private final Level level = new Level(enemyMap, null);
     @Mock
     private InputProvider inputProvider;
 
@@ -46,10 +44,10 @@ class CombatManagerTest {
 
         InputProvider inputProvider = mock(InputProvider.class);
         when(inputProvider.readInt()).thenReturn(2);
-        CombatManager combatManager = new CombatManager(inputProvider);
+        PlayerCombatManager playerCombatManager = new PlayerCombatManager(inputProvider);
 
 
-        String result = combatManager.chooseSpecialAttack(player);
+        String result = playerCombatManager.chooseSpecialAttack(player);
         assertEquals("Special Attack 2", result);
     }
 
@@ -64,18 +62,18 @@ class CombatManagerTest {
 
         InputProvider inputProvider = mock(InputProvider.class);
         when(inputProvider.readInt()).thenReturn(2);
-        CombatManager combatManager = new CombatManager(inputProvider);
+        PlayerCombatManager playerCombatManager = new PlayerCombatManager(inputProvider);
 
 
-        Enemy chosenEnemy = combatManager.chooseTarget(level);
+        Enemy chosenEnemy = playerCombatManager.chooseTarget(level);
         assertEquals("Abyss Watcher", chosenEnemy.getName());
     }
 
     @Test
     void iterateSpecialAttacks() {
-        CombatManager combatManager = new CombatManager(inputProvider);
+        PlayerCombatManager playerCombatManager = new PlayerCombatManager(inputProvider);
 
-        Map<Integer, SpecialAttack> attackMap = combatManager.iterateSpecialAttacks(astronomer);
+        Map<Integer, SpecialAttack> attackMap = playerCombatManager.iterateSpecialAttacks(astronomer);
 
         assertEquals(2, attackMap.size());
         assertEquals("Fireball Barrage", attackMap.get(1).getName());
@@ -84,9 +82,9 @@ class CombatManagerTest {
 
     @Test
     void iterateEnemies() {
-        CombatManager combatManager = new CombatManager(inputProvider);
+        PlayerCombatManager playerCombatManager = new PlayerCombatManager(inputProvider);
 
-        Map<Integer, Enemy> enemyMap = combatManager.iterateEnemies(levelBuilder);
+        Map<Integer, Enemy> enemyMap = playerCombatManager.iterateEnemies(level);
 
         assertEquals(3, enemyMap.size());
     }
