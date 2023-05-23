@@ -9,7 +9,7 @@ public class SoldierOfGodrick extends EnemyManager {
 
     public SoldierOfGodrick(String name, int currentHealth, int maxHealth, int power) {
         super("Soldier of Godrick", currentHealth, maxHealth, power);
-        this.keyToDescription = "soldier_of_godrick";
+        this.keyToDescription = "soldier";
         this.specialAttackList.put(1, new RingOfChaos());
     }
 

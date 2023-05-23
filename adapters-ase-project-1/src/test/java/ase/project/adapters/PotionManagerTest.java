@@ -1,6 +1,7 @@
 package ase.project.adapters;
 
 import ase.project.adapters.input.ScannerInputProvider;
+import ase.project.adapters.potion.PotionManager;
 import ase.project.application.item.potion.PotionType;
 import ase.project.application.player.PlayerManager;
 import ase.project.application.player.classes.Busker;

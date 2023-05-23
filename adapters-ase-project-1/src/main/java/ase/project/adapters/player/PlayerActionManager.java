@@ -1,6 +1,6 @@
-package ase.project.adapters;
+package ase.project.adapters.player;
 
-import ase.project.adapters.player.PlayerStatsAdapter;
+import ase.project.adapters.potion.PotionManager;
 import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.player.PlayerManager;
@@ -22,7 +22,7 @@ public class PlayerActionManager {
         this.playerStatsAdapter = new PlayerStatsAdapter(playerStatsRepository);
     }
 
-    public void chooseAction(PlayerManager player, Level level) throws InsufficientManaException, InvalidAttackException {
+    public void chooseAction(PlayerManager player, Level level) throws InvalidAttackException {
         this.iterateMessages();
         int choice;
 

@@ -1,4 +1,4 @@
-package ase.project.adapters;
+package ase.project.adapters.potion;
 
 import ase.project.application.item.potion.PotionType;
 import ase.project.application.player.PlayerManager;

@@ -1,5 +1,7 @@
 package ase.project.adapters;
 
+import ase.project.adapters.enemy.EnemyCombatManager;
+import ase.project.adapters.player.PlayerActionManager;
 import ase.project.application.enemies.EnemyManager;
 import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.exception.InvalidAttackException;
@@ -32,14 +34,14 @@ public class GameCombatManager {
         this.currentCharacterIndex = 0;
     }
 
-    public boolean startCombat() throws InvalidAttackException, InsufficientManaException {
+    public boolean startCombat() throws InvalidAttackException {
         while (!enemies.isEmpty()) {
             runLevelCombat();
         }
         return true;
     }
 
-    public void runLevelCombat() throws InsufficientManaException, InvalidAttackException {
+    public void runLevelCombat() throws InvalidAttackException {
         boolean playerTurn = true;
 
         while (!enemies.isEmpty() && !player.isDead()) {
