@@ -2,23 +2,25 @@ package ase.project.domain.level;
 import ase.project.domain.characters.Character;
 import ase.project.domain.characters.enemy.Enemy;
 import ase.project.domain.characters.enemy.EnemyFactory;
-import ase.project.domain.item.Item;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-public abstract class Level {
+public class Level {
 
     protected Map<Integer, Enemy> enemies;
-    protected List<Item> items;
     protected String startingLevelDescription;
-    protected String endingLevelDescription;
-
     protected EnemyFactory enemyFactory;
 
-    public Level(Map<Integer, Enemy> enemies, List<Item> items, String startingLevelDescription) {
+
+    public Level(Map<Integer, Enemy> enemies) {
         this.enemies = enemies;
-        this.items = items;
+    }
+
+    public Level(Map<Integer, Enemy> enemies, String startingLevelDescription) {
+        this.enemies = enemies;
         this.startingLevelDescription = startingLevelDescription;
     }
 
@@ -31,15 +33,21 @@ public abstract class Level {
         return enemies;
     }
 
-    public void removeDeadEnemy(Character enemy) {
-        enemies.remove(enemy);
-    }
 
-    public List<Item> getItems() {
-        return items;
+    public void removeDeadEnemy(Character enemy) {
+        for (Map.Entry<Integer, Enemy> entry : enemies.entrySet()) {
+            if (entry.getValue().equals(enemy)) {
+                enemies.remove(entry.getKey());
+                break;
+            }
+        }
     }
 
     public String getStartingLevelDescription() {
         return startingLevelDescription;
+    }
+
+    public boolean isFinalLevel() {
+        return false;
     }
 }
