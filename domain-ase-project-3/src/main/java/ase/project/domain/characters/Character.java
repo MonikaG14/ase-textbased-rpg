@@ -38,4 +38,9 @@ public abstract class Character implements BasicAttack {
     public boolean isDead() {
         return currentHealth <= 0;
     }
+
+    public void dies() {
+        System.out.println("You died...");
+        System.exit(0);
+    }
 }

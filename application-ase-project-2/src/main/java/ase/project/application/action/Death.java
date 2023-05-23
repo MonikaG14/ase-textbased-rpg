@@ -17,19 +17,18 @@ public class Death implements DeathObserver {
     @Override
     public void onCharacterDeath(Character character) {
         if (character instanceof Player) {
-            onPlayerDeath();
+            onPlayerDeath(character);
         } else if (character instanceof Enemy) {
             onEnemyDeath((Enemy) character);
         }
     }
 
-    public void onPlayerDeath() {
-        System.exit(0);
-        throw new IllegalArgumentException("You died...");
+    public void onPlayerDeath(Character character) {
+        character.dies();
     }
 
     public void onEnemyDeath(Enemy enemy) {
         level.removeDeadEnemy(enemy);
-        System.out.println("Congratulations! " + enemy + " died!");
+        enemy.dies();
     }
 }
