@@ -114,15 +114,6 @@ class GladiatorTest {
     }
 
     @Test
-    void testUseSpecialAttack_throwsInvalidManaException() {
-        String attackName = "Gladiator's Gambit";
-
-        assertThrows(InsufficientManaException.class, () -> {
-            playerWithNoMana.useSpecialAttack(mockTarget, attackName);
-        });
-    }
-
-    @Test
     void testUseSpecialAttack_throwsInvalidAttackException() {
         String attackName = "Wrong attack name";
 

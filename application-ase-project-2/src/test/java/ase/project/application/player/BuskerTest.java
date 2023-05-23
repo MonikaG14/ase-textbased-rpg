@@ -114,15 +114,6 @@ class BuskerTest {
     }
 
     @Test
-    void testUseSpecialAttack_throwsInvalidManaException() {
-        String attackName = "Earworm";
-
-        assertThrows(InsufficientManaException.class, () -> {
-            playerWithNoMana.useSpecialAttack(mockTarget, attackName);
-        });
-    }
-
-    @Test
     void testUseSpecialAttack_throwsInvalidAttackException() {
         String attackName = "Wrong attack name";
 

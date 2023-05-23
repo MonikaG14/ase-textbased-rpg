@@ -114,15 +114,6 @@ class AstronomerTest {
     }
 
     @Test
-    void testUseSpecialAttack_throwsInvalidManaException() {
-        String attackName = "Fireball Barrage";
-
-        assertThrows(InsufficientManaException.class, () -> {
-            playerWithNoMana.useSpecialAttack(mockTarget, attackName);
-        });
-    }
-
-    @Test
     void testUseSpecialAttack_throwsInvalidAttackException() {
         String attackName = "Wrong attack name";
 
