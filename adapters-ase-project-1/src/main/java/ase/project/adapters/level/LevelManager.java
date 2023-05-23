@@ -1,10 +1,12 @@
-package ase.project.adapters;
+package ase.project.adapters.level;
 
+import ase.project.adapters.descriptions.DescriptionManager;
 import ase.project.application.enemies.EnemyFactoryImpl;
 import ase.project.application.enemies.bosses.SoldierOfGodrick;
 import ase.project.application.levels.LevelBuilder;
 import ase.project.application.levels.speciallevels.FinalLevel;
 import ase.project.application.levels.speciallevels.FirstLevel;
+import ase.project.application.player.PlayerManager;
 import ase.project.domain.characters.enemy.Enemy;
 import ase.project.domain.level.Level;
 
@@ -13,14 +15,22 @@ import java.util.Map;
 
 public class LevelManager {
 
-    private EnemyFactoryImpl enemyFactory = new EnemyFactoryImpl();
+    private final EnemyFactoryImpl enemyFactory = new EnemyFactoryImpl();
+    private final DescriptionManager descriptionManager;
     private Level level;
 
-    public Level generateFirstLevel() {
+    public LevelManager(DescriptionManager descriptionManager) {
+        this.descriptionManager = descriptionManager;
+    }
+
+    public Level generateFirstLevel(PlayerManager player) {
         Map<Integer, Enemy> enemies = enemyFactory.createRandomEnemies(1);
-        level = new FirstLevel(enemies, null); //ToDo remove starting Desrciption from contructot
-        System.out.println(level.getStartingLevelDescription());
-        //ToDo getDescription for each enemy -description loader plus name of the enemy
+        level = new FirstLevel(enemies, null);
+
+        descriptionManager.printFirstLevelDescription();
+        descriptionManager.printUniqueEnemyDescriptions(enemies);
+        descriptionManager.printPlayerWeaponDescription(player.getClass().getSimpleName());
+
         return level;
     }
 
@@ -30,8 +40,10 @@ public class LevelManager {
                 .setEnemies(enemies)
                 .setLevelDescription()
                 .build();
-        System.out.println(level.getStartingLevelDescription());
-        // ToDo getDescription for each enemy -description loader plus name of the enemy
+
+        descriptionManager.printLevelDescription(level);
+        descriptionManager.printUniqueEnemyDescriptions(enemies);
+
         return level;
     }
 
@@ -42,8 +54,8 @@ public class LevelManager {
 
         level = new FinalLevel(enemies);
 
-        System.out.println(level.getStartingLevelDescription());
-        System.out.println(boss.getEnemyDescription());
+        descriptionManager.printFinalLevelDescription();
+
         return level;
     }
 }

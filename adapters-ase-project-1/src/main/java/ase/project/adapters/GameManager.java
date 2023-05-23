@@ -1,6 +1,9 @@
 package ase.project.adapters;
 
+import ase.project.adapters.descriptions.DescriptionLoaderImpl;
+import ase.project.adapters.descriptions.DescriptionManager;
 import ase.project.adapters.input.ScannerInputProvider;
+import ase.project.adapters.level.LevelManager;
 import ase.project.adapters.player.PlayerClassManager;
 import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.exception.InvalidAttackException;
@@ -12,16 +15,15 @@ import ase.project.domain.level.Level;
 
 public class GameManager {
 
-    private final DescriptionLoader descriptionLoader;
+    private final DescriptionLoader descriptionLoader = new DescriptionLoaderImpl();
     private final PlayerStatsRepository playerStatsRepository;
     private Level level;
     private PlayerManager player;
     private GameCombatManager gameCombatManager;
     private final InputProvider inputProvider = new ScannerInputProvider();
-    private final LevelManager levelManager = new LevelManager();
-
-    public GameManager(DescriptionLoader descriptionLoader, PlayerStatsRepository playerStatsRepository) {
-        this.descriptionLoader = descriptionLoader;
+    private final DescriptionManager descriptionManager = new DescriptionManager(descriptionLoader);
+    private final LevelManager levelManager = new LevelManager(descriptionManager);
+    public GameManager(PlayerStatsRepository playerStatsRepository) {
         this.playerStatsRepository = playerStatsRepository;
     }
 
@@ -31,9 +33,12 @@ public class GameManager {
     }
 
     public void runFirstLevel() {
+        descriptionManager.printClassDescriptions();
+
         PlayerClassManager playerClassManager = new PlayerClassManager(inputProvider);
         player = (PlayerManager) playerClassManager.chooseClass();
-        level = levelManager.generateFirstLevel();
+
+        level = levelManager.generateFirstLevel(player);
     }
 
     public void runNextLevel() throws InsufficientManaException, InvalidAttackException {
@@ -51,7 +56,6 @@ public class GameManager {
 
         gameCombatManager.startCombat();
 
-        descriptionLoader.getDescription("end_description");
-        System.out.println("Congratulations! You won!");
+        descriptionManager.printEndingGame();
     }
 }
