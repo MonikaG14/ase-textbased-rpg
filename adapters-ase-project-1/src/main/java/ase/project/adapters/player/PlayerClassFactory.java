@@ -14,9 +14,9 @@ public class PlayerClassFactory {
     private final Map<Integer, Supplier<Player>> CLASS_MAP = new HashMap<>();
 
     {
-        CLASS_MAP.put(1, () -> new Astronomer("Astronomer", 40, 40, 20, 3, 2, 10));
-        CLASS_MAP.put(2, () -> new Busker("Busker", 40, 40, 20, 3, 2, 10));
-        CLASS_MAP.put(3, () -> new Gladiator("Gladiator", 40, 40, 20, 3, 2, 10));
+        CLASS_MAP.put(1, () -> new Astronomer("Astronomer", 60, 60, 30, 3, 2, 10));
+        CLASS_MAP.put(2, () -> new Busker("Busker", 60, 60, 30, 3, 2, 10));
+        CLASS_MAP.put(3, () -> new Gladiator("Gladiator", 60, 60, 30, 3, 2, 10));
     }
 
     public Player createPlayerClass(int classKey) {
