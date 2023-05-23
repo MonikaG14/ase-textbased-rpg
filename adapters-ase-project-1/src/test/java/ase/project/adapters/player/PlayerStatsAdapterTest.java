@@ -1,5 +1,8 @@
 package ase.project.adapters.player;
 
+import ase.project.application.player.classes.Astronomer;
+import ase.project.application.player.classes.Gladiator;
+import ase.project.domain.characters.player.Player;
 import ase.project.domain.characters.player.PlayerStats;
 import ase.project.domain.characters.player.PlayerStatsRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,12 +28,12 @@ class PlayerStatsAdapterTest {
 
     @Test
     public void testGetPlayerStats() {
-        when(mockPlayerStatsRepository.getPlayerStats()).thenReturn(expectedPlayerStats);
+        Player player = new Gladiator( "Test Player", 100, 100, 50, 5, 3, 10);
+        PlayerStats expectedPlayerStats = new PlayerStats(player.getId(), player.getName(), player.getCurrentHealth(), player.getMaxHealth(), player.getMana(), player.getAmountHealthPotions(), player.getAmountManaPotions());
 
-        PlayerStats actualPlayerStats = playerStatsAdapter.getPlayerStats();
+        playerStatsAdapter.getPlayerStats(player);
 
-        assertEquals(expectedPlayerStats, actualPlayerStats);
-        verify(mockPlayerStatsRepository).getPlayerStats();
+        verify(mockPlayerStatsRepository).getPlayerStats(player);
     }
 
     @Test
