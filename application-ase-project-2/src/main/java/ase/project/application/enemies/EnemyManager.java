@@ -12,7 +12,6 @@ import java.util.Map;
 
 public abstract class EnemyManager extends Enemy {
 
-    protected String keyToDescription;
     protected Map<Integer, SpecialAttack> specialAttackList;
     protected SpecialAttackService specialAttackService;
 
@@ -22,10 +21,9 @@ public abstract class EnemyManager extends Enemy {
         specialAttackList = new HashMap<>();
     }
 
-    public Character useSpecialAttack(Character target) throws InvalidAttackException {
+    public void useSpecialAttack(Character target) throws InvalidAttackException {
         SpecialAttack specialAttack = specialAttackService.chooseRandomSpecialAttack(this.getSpecialAttackList());
         specialAttack.performSpecialAttack(target);
-        return target;
     }
 
     public void chooseBetweenSpecialAndBasicAttack(Character target) throws InvalidAttackException {
@@ -39,9 +37,5 @@ public abstract class EnemyManager extends Enemy {
 
     public Map<Integer, SpecialAttack> getSpecialAttackList() {
         return specialAttackList;
-    }
-
-    public String getKeyToDescription() {
-        return keyToDescription;
     }
 }
