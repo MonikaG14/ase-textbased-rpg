@@ -6,14 +6,14 @@ import ase.project.domain.characters.player.Player;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class ChooseClass {
+public class PlayerClassManager {
 
     private final InputProvider inputProvider;
     private final PlayerClassFactory playerClassFactory = new PlayerClassFactory();
 
     Map<Integer, Supplier<Player>> classes = playerClassFactory.getCLASS_MAP();
 
-    public ChooseClass(InputProvider inputProvider) {
+    public PlayerClassManager(InputProvider inputProvider) {
         this.inputProvider = inputProvider;
     }
 

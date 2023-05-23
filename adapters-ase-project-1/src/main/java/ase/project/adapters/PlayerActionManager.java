@@ -5,21 +5,21 @@ import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.player.PlayerManager;
 import ase.project.domain.action.InputProvider;
+import ase.project.domain.characters.player.PlayerStatsRepository;
 import ase.project.domain.level.Level;
 
-public class ChooseAction {
+public class PlayerActionManager {
 
-    private final CombatManager combatManager;
+    private final PlayerCombatManager playerCombatManager;
     private final PotionManager potionManager;
     private final PlayerStatsAdapter playerStatsAdapter;
-
     private final InputProvider inputProvider;
 
-    public ChooseAction(CombatManager combatManager, PotionManager potionManager, PlayerStatsAdapter playerStatsAdapter, InputProvider inputProvider) {
-        this.combatManager = combatManager;
-        this.potionManager = potionManager;
-        this.playerStatsAdapter = playerStatsAdapter;
+    public PlayerActionManager(PlayerStatsRepository playerStatsRepository, InputProvider inputProvider) {
         this.inputProvider = inputProvider;
+        this.playerCombatManager = new PlayerCombatManager(inputProvider);
+        this.potionManager = new PotionManager(inputProvider);
+        this.playerStatsAdapter = new PlayerStatsAdapter(playerStatsRepository);
     }
 
     public void chooseAction(PlayerManager player, Level level) throws InsufficientManaException, InvalidAttackException {
@@ -29,11 +29,12 @@ public class ChooseAction {
         do {
             choice = inputProvider.readInt();
             if (choice == 1) {
-                combatManager.chooseBetweenSpecialAndBasicAttack(player, level);
+                playerCombatManager.chooseBetweenSpecialAndBasicAttack(player, level);
             } else if (choice == 2) {
                 potionManager.choosePotionType(player);
-            } else if (choice == 3){
-                playerStatsAdapter.getPlayerStats();
+            } else if (choice == 3) {
+                playerStatsAdapter.getPlayerStats(player); // Save player stats
+                playerStatsAdapter.displayPlayerStats();
             } else {
                 System.out.println("Invalid choice. Please choose again.");
             }
