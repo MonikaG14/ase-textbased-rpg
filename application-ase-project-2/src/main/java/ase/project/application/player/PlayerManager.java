@@ -38,14 +38,13 @@ public abstract class PlayerManager extends Player {
             ManaService.checkMana(mana, specialAttack.getManaCost());
             specialAttack.performSpecialAttack(target);
             mana = ManaService.useMana(mana, specialAttack.getManaCost());
-        } catch (InsufficientManaException manaException) {
-            throw new InsufficientManaException(manaException.getMessage());
+        } catch (InsufficientManaException e) {
+            System.out.println("You do not have enough mana for this attack!");
         }
     }
 
-    public Player updateAmountOfPotionType(PotionType potionType, PlayerManager player) {
+    public void updateAmountOfPotionType(PotionType potionType, PlayerManager player) {
         this.amountOfPotionType.put(potionType, player.amountOfPotionType.get(potionType) - 1);
-        return this;
     }
 
     public Player drink(String potionType, PlayerManager player) {
