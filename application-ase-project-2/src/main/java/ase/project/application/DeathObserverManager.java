@@ -1,6 +1,5 @@
-package ase.project.adapters;
+package ase.project.application;
 
-import ase.project.application.action.Death;
 import ase.project.domain.action.DeathObserver;
 import ase.project.domain.characters.Character;
 import ase.project.domain.level.Level;
