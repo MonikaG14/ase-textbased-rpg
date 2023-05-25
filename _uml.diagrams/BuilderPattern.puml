@@ -1,0 +1,29 @@
+@startuml
+
+package project.application.levels {
+    class LevelBuilder {
+        - enemies: Map<Integer, Enemy>
+        - startingLevelDescription: String
+        - levelDescriptionGenerator: LevelDescriptionGenerator
+        + LevelBuilder()
+        + setEnemies(enemies: Map<Integer, Enemy>): LevelBuilder
+        + setLevelDescription(): LevelBuilder
+        + build(): Level
+    }
+}
+
+package project.domain.level {
+    class Level {
+        - enemies: Map<Integer, Enemy>
+        - startingLevelDescription: String
+        + Level(enemies: Map<Integer, Enemy>)
+        + Level(enemies: Map<Integer, Enemy>, startingLevelDescription: String)
+        + getEnemies(): Map<Integer, Enemy>
+        + removeDeadEnemy(enemy: Character): void
+        + getStartingLevelDescription(): String
+    }
+}
+
+LevelBuilder --> Level : uses
+
+@enduml

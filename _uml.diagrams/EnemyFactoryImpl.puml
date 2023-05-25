@@ -1,0 +1,36 @@
+@startuml
+
+package "ase.project.domain.characters.enemies" {
+    interface EnemyFactory {
+        +createRandomEnemies(int) : Map<Integer, Enemy>
+    }
+}
+
+package "ase.project.domain.level" {
+    class Level {
+        -enemyFactory : EnemyFactory
+    }
+}
+
+package "ase.project.application.enemies" {
+    class EnemyFactoryImpl {
+        -ENEMY_CLASSES : List<Class<? extends Enemy>>
+        +createRandomEnemies(int) : Map<Integer, Enemy>
+    }
+    class AbyssWatcher
+    class PhyrexianMite
+}
+
+package "ase.project.adapter.level" {
+    class LevelManager {
+        -enemyFactoryImpl : EnemyFactoryImpl
+    }
+}
+
+LevelManager .down.> EnemyFactoryImpl : uses
+Level .down.> EnemyFactory : uses
+EnemyFactoryImpl .up.|> EnemyFactory : implements
+EnemyFactoryImpl --> AbyssWatcher : uses
+EnemyFactoryImpl --> PhyrexianMite : uses
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+
+package adapters.descriptions {
+    class DescriptionLoaderImpl {
+        - descriptions: Map<String, String>
+        + DescriptionLoaderImpl()
+        + loadDescription(filename: String): void
+        + getDescription(key: String): String
+    }
+}
+
+@enduml

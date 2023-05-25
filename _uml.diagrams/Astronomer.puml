@@ -1,0 +1,41 @@
+@startuml
+
+package ase.project.domain.characters {
+  class Character {
+    - name: String
+    - currentHealth: int
+    - maxHealth: int
+  }
+}
+
+package ase.project.domain.characters.player {
+  class Player {
+    - id: int
+    - playerId: PlayerId
+    - mana: int
+  }
+}
+
+package ase.project.application.player {
+  class PlayerManager {
+  }
+}
+package ase.project.application.player.classes {
+  class Astronomer {
+    - intelligence: int
+  }
+ }
+
+package ase.project.adapter.player {
+  class PlayerClassFactory {
+    - CLASS_MAP: Map<Integer, Supplier<Player>>
+  }
+}
+
+Character <-- Player : uses
+Player <-- PlayerManager : uses
+PlayerManager <-- Astronomer : uses
+PlayerClassFactory --> Player : uses
+PlayerClassFactory --> Astronomer : uses
+
+@enduml

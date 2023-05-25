@@ -1,0 +1,12 @@
+@startuml
+
+package domain.action.attack {
+  interface SpecialAttack {
+    + performSpecialAttack(target: Character): void
+    + getManaCost(): int
+    + getKeyToDescription(): String
+    + getName(): String
+  }
+}
+
+@enduml

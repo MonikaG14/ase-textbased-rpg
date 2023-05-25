@@ -1,0 +1,22 @@
+@startuml
+
+package ase.project.domain.characters.player {
+    interface PlayerStatsRepository {
+        +getPlayerStats(player: Player): void
+        +savePlayerStats(playerStats: PlayerStats): void
+        +displayPlayerStats(): void
+    }
+}
+
+package ase.project.plugin {
+    class PlayerStatsRepositoryImpl {
+        -FILENAME: String
+        +getPlayerStats(player: Player): void
+        +savePlayerStats(playerStats: PlayerStats): void
+        +displayPlayerStats(): void
+    }
+}
+
+ase.project.domain.characters.player.PlayerStatsRepository <|.up- ase.project.plugin.PlayerStatsRepositoryImpl : implements
+
+@enduml

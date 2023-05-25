@@ -1,0 +1,43 @@
+@startuml
+
+abstract class Character {
+  - name: String
+  - health: int
+  - mana: int
+  + useBasicAttack(target: Character): void
+}
+
+class PlayerManager {
+  - specialAttackList: Map<String, SpecialAttack>
+  - amountOfPotionType: Map<PotionType, Integer>
+  - potionService: PotionService
+  - specialAttackService: SpecialAttackService
+  + useSpecialAttack(target: Character, attackName: String): void
+  + updateAmountOfPotionType(potionType: PotionType, player: PlayerManager): void
+  + drink(potionType: String, player: PlayerManager): Player
+  + setPotionMaps(): void
+  + getSpecialAttackList(): Map<String, SpecialAttack>
+  + getAmountOfPotionType(): Map<PotionType, Integer>
+}
+
+class Busker {
+  + Busker(name: String, health: int, mana: int)
+  + useBasicAttack(target: Character): void
+}
+
+class Astronomer {
+  + Astronomer(name: String, health: int, mana: int)
+  + useBasicAttack(target: Character): void
+}
+
+class Gladiator {
+  + Gladiator(name: String, health: int, mana: int)
+  + useBasicAttack(target: Character): void
+}
+
+Busker --|> PlayerManager
+Astronomer --|> PlayerManager
+Gladiator --|> PlayerManager
+PlayerManager --|> Character
+
+@enduml

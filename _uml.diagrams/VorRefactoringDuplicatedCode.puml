@@ -1,0 +1,41 @@
+@startuml
+
+class Busker {
+  - name: String
+  - health: int
+  - mana: int
+  + Busker(name: String, health: int, mana: int)
+  + useBasicAttack(target: Character): void
+  + useSpecialAttack(target: Character): void
+}
+
+class Astronomer {
+  - name: String
+  - health: int
+  - mana: int
+  + Astronomer(name: String, health: int, mana: int)
+  + useBasicAttack(target: Character): void
+  + useSpecialAttack(target: Character): void
+}
+
+class Gladiator {
+  - name: String
+  - health: int
+  - mana: int
+  + Gladiator(name: String, health: int, mana: int)
+  + useBasicAttack(target: Character): void
+  + useSpecialAttack(target: Character): void
+}
+
+abstract class Character {
+  + name: String
+  + health: int
+  + mana: int
+  + useSpecialAttack(target: Character): void
+}
+
+Busker --> Character
+Astronomer --> Character
+Gladiator --> Character
+
+@enduml

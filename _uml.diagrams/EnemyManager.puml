@@ -1,0 +1,13 @@
+@startuml
+
+package application.enemies {
+    abstract class EnemyManager {
+        - specialAttackList: Map<Integer, SpecialAttack>
+        - specialAttackService: SpecialAttackService
+        + useSpecialAttack(target: Character): void
+        + chooseBetweenSpecialAndBasicAttack(target: Character): void
+        + getSpecialAttackList(): Map<Integer, SpecialAttack>
+    }
+}
+
+@enduml

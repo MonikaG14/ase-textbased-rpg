@@ -1,0 +1,18 @@
+@startuml
+
+package ase.project.application.levels {
+    class LevelBuilder
+}
+
+package ase.project.domain.characters.enemy {
+    class Enemy
+}
+
+package ase.project.domain.level {
+    class Level
+}
+
+LevelBuilder --> Enemy
+LevelBuilder --> Level
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+
+package domain.dice {
+    class DiceRoller {
+        +rollDice(int sides): int
+    }
+}
+
+@enduml

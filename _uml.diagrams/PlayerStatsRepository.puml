@@ -1,0 +1,11 @@
+@@startuml
+
+ package domain.characters.player {
+   interface PlayerStatsRepository {
+     + getPlayerStats(player: Player): void
+     + savePlayerStats(playerStats: PlayerStats): void
+     + displayPlayerStats(): void
+   }
+ }
+
+ @enduml

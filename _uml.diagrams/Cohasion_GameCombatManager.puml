@@ -1,0 +1,56 @@
+@startuml
+
+package ase.project.adapters {
+    class EnemyCombatManager {
+    }
+    class PlayerActionManager {
+    }
+}
+
+package ase.project.application {
+    class DeathObserverManager {
+    }
+}
+
+package ase.project.domain.action {
+    interface InputProvider {
+    }
+}
+
+package ase.project.domain.characters.player {
+    class PlayerStatsRepository {
+    }
+}
+
+package ase.project.domain.level {
+    class Level {
+    }
+}
+
+package ase.project.adapters {
+    class GameCombatManager {
+        - player: PlayerManager
+        - enemies: Map<Integer, Enemy>
+        - playerActionManager: PlayerActionManager
+        - enemyCombatManager: EnemyCombatManager
+        - level: Level
+        - currentCharacterIndex: int
+
+        + GameCombatManager(player: PlayerManager, enemies: Map<Integer, Enemy>, playerStatsRepository: PlayerStatsRepository, inputProvider: InputProvider, level: Level)
+        + startCombat(): boolean
+        + takeTurnsInCombat()
+        + updateCurrentCharacterIndex()
+        + getCurrentEnemy(): Character
+    }
+}
+
+
+GameCombatManager --> PlayerActionManager
+GameCombatManager --> EnemyCombatManager
+GameCombatManager --> Level
+GameCombatManager --> PlayerStatsRepository
+GameCombatManager --> InputProvider
+GameCombatManager --> DeathObserverManager
+
+
+@enduml

@@ -1,0 +1,50 @@
+@startuml
+
+package "ase.project.plugin" {
+    class PlayerStatsRepositoryImpl {
+        +getPlayerStats(Player) : void
+        +savePlayerStats(PlayerStats) : void
+        +displayPlayerStats() : void
+    }
+}
+
+package "ase.project.domain.characters.player" {
+    interface PlayerStatsRepository {
+        +getPlayerStats(Player) : void
+        +savePlayerStats(PlayerStats) : void
+        +displayPlayerStats() : void
+    }
+}
+
+package "ase.project.adapters.player" {
+    class PlayerStatsAdapter {
+        +getPlayerStats(Player) : void
+        +savePlayerStats(PlayerStats) : void
+        +displayPlayerStats() : void
+    }
+    class PlayerActionManager {
+        +chooseAction(PlayerManager, Level) : void
+    }
+}
+
+package "ase.project.adapters" {
+    class GameCombatManager {
+        +startCombat() : boolean
+        +takeTurnsInCombat() : void
+    }
+}
+
+package "ase.project" {
+    class StartGame {
+        +main(String[]) : void
+    }
+}
+
+PlayerStatsAdapter -up-> PlayerStatsRepository : uses
+PlayerActionManager -up-> PlayerStatsAdapter : uses
+GameCombatManager -up-> PlayerActionManager : uses
+StartGame -up-> GameCombatManager : uses
+PlayerStatsRepositoryImpl -up.|> PlayerStatsRepository : implements
+StartGame -down-> PlayerStatsRepositoryImpl : uses
+
+@enduml

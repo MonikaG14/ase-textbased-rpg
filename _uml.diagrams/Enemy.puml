@@ -1,0 +1,15 @@
+@startuml
+
+package domain.characters.enemy {
+    abstract class Enemy {
+        - keyToDescription: String
+        - power: int
+
+        + Enemy(name: String, currentHealth: int, maxHealth: int, power: int)
+        + getPower(): int
+        + dies(): void
+        + getKeyToDescription(): String
+        }
+}
+
+@enduml

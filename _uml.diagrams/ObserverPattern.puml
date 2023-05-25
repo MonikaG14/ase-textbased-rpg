@@ -1,0 +1,27 @@
+@startuml
+
+package ase.project.domain.action {
+    interface DeathObserver {
+        +onCharacterDeath(character: Character): void
+    }
+}
+
+package ase.project.application {
+    class DeathObserverManager {
+        +notifyObserver(character: Character, level: Level): void
+        +checkIfDead(character: Character, level: Level): void
+    }
+
+    class Death {
+        -level: Level
+        +Death(level: Level)
+        +onCharacterDeath(character: Character): void
+        -onPlayerDeath(character: Character): void
+        -onEnemyDeath(enemy: Enemy): void
+    }
+}
+
+DeathObserver <- DeathObserverManager : uses
+DeathObserver <|.. Death : implements
+
+@enduml

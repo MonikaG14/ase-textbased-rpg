@@ -1,0 +1,35 @@
+@startuml
+
+package ase.project.domain.action {
+  interface DescriptionLoader {
+    + loadDescription(filename: String): void
+    + getDescription(key: String): String
+  }
+}
+
+package ase.project.adapters.descriptions {
+  class DescriptionLoaderImpl {
+    - descriptions: Map<String, String>
+    + loadDescription(filename: String): void
+    + getDescription(key: String): String
+  }
+
+  class DescriptionManager {
+    - descriptionLoader: DescriptionLoader
+    + DescriptionManager(descriptionLoader: DescriptionLoader)
+  }
+}
+
+package ase.project.adapters {
+  class GameManager {
+    - descriptionLoader: DescriptionLoader
+    - descriptionManager: DescriptionManager
+  }
+}
+
+DescriptionLoader <|.. DescriptionLoaderImpl : implements
+DescriptionManager --> DescriptionLoaderImpl : uses
+GameManager --> DescriptionLoaderImpl : uses
+GameManager --> DescriptionManager : uses
+
+@enduml

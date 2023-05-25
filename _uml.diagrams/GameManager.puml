@@ -1,0 +1,42 @@
+@startuml
+
+package ase.project.adapters {
+    class GameManager
+    class GameCombatManager
+}
+
+package ase.project.adapters.descriptions {
+    class DescriptionLoaderImpl
+    class DescriptionManager
+}
+
+package ase.project.adapters.level {
+    class LevelManager
+}
+
+package ase.project.application.player {
+    class PlayerManager
+}
+
+package ase.project.domain.action {
+    interface DescriptionLoader
+}
+
+package ase.project.domain.level {
+    class Level
+}
+
+package ase.project.domain.action {
+    class InputProvider
+}
+
+GameManager --> InputProvider : uses
+GameManager --> DescriptionLoaderImpl : uses
+GameManager --> DescriptionLoader : uses
+GameManager --> Level : uses
+GameManager --> PlayerManager : uses
+GameManager --> GameCombatManager : uses
+GameManager --> DescriptionManager : uses
+GameManager --> LevelManager : uses
+
+@enduml

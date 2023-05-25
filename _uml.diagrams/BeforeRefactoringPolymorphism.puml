@@ -1,0 +1,31 @@
+@startuml
+
+package project.domain.npc {
+    abstract class Enemy {
+        - name: String
+        - health: int
+        - maxHealth: int
+        - power: int
+        + Enemy(health: int, maxHealth: int, power: int)
+        + takeDamage(damage: int): void
+    }
+}
+
+package project.domain.player {
+    abstract class Character {
+        - name: String
+        - strength: int
+        - dexterity: int
+        - health: int
+        - maxHealth: int
+        - mana: String
+        + Character(name: String, strength: int, dexterity: int, health: int, maxHealth: int, mana: String)
+        + takeDamage(damage: int): int
+        + die(): boolean
+        + useItem(): void
+    }
+}
+
+Enemy --> Character
+
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+
+package adapters {
+  class GameCombatManager {
+    - player: PlayerManager
+    - enemies: Map<Integer, Enemy>
+    - playerActionManager: PlayerActionManager
+    - enemyCombatManager: EnemyCombatManager
+    - level: Level
+    - currentCharacterIndex: int
+    + GameCombatManager(player: PlayerManager, enemies: Map<Integer, Enemy>, playerStatsRepository: PlayerStatsRepository, inputProvider: InputProvider, level: Level)
+    + startCombat(): boolean
+    + takeTurnsInCombat(): void
+    + updateCurrentCharacterIndex(): void
+    + getCurrentEnemy(): Character
+  }
+}
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+
+package domain.characters.player {
+    abstract class Player {
+        - id: int
+        - playerId: PlayerId
+        - mana: int
+        - amountHealthPotions: int
+        - amountManaPotions: int
+        + Player(name: String, currentHealth: int, maxHealth: int, mana: int, amountHealthPotions: int, amountManaPotions: int)
+        + reduceAmountOfHealthPotions(): Player
+        + reduceAmountOfManaPotions(): Player
+        + gainHealth(amountHealthGain: int): Player
+        + gainMana(amountManaGain: int): Player
+        + getId(): int
+        + getMana(): int
+        + getAmountHealthPotions(): int
+        + getAmountManaPotions(): int
+        + getPlayer(): Player
+    }
+}
+
+@enduml

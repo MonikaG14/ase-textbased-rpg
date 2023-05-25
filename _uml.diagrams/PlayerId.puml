@@ -1,0 +1,14 @@
+@startuml
+
+package domain.characters.player {
+    class PlayerId {
+        - id: int
+
+        + PlayerId()
+        + getId(): int
+        + equals(object: Object): boolean
+        + hashCode(): int
+    }
+}
+
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+
+package application.action.specialattack {
+  class SpecialAttackService {
+    - specialAttackList: Map<String, SpecialAttack>
+    + chooseSpecialAttack(specialAttackList: Map<String, SpecialAttack>, attackName: String): SpecialAttack
+    + chooseRandomSpecialAttack(specialAttackList: Map<Integer, SpecialAttack>): SpecialAttack
+  }
+}
+
+@enduml
