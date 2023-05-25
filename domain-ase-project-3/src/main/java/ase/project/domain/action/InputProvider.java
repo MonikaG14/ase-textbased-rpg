@@ -4,7 +4,4 @@ public interface InputProvider {
 
     int readInt();
 
-    String readString();
-
-    boolean readBoolean();
 }

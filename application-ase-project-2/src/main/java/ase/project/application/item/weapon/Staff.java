@@ -8,12 +8,6 @@ public class Staff extends Item implements Weapon {
     public final String keyToDescription  = "makeshift_staff";
 
     @Override
-    public String getNameOfWeapon() {
-        String nameOfWeapon = "Makeshift Staff";
-        return nameOfWeapon;
-    }
-
-    @Override
     public int getDamage() {
         return 10;
     }

@@ -3,8 +3,7 @@ package ase.project.application.player;
 import ase.project.application.action.*;
 import ase.project.application.action.potion.PotionAmountService;
 import ase.project.application.action.potion.PotionService;
-import ase.project.application.action.potion.PotionTypeService;
-import ase.project.application.action.potion.PotionUsageService;
+import ase.project.application.action.potion.DrinkPotionService;
 import ase.project.application.action.specialattack.SpecialAttackService;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.exception.InsufficientManaException;
@@ -28,7 +27,7 @@ public abstract class PlayerManager extends Player {
         this.amountOfPotionType = new HashMap<>();
         amountOfPotionType.put(PotionType.HEALTH, amountHealthPotions);
         amountOfPotionType.put(PotionType.MANA, amountManaPotions);
-        this.potionService = new PotionService(new PotionTypeService(), new PotionAmountService(), new PotionUsageService());
+        this.potionService = new PotionService(new PotionAmountService(), new DrinkPotionService());
         specialAttackService = new SpecialAttackService();
     }
 

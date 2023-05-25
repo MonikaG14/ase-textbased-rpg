@@ -7,6 +7,7 @@ import ase.project.domain.level.Level;
 import java.util.*;
 
 public class DescriptionManager {
+
     private final DescriptionLoader descriptionLoader;
 
     public DescriptionManager(DescriptionLoader descriptionLoader) {

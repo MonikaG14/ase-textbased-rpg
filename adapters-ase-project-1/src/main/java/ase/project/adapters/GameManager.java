@@ -27,7 +27,7 @@ public class GameManager {
         this.playerStatsRepository = playerStatsRepository;
     }
 
-    public void startGame() throws InsufficientManaException, InvalidAttackException {
+    public void startGame() throws InvalidAttackException {
         runFirstLevel();
         runNextLevel();
     }
@@ -41,7 +41,7 @@ public class GameManager {
         level = levelManager.generateFirstLevel(player);
     }
 
-    public void runNextLevel() throws InsufficientManaException, InvalidAttackException {
+    public void runNextLevel() throws InvalidAttackException {
         level = levelManager.generateNextLevel();
         gameCombatManager = new GameCombatManager(player, level.getEnemies(), playerStatsRepository, inputProvider, level);
 
@@ -50,7 +50,7 @@ public class GameManager {
         }
     }
 
-    public void runFinalLevel() throws InsufficientManaException, InvalidAttackException {
+    public void runFinalLevel() throws InvalidAttackException {
         level = levelManager.generateFinalLevel();
         gameCombatManager = new GameCombatManager(player, level.getEnemies(), playerStatsRepository, inputProvider, level);
 

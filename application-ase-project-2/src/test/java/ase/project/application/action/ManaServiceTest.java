@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ManaServiceTest {
 
     @Test
-    void checkManaWithEnoughMana() {
+    void checkMana_WithEnoughMana() {
         int mana = 10;
         int manaCost = 5;
 
@@ -16,7 +16,7 @@ class ManaServiceTest {
     }
 
     @Test
-    void checkManaWithoutEnoughMana() {
+    void checkMana_NotEnoughMana() {
         int mana = 5;
         int manaCost = 10;
 

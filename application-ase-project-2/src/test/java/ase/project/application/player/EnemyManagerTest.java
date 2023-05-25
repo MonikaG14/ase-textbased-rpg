@@ -17,7 +17,7 @@ class EnemyManagerTest {
     private Astronomer mockPlayer;
 
     @Test
-    void chooseBetweenSpecialAndBasicAttack_BasicAttack() throws InvalidAttackException {
+    void chooseBasicAttack() throws InvalidAttackException {
         int number = 4;
         try(MockedStatic<DiceRoller> diceRollerMockedStatic = Mockito.mockStatic(DiceRoller.class)) {
             diceRollerMockedStatic.when(() -> DiceRoller.rollDice(10)).thenReturn(number);
@@ -31,7 +31,7 @@ class EnemyManagerTest {
     }
 
     @Test
-    void chooseBetweenSpecialAndBasicAttack_SpecialAttack() throws InvalidAttackException {
+    void chooseSpecialAttack() throws InvalidAttackException {
         int number = 3;
         try(MockedStatic<DiceRoller> diceRollerMockedStatic = Mockito.mockStatic(DiceRoller.class)) {
             diceRollerMockedStatic.when(() -> DiceRoller.rollDice(10)).thenReturn(number);

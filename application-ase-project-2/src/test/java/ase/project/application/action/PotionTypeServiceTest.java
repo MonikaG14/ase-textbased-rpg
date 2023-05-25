@@ -11,8 +11,8 @@ import org.mockito.Mock;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PotionTypeServiceTest {
-    @Mock
-    private PotionTypeService potionTypeService = new PotionTypeService();
+
+    private final PotionTypeService potionTypeService = new PotionTypeService();
 
     @Test
     void testChoosePotionType() {

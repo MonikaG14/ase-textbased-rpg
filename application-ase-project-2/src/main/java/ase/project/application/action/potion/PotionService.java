@@ -8,12 +8,12 @@ import ase.project.domain.item.Potion;
 
 public class PotionService {
     private final PotionAmountService potionAmountService;
-    private final PotionUsageService potionUsageService;
+    private final DrinkPotionService drinkPotionService;
 
-    public PotionService(PotionTypeService potionTypeService, PotionAmountService potionAmountService,
-                         PotionUsageService potionUsageService) {
+    public PotionService(PotionAmountService potionAmountService,
+                         DrinkPotionService drinkPotionService) {
         this.potionAmountService = potionAmountService;
-        this.potionUsageService = potionUsageService;
+        this.drinkPotionService = drinkPotionService;
     }
 
     public Player usePotion(String potionType, PlayerManager player) {
@@ -26,6 +26,6 @@ public class PotionService {
         potionAmountService.checkAmountOfPotions(player.getAmountOfPotionType().get(type));
         player.updateAmountOfPotionType(type, player);
 
-        return potionUsageService.usePotion(potion, player);
+        return drinkPotionService.drinkPotion(potion, player);
     }
 }

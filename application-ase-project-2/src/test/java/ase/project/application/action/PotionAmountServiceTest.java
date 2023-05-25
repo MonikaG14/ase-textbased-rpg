@@ -7,12 +7,12 @@ import org.mockito.Mock;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PotionAmountServiceTest {
+
     @Mock
     private PotionAmountService potionAmountService;
+
     @Test
     void testCheckAmountOfPotions() {
-        assertThrows(NullPointerException.class, () -> {
-            potionAmountService.checkAmountOfPotions(null);
-        });
+        assertThrows(NullPointerException.class, () -> potionAmountService.checkAmountOfPotions(null));
     }
 }

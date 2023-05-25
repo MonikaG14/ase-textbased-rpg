@@ -16,13 +16,4 @@ public class ScannerInputProvider implements InputProvider {
         return scanner.nextInt();
     }
 
-    @Override
-    public String readString() {
-        return scanner.nextLine();
-    }
-
-    @Override
-    public boolean readBoolean() {
-        return scanner.nextBoolean();
-    }
 }

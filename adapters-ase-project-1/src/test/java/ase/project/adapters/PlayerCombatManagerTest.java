@@ -30,7 +30,7 @@ class PlayerCombatManagerTest {
 
 
     @Test
-    void chooseSpecialAttack() {
+    void testChooseSpecialAttack() {
         PlayerManager player = mock(PlayerManager.class);
         SpecialAttack attack1 = mock(SpecialAttack.class);
         SpecialAttack attack2 = mock(SpecialAttack.class);
@@ -53,7 +53,7 @@ class PlayerCombatManagerTest {
     }
 
     @Test
-    void chooseTarget() {
+    void testChooseTarget() {
         Level level = mock(Level.class);
         Map<Integer, Enemy> enemyMap = new HashMap<>();
         enemyMap.put(1, new PhyrexianMite("Phyrexian Mite", 10, 10, 10));
@@ -71,7 +71,7 @@ class PlayerCombatManagerTest {
     }
 
     @Test
-    void iterateSpecialAttacks() {
+    void testIterateSpecialAttacks() {
         PlayerCombatManager playerCombatManager = new PlayerCombatManager(inputProvider);
 
         Map<Integer, SpecialAttack> attackMap = playerCombatManager.iterateSpecialAttacks(astronomer);
@@ -82,19 +82,11 @@ class PlayerCombatManagerTest {
     }
 
     @Test
-    void iterateEnemies() {
+    void testIterateEnemies() {
         PlayerCombatManager playerCombatManager = new PlayerCombatManager(inputProvider);
 
         Map<Integer, Enemy> enemyMap = playerCombatManager.iterateEnemies(level);
 
         assertEquals(3, enemyMap.size());
-    }
-
-    @Test
-    void useSpecialAttackOnTarget() {
-    }
-
-    @Test
-    void chooseBetweenSpecialAndBasicAttack() {
     }
 }

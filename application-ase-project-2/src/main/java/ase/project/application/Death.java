@@ -1,4 +1,4 @@
-package ase.project.application.action;
+package ase.project.application;
 
 import ase.project.domain.action.DeathObserver;
 import ase.project.domain.characters.Character;

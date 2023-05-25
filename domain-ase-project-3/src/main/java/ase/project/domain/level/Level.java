@@ -1,18 +1,13 @@
 package ase.project.domain.level;
 import ase.project.domain.characters.Character;
 import ase.project.domain.characters.enemy.Enemy;
-import ase.project.domain.characters.enemy.EnemyFactory;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Level {
 
     protected Map<Integer, Enemy> enemies;
     protected String startingLevelDescription;
-    protected EnemyFactory enemyFactory;
 
 
     public Level(Map<Integer, Enemy> enemies) {
@@ -22,11 +17,6 @@ public class Level {
     public Level(Map<Integer, Enemy> enemies, String startingLevelDescription) {
         this.enemies = enemies;
         this.startingLevelDescription = startingLevelDescription;
-    }
-
-    public Map<Integer, Enemy> createEnemies(int numberOfEnemies) {
-        enemies = enemyFactory.createRandomEnemies(numberOfEnemies);
-        return enemies;
     }
 
     public Map<Integer, Enemy> getEnemies() {
@@ -47,7 +37,4 @@ public class Level {
         return startingLevelDescription;
     }
 
-    public boolean isFinalLevel() {
-        return false;
-    }
 }

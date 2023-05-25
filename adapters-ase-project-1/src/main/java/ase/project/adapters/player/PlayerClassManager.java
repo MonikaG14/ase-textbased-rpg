@@ -11,8 +11,6 @@ public class PlayerClassManager {
     private final InputProvider inputProvider;
     private final PlayerClassFactory playerClassFactory = new PlayerClassFactory();
 
-    Map<Integer, Supplier<Player>> classes = playerClassFactory.getCLASS_MAP();
-
     public PlayerClassManager(InputProvider inputProvider) {
         this.inputProvider = inputProvider;
     }
