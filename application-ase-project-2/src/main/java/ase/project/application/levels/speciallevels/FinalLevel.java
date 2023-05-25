@@ -1,6 +1,5 @@
 package ase.project.application.levels.speciallevels;
 
-import ase.project.application.enemies.bosses.SoldierOfGodrick;
 import ase.project.domain.characters.enemy.Enemy;
 import ase.project.domain.level.Level;
 
@@ -27,8 +26,4 @@ public class FinalLevel extends Level {
         return "end descrp level"; //ToDo EndDescription
     }
 
-    @Override
-    public boolean isFinalLevel() {
-        return true;
-    }
 }
