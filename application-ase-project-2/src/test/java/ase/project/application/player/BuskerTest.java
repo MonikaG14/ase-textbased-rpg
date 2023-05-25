@@ -22,7 +22,6 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class BuskerTest {
     private Busker player;
-    private Busker playerWithNoMana;
     private Enemy target;
 
     @Mock
@@ -31,7 +30,6 @@ class BuskerTest {
     @BeforeEach
     public void setUp() {
         player = new Busker("Busker Test",60, 60, 40, 3, 2, 10);
-        playerWithNoMana = new Busker("No Mana Busker", 40, 60, 1, 3, 2, 10);
         target = new PhyrexianMite("Test Mite", 25, 30, 10);
     }
 
