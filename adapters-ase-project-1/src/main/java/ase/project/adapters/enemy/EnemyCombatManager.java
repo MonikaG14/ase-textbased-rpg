@@ -1,6 +1,6 @@
 package ase.project.adapters.enemy;
 
-import ase.project.adapters.DeathObserverManager;
+import ase.project.application.DeathObserverManager;
 import ase.project.application.enemies.EnemyManager;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.domain.characters.player.Player;

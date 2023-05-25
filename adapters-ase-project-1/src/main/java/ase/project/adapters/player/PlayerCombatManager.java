@@ -1,6 +1,6 @@
 package ase.project.adapters.player;
 
-import ase.project.adapters.DeathObserverManager;
+import ase.project.application.DeathObserverManager;
 import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.player.PlayerManager;

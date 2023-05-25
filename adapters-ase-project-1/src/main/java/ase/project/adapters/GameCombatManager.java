@@ -2,8 +2,8 @@ package ase.project.adapters;
 
 import ase.project.adapters.enemy.EnemyCombatManager;
 import ase.project.adapters.player.PlayerActionManager;
+import ase.project.application.DeathObserverManager;
 import ase.project.application.enemies.EnemyManager;
-import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.player.PlayerManager;
 import ase.project.domain.action.InputProvider;
@@ -36,12 +36,12 @@ public class GameCombatManager {
 
     public boolean startCombat() throws InvalidAttackException {
         while (!enemies.isEmpty()) {
-            runLevelCombat();
+            takeTurnsInCombat();
         }
         return true;
     }
 
-    public void runLevelCombat() throws InvalidAttackException {
+    public void takeTurnsInCombat() throws InvalidAttackException {
         boolean playerTurn = true;
 
         while (!enemies.isEmpty() && !player.isDead()) {
