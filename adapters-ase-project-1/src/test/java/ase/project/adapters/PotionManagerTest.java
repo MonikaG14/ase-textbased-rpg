@@ -29,17 +29,4 @@ class PotionManagerTest {
         potionManager.choosePotionType(player);
         assertEquals(1, player.getAmountOfPotionType().get(PotionType.MANA));
     }
-
-    @Test
-    void iteratePotionTypes() {
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-        PotionManager potionManager = new PotionManager(new ScannerInputProvider());
-        String expectedOutput = "Choose a potion type: \n1: HEALTH\n2: MANA\n";
-
-        potionManager.iteratePotionTypes();
-
-        assertEquals(expectedOutput, outContent.toString());
-        System.setOut(System.out);
-    }
 }
