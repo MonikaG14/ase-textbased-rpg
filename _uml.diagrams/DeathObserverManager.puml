@@ -7,6 +7,42 @@ package ase.project.application {
     }
 }
 
+package ase.project.domain.action {
+  interface DeathObserver {
+        + onCharacterDeath(character: Character): void
+  }
+}
+
+package ase.project.domain.level {
+    class Level {
+        - enemies: Map<Integer, Enemy>
+        - startingLevelDescription: String
+
+        + Level(enemies: Map<Integer, Enemy>)
+        + Level(enemies: Map<Integer, Enemy>, startingLevelDescription: String)
+        + getEnemies(): Map<Integer, Enemy>
+        + removeDeadEnemy(enemy: Character): void
+        + getStartingLevelDescription(): String
+    }
+}
+
+package ase.project.domain.characters {
+  class Character {
+        - name: String
+        - currentHealth: int
+        - maxHealth: int
+
+        + Character(name: String, currentHealth: int, maxHealth: int)
+        + takeDamage(damage: int): int
+        + attackOneself(damage: int): void
+        + getName(): String
+        + getCurrentHealth(): int
+        + getMaxHealth(): int
+        + isDead(): boolean
+        + dies(): void
+  }
+}
+
 DeathObserverManager --> ase.project.domain.action.DeathObserver : uses
 DeathObserverManager --> ase.project.domain.characters.Character : uses
 DeathObserverManager --> ase.project.domain.level.Level : uses

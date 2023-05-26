@@ -2,9 +2,9 @@
 
 package "ase.project.plugin" {
     class PlayerStatsRepositoryImpl {
-        +getPlayerStats(Player) : void
-        +savePlayerStats(PlayerStats) : void
-        +displayPlayerStats() : void
+        + getPlayerStats(player: Player): void
+        + savePlayerStats(playerStats: PlayerStats): void
+        + displayPlayerStats(): void
     }
 }
 
@@ -18,23 +18,46 @@ package "ase.project.domain.characters.player" {
 
 package "ase.project.adapters.player" {
     class PlayerStatsAdapter {
-        +getPlayerStats(Player) : void
-        +savePlayerStats(PlayerStats) : void
-        +displayPlayerStats() : void
+            - playerStatsRepository: PlayerStatsRepository
+
+            + PlayerStatsAdapter(playerStatsRepository: PlayerStatsRepository)
+            + getPlayerStats(player: Player): void
+            + savePlayerStats(playerStats: PlayerStats): void
+            + displayPlayerStats(): void
     }
     class PlayerActionManager {
-        +chooseAction(PlayerManager, Level) : void
+            - playerCombatManager: PlayerCombatManager
+            - potionManager: PotionManager
+            - playerStatsAdapter: PlayerStatsAdapter
+            - inputProvider: InputProvider
+
+            + PlayerActionManager(playerStatsRepository: PlayerStatsRepository, inputProvider: InputProvider)
+            + chooseAction(player: PlayerManager, level: Level): void
+            - performAttackAction(player: PlayerManager, level: Level): void
+            - performPotionAction(player: PlayerManager): void
+            - performStatsAction(player: PlayerManager): void
+            + iterateMessages(): void
     }
 }
 
 package "ase.project.adapters" {
     class GameCombatManager {
-        +startCombat() : boolean
-        +takeTurnsInCombat() : void
+            - player: PlayerManager
+            - enemies: Map<Integer, Enemy>
+            - playerActionManager: PlayerActionManager
+            - enemyCombatManager: EnemyCombatManager
+            - level: Level
+            - currentCharacterIndex: int
+
+            + GameCombatManager(player: PlayerManager, enemies: Map<Integer, Enemy>, playerStatsRepository: PlayerStatsRepository, inputProvider: InputProvider, level: Level)
+            + startCombat(): boolean
+            + takeTurnsInCombat(): void
+            - updateCurrentCharacterIndex(): void
+            - getCurrentEnemy(): Character
     }
 }
 
-package "ase.project" {
+package "ase.project.x-global" {
     class StartGame {
         +main(String[]) : void
     }

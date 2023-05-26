@@ -1,15 +1,41 @@
 @startuml
 
 package ase.project.application.levels {
-    class LevelBuilder
+    class LevelBuilder {
+      - enemies: Map<Integer, Enemy>
+      - startingLevelDescription: String
+      - levelDescriptionGenerator: LevelDescriptionGenerator
+
+      + LevelBuilder()
+      + setEnemies(enemies: Map<Integer, Enemy>): LevelBuilder
+      + setLevelDescription(): LevelBuilder
+      + build(): Level
+    }
 }
 
 package ase.project.domain.characters.enemy {
-    class Enemy
+    class Enemy {
+      - keyToDescription: String
+      - power: int
+
+      + Enemy(name: String, currentHealth: int, maxHealth: int, power: int)
+      + getPower(): int
+      + dies(): void
+      + getKeyToDescription(): String
+    }
 }
 
 package ase.project.domain.level {
-    class Level
+    class Level {
+      - enemies: Map<Integer, Enemy>
+      - startingLevelDescription: String
+
+      + Level(enemies: Map<Integer, Enemy>)
+      + Level(enemies: Map<Integer, Enemy>, startingLevelDescription: String)
+      + getEnemies(): Map<Integer, Enemy>
+      + removeDeadEnemy(enemy: Character): void
+      + getStartingLevelDescription(): String
+    }
 }
 
 LevelBuilder --> Enemy

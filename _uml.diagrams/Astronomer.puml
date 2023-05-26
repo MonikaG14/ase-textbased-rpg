@@ -2,33 +2,73 @@
 
 package ase.project.domain.characters {
   class Character {
-    - name: String
-    - currentHealth: int
-    - maxHealth: int
+        - name: String
+        - currentHealth: int
+        - maxHealth: int
+
+        + Character(name: String, currentHealth: int, maxHealth: int)
+        + takeDamage(damage: int): int
+        + attackOneself(damage: int): void
+        + getName(): String
+        + getCurrentHealth(): int
+        + getMaxHealth(): int
+        + isDead(): boolean
+        + dies(): void
   }
 }
 
 package ase.project.domain.characters.player {
   class Player {
-    - id: int
-    - playerId: PlayerId
-    - mana: int
+        - id: int
+        - playerId: PlayerId
+        - mana: int
+        - amountHealthPotions: int
+        - amountManaPotions: int
+
+        + Player(name: String, currentHealth: int, maxHealth: int, mana: int, amountHealthPotions: int, amountManaPotions: int)
+        + reduceAmountOfHealthPotions(): Player
+        + reduceAmountOfManaPotions(): Player
+        + gainHealth(amountHealthGain: int): Player
+        + gainMana(amountManaGain: int): Player
+        + getId(): int
+        + getMana(): int
+        + getAmountHealthPotions(): int
+        + getAmountManaPotions(): int
+        + getPlayer(): Player
   }
 }
 
 package ase.project.application.player {
   class PlayerManager {
+        - specialAttackList: Map<String, SpecialAttack>
+        - amountOfPotionType: Map<PotionType, Integer>
+        - potionService: PotionService
+        - specialAttackService: SpecialAttackService
+
+        + PlayerManager(name: String, currentHealth: int, maxHealth: int, mana: int, amountHealthPotions: int, amountManaPotions: int)
+        + useSpecialAttack(target: Character, attackName: String): void
+        + updateAmountOfPotionType(potionType: PotionType, player: PlayerManager): void
+        + drink(potionType: String, player: PlayerManager): Player
+        + setPotionMaps(): void
+        + getSpecialAttackList(): Map<String, SpecialAttack>
+        + getAmountOfPotionType(): Map<PotionType, Integer>
   }
 }
 package ase.project.application.player.classes {
   class Astronomer {
-    - intelligence: int
+        - intelligence: int
+
+        + useBasicAttack(target: Character): void
+        + getIntelligence(): int
   }
  }
 
 package ase.project.adapter.player {
   class PlayerClassFactory {
-    - CLASS_MAP: Map<Integer, Supplier<Player>>
+        - CLASS_MAP: Map<Integer, Supplier<Player>>
+
+        + createPlayerClass(classKey: int): Player
+        + getCLASS_MAP(): Map<Integer, Supplier<Player>>
   }
 }
 

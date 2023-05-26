@@ -2,28 +2,57 @@
 
 package ase.project.domain.action {
   interface DescriptionLoader {
-    + loadDescription(filename: String): void
-    + getDescription(key: String): String
+        + loadDescription(filename: String): void
+        + getDescription(key: String): String
   }
 }
 
 package ase.project.adapters.descriptions {
   class DescriptionLoaderImpl {
-    - descriptions: Map<String, String>
-    + loadDescription(filename: String): void
-    + getDescription(key: String): String
+        - descriptions: Map<String, String>
+
+        + DescriptionLoaderImpl()
+        + loadDescription(filename: String): void
+        + getDescription(key: String): String
   }
 
   class DescriptionManager {
-    - descriptionLoader: DescriptionLoader
-    + DescriptionManager(descriptionLoader: DescriptionLoader)
+        - descriptionLoader: DescriptionLoader
+        - inputProvider: InputProvider
+
+        + DescriptionManager(descriptionLoader: DescriptionLoader, inputProvider: InputProvider)
+        + printStartingGame(): void
+        + printClassDescriptions(): void
+        + getWeaponDescription(weaponKey: String): String
+        + printPlayerWeaponDescription(playerClass: String): void
+        + getEnemyDescription(enemyKey: String): String
+        + printUniqueEnemyDescriptions(enemies: Map<Integer, Enemy>): void
+        + printFirstLevelDescription(): void
+        + printEndFirstLevel(): void
+        + printLevelDescription(level: Level): void
+        + printFinalLevelDescription(): void
+        + printEndingGame(): void
+        + pressContinue(): void
+        + formatDescription(description: String): String
   }
 }
 
 package ase.project.adapters {
   class GameManager {
     - descriptionLoader: DescriptionLoader
-    - descriptionManager: DescriptionManager
+        - playerStatsRepository: PlayerStatsRepository
+        - level: Level
+        - player: PlayerManager
+        - gameCombatManager: GameCombatManager
+        - inputProvider: InputProvider
+        - descriptionManager: DescriptionManager
+        - levelManager: LevelManager
+
+        + GameManager(playerStatsRepository: PlayerStatsRepository)
+        + startGame(): void
+        + runFirstLevel(): void
+        + runNextLevel(): void
+        + runFinalLevel(): void
   }
 }
 

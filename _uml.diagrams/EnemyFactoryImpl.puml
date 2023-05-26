@@ -2,13 +2,24 @@
 
 package "ase.project.domain.characters.enemies" {
     interface EnemyFactory {
-        +createRandomEnemies(int) : Map<Integer, Enemy>
+            - ENEMY_CLASSES: List<Class<? extends Enemy>>
+
+            + EnemyFactoryImpl()
+            + createRandomEnemies(count: int): Map<Integer, Enemy>
     }
 }
 
 package "ase.project.domain.level" {
     class Level {
-        -enemyFactory : EnemyFactory
+            - enemies: Map<Integer, Enemy>
+            - startingLevelDescription: String
+
+            + Level(enemies: Map<Integer, Enemy>)
+            + Level(enemies: Map<Integer, Enemy>, startingLevelDescription: String)
+
+            + getEnemies(): Map<Integer, Enemy>
+            + removeDeadEnemy(enemy: Character): void
+            + getStartingLevelDescription(): String
     }
 }
 
@@ -19,18 +30,33 @@ package "ase.project.application.enemies" {
     }
     class AbyssWatcher
     class PhyrexianMite
+    class Samodiva
+    class TzitziYaKu
+    class Kikimora
+    class TechPriest
 }
 
 package "ase.project.adapter.level" {
     class LevelManager {
-        -enemyFactoryImpl : EnemyFactoryImpl
+            - enemyFactory: EnemyFactoryImpl
+            - descriptionManager: DescriptionManager
+            - level: Level
+
+            + LevelManager(descriptionManager: DescriptionManager)
+            + generateFirstLevel(player: PlayerManager): Level
+            + generateNextLevel(): Level
+            + generateFinalLevel(): Level
     }
 }
 
-LevelManager .down.> EnemyFactoryImpl : uses
-Level .down.> EnemyFactory : uses
+LevelManager -down-> EnemyFactoryImpl : uses
+Level -down-> EnemyFactory : uses
 EnemyFactoryImpl .up.|> EnemyFactory : implements
 EnemyFactoryImpl --> AbyssWatcher : uses
 EnemyFactoryImpl --> PhyrexianMite : uses
+EnemyFactoryImpl --> Samodiva : uses
+EnemyFactoryImpl --> Kikimora : uses
+EnemyFactoryImpl --> TzitziYaKu : uses
+EnemyFactoryImpl --> TechPriest : uses
 
 @enduml
