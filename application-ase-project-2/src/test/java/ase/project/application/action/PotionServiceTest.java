@@ -1,8 +1,8 @@
 package ase.project.application.action;
 
 import ase.project.application.item.potion.PotionType;
-import ase.project.application.player.classes.Astronomer;
 import ase.project.application.player.PlayerManager;
+import ase.project.application.player.classes.Astronomer;
 import ase.project.domain.characters.player.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 class PotionServiceTest {

@@ -2,8 +2,6 @@ package ase.project.domain.characters.enemy;
 
 import ase.project.domain.characters.Character;
 
-import java.util.Objects;
-
 public abstract class Enemy extends Character {
 
     protected String keyToDescription;

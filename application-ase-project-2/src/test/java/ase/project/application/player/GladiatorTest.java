@@ -1,8 +1,8 @@
 package ase.project.application.player;
 
 import ase.project.application.enemies.mobs.PhyrexianMite;
-import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.exception.InsufficientManaException;
+import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.player.classes.Gladiator;
 import ase.project.domain.action.attack.SpecialAttack;
 import ase.project.domain.characters.enemy.Enemy;
@@ -17,7 +17,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class GladiatorTest {
@@ -115,8 +116,6 @@ class GladiatorTest {
     void testUseSpecialAttack_throwsInvalidAttackException() {
         String attackName = "Wrong attack name";
 
-        assertThrows(InvalidAttackException.class, () -> {
-            player.useSpecialAttack(mockTarget, attackName);
-        });
+        assertThrows(InvalidAttackException.class, () -> player.useSpecialAttack(mockTarget, attackName));
     }
 }

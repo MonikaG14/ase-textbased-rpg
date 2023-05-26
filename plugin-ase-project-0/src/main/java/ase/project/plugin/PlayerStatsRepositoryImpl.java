@@ -4,7 +4,10 @@ import ase.project.domain.characters.player.Player;
 import ase.project.domain.characters.player.PlayerStats;
 import ase.project.domain.characters.player.PlayerStatsRepository;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class PlayerStatsRepositoryImpl implements PlayerStatsRepository {

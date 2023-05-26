@@ -1,6 +1,5 @@
 package ase.project.adapters.player;
 
-import ase.project.application.player.classes.Astronomer;
 import ase.project.application.player.classes.Gladiator;
 import ase.project.domain.characters.player.Player;
 import ase.project.domain.characters.player.PlayerStats;
@@ -9,8 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 class PlayerStatsAdapterTest {
     @Mock

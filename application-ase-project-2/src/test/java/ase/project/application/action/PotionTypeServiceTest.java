@@ -6,9 +6,9 @@ import ase.project.application.item.potion.ManaPotion;
 import ase.project.application.item.potion.PotionType;
 import ase.project.domain.item.Potion;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PotionTypeServiceTest {
 

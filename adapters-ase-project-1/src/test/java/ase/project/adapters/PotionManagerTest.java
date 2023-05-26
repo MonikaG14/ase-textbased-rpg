@@ -1,6 +1,5 @@
 package ase.project.adapters;
 
-import ase.project.adapters.input.ScannerInputProvider;
 import ase.project.adapters.potion.PotionManager;
 import ase.project.application.item.potion.PotionType;
 import ase.project.application.player.PlayerManager;
@@ -8,10 +7,7 @@ import ase.project.application.player.classes.Busker;
 import ase.project.domain.action.InputProvider;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
