@@ -25,7 +25,7 @@ public class RickRoll implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getKeyToDescription() {
+    public String getDescription() {
         return "rick_roll";
     }
 

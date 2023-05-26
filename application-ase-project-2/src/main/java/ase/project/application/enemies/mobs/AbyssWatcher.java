@@ -17,6 +17,6 @@ public class AbyssWatcher extends EnemyManager {
     public void useBasicAttack(Character target) {
         int damage = DiceRoller.rollDice(6) + this.power;
         target.takeDamage(damage);
-        System.out.println("You were hit by Abyss Watcher for " + damage + " damage!");
+        System.out.println("You were hit by Abyss Watcher with basic attack for " + damage + " damage!");
     }
 }

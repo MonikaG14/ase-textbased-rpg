@@ -40,7 +40,7 @@ public abstract class Character implements BasicAttack {
     }
 
     public void dies() {
-        System.out.println("You died...");
+        System.out.println("You died... \n Game Over!");
         System.exit(0);
     }
 }

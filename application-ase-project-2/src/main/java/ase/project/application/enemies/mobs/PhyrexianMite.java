@@ -17,6 +17,6 @@ public class PhyrexianMite extends EnemyManager {
     public void useBasicAttack(Character target) {
         int damage = DiceRoller.rollDice(6) + this.power;
         target.takeDamage(damage);
-        System.out.println("You were hit by Phyrexian Mite for " + damage + " damage!");
+        System.out.println("You were hit by Phyrexian Mite with basic attack for " + damage + " damage!");
     }
 }

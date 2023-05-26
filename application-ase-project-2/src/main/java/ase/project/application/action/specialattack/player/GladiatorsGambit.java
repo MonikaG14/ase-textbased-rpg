@@ -25,7 +25,7 @@ public class GladiatorsGambit implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getKeyToDescription() {
+    public String getDescription() {
         return "gladiators_gambit";
     }
 

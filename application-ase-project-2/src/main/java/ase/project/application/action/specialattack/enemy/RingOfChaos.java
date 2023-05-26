@@ -10,7 +10,7 @@ public class RingOfChaos implements SpecialAttack {
     public void performSpecialAttack(Character target) {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
-        System.out.println(this.getKeyToDescription());
+        System.out.println(this.getDescription());
         System.out.println("You took " + damage + " damage.\n");
     }
 
@@ -20,8 +20,8 @@ public class RingOfChaos implements SpecialAttack {
     }
 
     @Override
-    public String getKeyToDescription() {
-        return "Soldier of Godrick unleashes its devastating Ring of Chaos attack, causing players to experience an overwhelming sensation of confusion and bewilderment. \nAs you struggle to comprehend the intricate mechanics and dodge the chaotic onslaught, your health steadily dwindles, \nyour souls yearning for respite from this merciless dance of agony. \n\n";
+    public String getDescription() {
+        return "Soldier of Godrick uses its special attack RING OF CHAOS.\nSoldier of Godrick unleashes its devastating Ring of Chaos attack, causing players to experience an overwhelming sensation of confusion and bewilderment. \nAs you struggle to comprehend the intricate mechanics and dodge the chaotic onslaught, your health steadily dwindles, \nyour souls yearning for respite from this merciless dance of agony. \n";
     }
 
     @Override

@@ -25,7 +25,7 @@ public class SpinToWin implements SpecialAttack {
         return this.manaCost;
     }
 
-    public String getKeyToDescription() {
+    public String getDescription() {
         return "spin_to_win";
     }
 

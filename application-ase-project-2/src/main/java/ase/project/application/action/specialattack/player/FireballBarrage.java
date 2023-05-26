@@ -25,7 +25,7 @@ public class FireballBarrage implements SpecialAttack {
         return manaCost;
     }
 
-    public String getKeyToDescription() {
+    public String getDescription() {
         return "fireball_barrage";
     }
 

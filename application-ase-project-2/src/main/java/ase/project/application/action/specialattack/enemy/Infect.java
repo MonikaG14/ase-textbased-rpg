@@ -10,7 +10,7 @@ public class Infect implements SpecialAttack {
     public void performSpecialAttack(Character target) {
         int damage = DiceRoller.rollDice(20);
         target.takeDamage(damage);
-        System.out.println(this.getKeyToDescription());
+        System.out.println(this.getDescription());
         System.out.println("You took " + damage + " damage.\n");
     }
 
@@ -20,8 +20,8 @@ public class Infect implements SpecialAttack {
     }
 
     @Override
-    public String getKeyToDescription() {
-        return "Infect: When the Phyrexian Mite unleashes its Infect attack. \nSuddenly, you start feeling itchy and begin to scratch yourself uncontrollably. \n";
+    public String getDescription() {
+        return "Phyrexian Mite uses its special attack INFECT. \nWhen the Phyrexian Mite unleashes its Infect attack. \nSuddenly, you start feeling itchy and begin to scratch yourself uncontrollably. \n";
     }
 
     @Override
