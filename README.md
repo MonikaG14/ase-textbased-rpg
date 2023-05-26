@@ -19,5 +19,6 @@ Um die Anwendung zu starten, benötigt man IntelliJ IDEA und Maven. Die folgende
 3. Führen Sie einen Maven-Build des Projekts durch. Dabei werden alle Abhängigkeiten heruntergeladen und alle Tests durchgelaufen.
 4. Navigieren Sie im Projektbaum zur Klasse "StartGame" in dem Modul "x-global-ase-project" (Pfad: /IdeaProjects/ase-textbased-rpg/x-global-ase-project/src/main/java/ase/project/StartGame.java).
 5. Klicken Sie mit der rechten Maustaste auf die Klasse "StartGame" und wählen Sie "Run", um das Spiel zu starten.
-      Das Spiel wird im Terminal gestartet und man erhält Anweisungen zur Steuerung des Spiels.
+
+Das Spiel wird im Terminal gestartet und man erhält Anweisungen zur Steuerung des Spiels.
 
