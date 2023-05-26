@@ -13,7 +13,15 @@ public class ScannerInputProvider implements InputProvider {
 
     @Override
     public int readInt() {
+        while (!scanner.hasNextInt()) {
+            System.out.println("Invalid choice. Please enter a number.");
+            scanner.next();
+        }
         return scanner.nextInt();
     }
 
+    @Override
+    public void readChar() {
+        scanner.nextLine();
+    }
 }
