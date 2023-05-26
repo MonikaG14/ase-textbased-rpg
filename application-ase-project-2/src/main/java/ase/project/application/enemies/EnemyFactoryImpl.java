@@ -1,7 +1,6 @@
 package ase.project.application.enemies;
 
-import ase.project.application.enemies.mobs.AbyssWatcher;
-import ase.project.application.enemies.mobs.PhyrexianMite;
+import ase.project.application.enemies.mobs.*;
 import ase.project.domain.characters.enemy.Enemy;
 import ase.project.domain.characters.enemy.EnemyFactory;
 
@@ -11,7 +10,11 @@ import java.util.*;
 public class EnemyFactoryImpl implements EnemyFactory {
     private static final List<Class<? extends Enemy>> ENEMY_CLASSES = Arrays.asList(
             PhyrexianMite.class,
-            AbyssWatcher.class
+            AbyssWatcher.class,
+            Kikimora.class,
+            Samodiva.class,
+            TzitziYaKu.class,
+            TechPriest.class
     );
 
     public Map<Integer, Enemy> createRandomEnemies(int count) {
