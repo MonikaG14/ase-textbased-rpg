@@ -24,11 +24,12 @@ public class LevelManager {
     }
 
     public Level generateFirstLevel(PlayerManager player) {
-        Map<Integer, Enemy> enemies = enemyFactory.createRandomEnemies(1);
+        Map<Integer, Enemy> enemies = enemyFactory.createRandomEnemies(2);
         level = new FirstLevel(enemies, null);
 
         descriptionManager.printFirstLevelDescription();
         descriptionManager.printUniqueEnemyDescriptions(enemies);
+        descriptionManager.printEndFirstLevel();
         descriptionManager.printPlayerWeaponDescription(player.getClass().getSimpleName());
 
         return level;
@@ -55,6 +56,7 @@ public class LevelManager {
         level = new FinalLevel(enemies);
 
         descriptionManager.printFinalLevelDescription();
+        descriptionManager.printUniqueEnemyDescriptions(enemies);
 
         return level;
     }

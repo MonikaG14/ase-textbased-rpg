@@ -6,11 +6,8 @@ import java.util.Random;
 
 public class LevelDescriptionGenerator {
     private final List<String> LEVEL_DESCRIPTIONS = Arrays.asList(
-            "Deep in the forest lies a mysterious cave...",
-            "The ancient ruins hold many secrets...",
-            "The great temple has been desecrated...",
-            "The castle gates have been breached..."
-            //ToDO finish level descriptions
+            "As you venture further, a sense of anticipation fills your being, leading you to a mysterious cave hidden deep within the forest. \nInside, new creatures await your arrival, but this time, you stand prepared, ready to face whatever challenges lie ahead.\n",
+            "As you delve deeper into the forest, you stumble upon ancient ruins shrouded in mystery. \nThese crumbling structures whisper untold tales, beckoning you to uncover their long-held secrets. \nInside, new creatures await your arrival, but this time, you stand prepared, ready to face whatever challenges lie ahead."
     );
 
     public String generateDescription() {

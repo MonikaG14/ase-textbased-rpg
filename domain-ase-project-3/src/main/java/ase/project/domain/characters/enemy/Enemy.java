@@ -21,6 +21,7 @@ public abstract class Enemy extends Character {
     @Override
     public void dies() {
         System.out.println("Congratulations! " + this.getName() + " died!");
+        System.out.println();
     }
 
     public String getKeyToDescription() {

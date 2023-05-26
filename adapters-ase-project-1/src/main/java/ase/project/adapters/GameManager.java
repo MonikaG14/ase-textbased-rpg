@@ -5,7 +5,6 @@ import ase.project.adapters.descriptions.DescriptionManager;
 import ase.project.adapters.input.ScannerInputProvider;
 import ase.project.adapters.level.LevelManager;
 import ase.project.adapters.player.PlayerClassManager;
-import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.player.PlayerManager;
 import ase.project.domain.action.DescriptionLoader;
@@ -21,13 +20,14 @@ public class GameManager {
     private PlayerManager player;
     private GameCombatManager gameCombatManager;
     private final InputProvider inputProvider = new ScannerInputProvider();
-    private final DescriptionManager descriptionManager = new DescriptionManager(descriptionLoader);
+    private final DescriptionManager descriptionManager = new DescriptionManager(descriptionLoader, inputProvider);
     private final LevelManager levelManager = new LevelManager(descriptionManager);
     public GameManager(PlayerStatsRepository playerStatsRepository) {
         this.playerStatsRepository = playerStatsRepository;
     }
 
     public void startGame() throws InvalidAttackException {
+        descriptionManager.printStartingGame();
         runFirstLevel();
         runNextLevel();
     }
