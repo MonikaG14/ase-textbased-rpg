@@ -1,7 +1,6 @@
 package ase.project.adapters.player;
 
 import ase.project.adapters.potion.PotionManager;
-import ase.project.application.exception.InsufficientManaException;
 import ase.project.application.exception.InvalidAttackException;
 import ase.project.application.player.PlayerManager;
 import ase.project.domain.action.InputProvider;
@@ -29,20 +28,38 @@ public class PlayerActionManager {
         do {
             choice = inputProvider.readInt();
             if (choice == 1) {
-                playerCombatManager.chooseBetweenSpecialAndBasicAttack(player, level);
+                performAttackAction(player, level);
             } else if (choice == 2) {
-                potionManager.choosePotionType(player);
+                performPotionAction(player);
             } else if (choice == 3) {
-                playerStatsAdapter.getPlayerStats(player); // Save player stats
-                playerStatsAdapter.displayPlayerStats();
+                performStatsAction(player);
             } else {
                 System.out.println("Invalid choice. Please choose again.");
             }
         } while (choice < 1 || choice > 3);
-
     }
 
+    private void performAttackAction(PlayerManager player, Level level) throws InvalidAttackException {
+        playerCombatManager.chooseBetweenSpecialAndBasicAttack(player, level);
+    }
+
+    private void performPotionAction(PlayerManager player) {
+        try {
+            potionManager.choosePotionType(player);
+        } catch (NullPointerException e) {
+            System.out.println("Invalid choice. Please choose again.");
+        }
+    }
+
+    private void performStatsAction(PlayerManager player) {
+        playerStatsAdapter.getPlayerStats(player);
+        playerStatsAdapter.displayPlayerStats();
+        System.out.println();
+    }
+
+
     public void iterateMessages() {
+        System.out.println();
         System.out.println("Think carefully. You can only choose once!");
         System.out.println("You can choose between: ");
         System.out.println("1. Attacking");
